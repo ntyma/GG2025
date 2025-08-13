@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSpriteRenderer;
     [SerializeField] private BoxCollider2D playerBoxCollider;
 
+    public bool isFacingRight = true;
     [SerializeField] private float walkSpeed = 1.0f;
     [SerializeField] private float jumpForce = 1.0f;
     [SerializeField] private float checkRadius = 0.5f;
@@ -19,6 +20,12 @@ public class PlayerScript : MonoBehaviour
     {
         // GetAxisRaw returns int value {-1, 0, 1} depending of A or D is pressed
         playerRigidBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, playerRigidBody.velocity.y);
+
+        // Player is moving Right
+        if (playerRigidBody.velocity.x >= 0.0f)
+            isFacingRight = true;
+        else
+            isFacingRight = false;
         
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
