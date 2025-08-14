@@ -13,22 +13,25 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    void takeDamage(int amount)
+    public void takeDamage(int amount)
     {
         // add sound here
 
         currentHealth -= amount;
+
         if (currentHealth <= 0)
         {
             // dead, we'll have to link to a death animation later
+            UnityEngine.Debug.Log("dead");
         }
     }
 
-    void heal(int amount)
+    public void heal(int amount)
     {
         // add sound here
 
         currentHealth += amount;
+
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth; // cap health to max health
