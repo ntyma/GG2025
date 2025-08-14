@@ -2355,6 +2355,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
   m_PrefabInstance: {fileID: 1540995887203013621}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &606042526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3679191582197060399, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+  m_PrefabInstance: {fileID: 52649887036416382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &635466139
 GameObject:
   m_ObjectHideFlags: 0
@@ -5233,8 +5238,10 @@ MonoBehaviour:
   cameraPositionsGameObject: {fileID: 836947545}
   cameraPositionsCount: 0
   cameraPositionIndex: 0
-  cameraPositions: []
   cameraMoveSpeed: 5
+  isActive: 1
+  cameraCorrectionDistance: 0.01
+  playerGameObject: {fileID: 606042526}
 --- !u!4 &1201281084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}

@@ -8,9 +8,17 @@ public class MainCameraScript : MonoBehaviour
     [SerializeField] private int cameraPositionsCount;
     [SerializeField] private int cameraPositionIndex = 0;
 
-    [SerializeField] private Vector3[] cameraPositions;
+    private Vector3[] cameraPositions;
 
     [SerializeField] private float cameraMoveSpeed = 5.0f;
+
+    public bool isActive = true;
+
+    [SerializeField] private float cameraCorrectionDistance = 0.01f;
+    private bool isPanning = true;
+    [SerializeField] private bool followPlayer = false;
+
+    [SerializeField] private GameObject playerGameObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +30,37 @@ public class MainCameraScript : MonoBehaviour
         {
             cameraPositions[i++] = childTransform.position;
         }
+
+        SetCameraPosition(cameraPositionIndex);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Pans towards new camera position
-        this.transform.position = Vector3.Lerp(this.transform.position, cameraPositions[cameraPositionIndex], cameraMoveSpeed * Time.deltaTime);
+        if (!isActive)
+            return;
+        // Pan Camera to new pre-set Camera Position
+        if (isPanning)
+        {
+            // Pans towards new camera position
+            this.transform.position = Vector3.Lerp(this.transform.position, cameraPositions[cameraPositionIndex], cameraMoveSpeed * Time.deltaTime);
+            // Snap camera position to the target position if it's close enough, determined by cameraCorrectionDistance
+            if (Vector3.Distance(this.transform.position, cameraPositions[cameraPositionIndex]) <= cameraCorrectionDistance)
+            {
+                this.transform.position = cameraPositions[cameraPositionIndex];
+                isPanning = false;
+            }
+        }
+        // Camera follows Player
+        if (followPlayer)
+        {
+            this.transform.position = Vector3.Lerp
+                (
+                    this.transform.position, 
+                    new Vector3(playerGameObject.transform.position.x, playerGameObject.transform.position.y, this.transform.position.z), 
+                    cameraMoveSpeed * Time.deltaTime
+                );
+        }   
     }
 
     // Updates Camera Index and protect it from being out of bounds
@@ -42,6 +74,8 @@ public class MainCameraScript : MonoBehaviour
             cameraPositionIndex = 0;
         else if (cameraPositionIndex >= cameraPositionsCount)
             cameraPositionIndex = cameraPositionsCount - 1;
+
+        isPanning = true;
     }
     // Sets Camera to the position at Index, if Out of Bounds, then function does nothing
     public void SetCameraPosition(int Index)
