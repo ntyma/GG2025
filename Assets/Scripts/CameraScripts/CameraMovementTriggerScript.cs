@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMovementTriggerScript : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D cameraMovementTriggerBoxCollider;
+    [SerializeField] private SpriteRenderer cameraMovementTriggerSpriteRenderer;
     [SerializeField] private MainCameraScript mainCameraScript;
 
     [SerializeField] private enum Direction
@@ -16,6 +17,8 @@ public class CameraMovementTriggerScript : MonoBehaviour
     private Direction backwardDirection = Direction.Left;
     private void Start()
     {
+        // disabled the Sprite Renderer, it's only used to show Trigger Bounds in the Unity Editor anyways
+        cameraMovementTriggerSpriteRenderer.enabled = false;
         // set backwardDirection to opposite of forwardDirection
         switch (forwardDirection)
         {
@@ -99,12 +102,12 @@ public class CameraMovementTriggerScript : MonoBehaviour
         if (forwardDirection == Direction.Right || backwardDirection == Direction.Right)
         {
             if (playerEnterDirectionX == playerExitDirectionX)
-                mainCameraScript.UpdateCamera(forwardDirection == playerEnterDirectionX);
+                mainCameraScript.ProgressCamera(forwardDirection == playerEnterDirectionX);
         }
         else if (forwardDirection == Direction.Up || backwardDirection == Direction.Up)
         {
             if (playerEnterDirectionY == playerExitDirectionY)
-                mainCameraScript.UpdateCamera(forwardDirection == playerEnterDirectionY);
+                mainCameraScript.ProgressCamera(forwardDirection == playerEnterDirectionY);
         }
     }
 }

@@ -7,6 +7,7 @@ public class KeyScript : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private CircleCollider2D keyCollider;
     [SerializeField] private BoxCollider2D lockCollider;
+    [SerializeField] private SpriteRenderer keySpriteRenderer;
     [SerializeField] private SpriteRenderer lockSpriteRenderer;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,6 +17,7 @@ public class KeyScript : MonoBehaviour
         {
             // Unlock the the door
             lockCollider.isTrigger = true;
+            keySpriteRenderer.color = keySpriteRenderer.color - new Color(0.0f, 0.0f, 0.0f, 1.0f);
             lockSpriteRenderer.color = new Color(0.0f, 1.0f, 1.0f, 0.3f);
         }
     }
