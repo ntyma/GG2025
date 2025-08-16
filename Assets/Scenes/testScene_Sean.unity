@@ -9467,6 +9467,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
   m_PrefabInstance: {fileID: 5142064576230486963}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1601941671 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8107251723108724035, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+  m_PrefabInstance: {fileID: 52649887036416382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1639783581
 GameObject:
   m_ObjectHideFlags: 0
@@ -11436,7 +11441,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066535038}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12053,6 +12058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6366481074498299424, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: playerParanoia
+      value: 
+      objectReference: {fileID: 1601941671}
     - target: {fileID: 7886678291153853983, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.81
@@ -12091,6 +12100,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7886678291153853983, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900465043187211988, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900465043187211988, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900465043187211988, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900465043187211988, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0.049999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900465043187211988, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900465043187211988, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610340245315589031, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12284,14 +12321,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2066535041}
     m_Modifications:
-    - target: {fileID: 1536248623649883773, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b53d015cdcdb1c043a4038583b443397, type: 3}
-    - target: {fileID: 1536248623649883773, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12332,25 +12361,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2512822292335515856, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3503843877395094544, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
       propertyPath: m_Name
       value: Light
-      objectReference: {fileID: 0}
-    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b53d015cdcdb1c043a4038583b443397, type: 3}
-    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_MaskInteraction
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] private LayerMask whatIsGround;
 
+    public bool playerIsInLight = false;
     // Update is called once per frame
     void Update()
     {
@@ -38,5 +39,16 @@ public class PlayerScript : MonoBehaviour
         RaycastHit2D temp = Physics2D.BoxCast(playerBoxCollider.bounds.center, playerBoxCollider.bounds.size,
                                      0, Vector2.down, checkRadius, whatIsGround);
         return temp.collider != null;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Light")
+            playerIsInLight = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Light")
+            playerIsInLight = false;
     }
 }

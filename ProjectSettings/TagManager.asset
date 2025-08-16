@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PlayerParanoia
+    uniqueID: 270012629
+    locked: 0
