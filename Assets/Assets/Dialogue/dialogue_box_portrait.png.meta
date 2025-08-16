@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b9b3c4baec241541bc66c2549a67dee
+guid: b96668752481cee4c89f5fb5b115ed09
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dialogue-box-sheet
+      name: dialogue_box_sheet
       rect:
         serializedVersion: 2
-        x: 9
-        y: 6
-        width: 331
-        height: 114
+        x: 0
+        y: 0
+        width: 350
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b121748214ba4b488de5723f63e7f1a
-      internalID: -1706316641
+      spriteID: 6a3ee4952b82f764d9e7bf692fcc2ea8
+      internalID: -674796145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dialogue_box_1
+      name: dialogue_box_portrait_1
       rect:
         serializedVersion: 2
-        x: 358
-        y: 5
-        width: 333
-        height: 116
+        x: 350
+        y: 0
+        width: 350
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 221bb52ff3588f542bce72e001d65e94
-      internalID: 784733127
+      spriteID: 3ee4c340897718a46b2595e728e9bb89
+      internalID: -759764765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dialogue_box_2
+      name: dialogue_box_portrait_2
       rect:
         serializedVersion: 2
-        x: 708
-        y: 4
-        width: 333
-        height: 116
+        x: 700
+        y: 0
+        width: 350
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33ad24df43c3760478c2a6e5d84be43e
-      internalID: -1865112499
+      spriteID: 691fa945b7fe7e5498158628bc4c9586
+      internalID: -155308989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dialogue_box_3
+      name: dialogue_box_portrait_3
       rect:
         serializedVersion: 2
-        x: 1058
-        y: 6
-        width: 333
-        height: 114
+        x: 1050
+        y: 0
+        width: 350
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ba6f0ba4cbbc8f4299b8b73452467d6
-      internalID: -1921764641
+      spriteID: aa53c9be3b8bfa249a61623be120bb18
+      internalID: 1324455034
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dialogue-box-sheet: -1706316641
-      dialogue_box_1: 784733127
-      dialogue_box_2: -1865112499
-      dialogue_box_3: -1921764641
+      dialogue_box_portrait_1: -759764765
+      dialogue_box_portrait_2: -155308989
+      dialogue_box_portrait_3: 1324455034
+      dialogue_box_sheet: -674796145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
