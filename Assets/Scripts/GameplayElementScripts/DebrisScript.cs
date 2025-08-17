@@ -23,14 +23,14 @@ public class DebrisScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) // Take damage when colliding with the player
+    private void OnCollisionEnter2D(Collision2D collision) // Take damage when colliding with the player
     {
-        if(collision.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
-            var healthComponent = collision.GetComponent<Health>();
+            var healthComponent = collision.gameObject.GetComponent<Health>();
             if(healthComponent != null)
             {
-                healthComponent.takeDamage(1);
+                healthComponent.TakeDamage(1);
             }
         }
     }

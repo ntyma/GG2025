@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
+    public Transform respawnPoint;
+    public FollowMouse guide;
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +16,7 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void takeDamage(int amount)
+    public void TakeDamage(int amount)
     {
         // add sound here
 
@@ -23,18 +26,15 @@ public class Health : MonoBehaviour
         {
             // dead, we'll have to link to a death animation later
             UnityEngine.Debug.Log("dead");
+
+            Respawn();
         }
     }
 
-    public void heal(int amount)
+    private void Respawn()
     {
-        // add sound here
-
-        currentHealth += amount;
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth; // cap health to max health
-        }
+        transform.position = respawnPoint.position;
+        guide.transform.position = respawnPoint.position;
+        currentHealth = maxHealth; // restore full health on respawn
     }
 }
