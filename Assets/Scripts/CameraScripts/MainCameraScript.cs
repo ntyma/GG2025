@@ -5,24 +5,18 @@ using UnityEngine;
 public class MainCameraScript : MonoBehaviour
 {
     [SerializeField] private GameObject cameraPositionsGameObject;
-    [SerializeField] private int cameraPositionsCount;
-    [SerializeField] private int cameraPositionIndex = 0;
     [SerializeField] private GameObject playerGameObject;
-
+    private int cameraPositionsCount;
     public bool isActive = true;
 
-    private Vector3[] cameraPositions;
     [SerializeField] public enum CameraMovementStates
     {
         lockedToArea, followPlayer
     }
 
+    [SerializeField] private int cameraPositionIndex = 0;
     [SerializeField] private CameraMovementStates currentCameraState;
-    [SerializeField] private CameraMovementStates[] individualSceneSettings;
-
-    [SerializeField] private float cameraMoveSpeedCoefficient = 5.0f;
-
-
+    private float cameraMoveSpeedCoefficient = 5.0f;
 
     [System.Serializable]
     public class CameraLevelSettings
@@ -31,54 +25,69 @@ public class MainCameraScript : MonoBehaviour
         public CameraMovementStates levelCameraState;
         public float lockedToArea_xLength;
         public float lockedToArea_yLength;
+
+        public CameraLevelSettings (Vector3 CameraPosition, CameraMovementStates CameraState = CameraMovementStates.lockedToArea, float xLength = 0.0f, float yLength = 0.0f)
+        {
+            this.levelCameraPosition = CameraPosition;
+            this.levelCameraState = CameraState;
+            this.lockedToArea_xLength = xLength;
+            this.lockedToArea_yLength = yLength;
+        }
     };
     [SerializeField] private CameraLevelSettings[] cameraLevelSettings;
-    //private float cameraCorrectionDistance = 0.01f;
-    //private bool stateStatic_isPanning = true;
 
     // Start is called before the first frame update
     void Start()
     {
         cameraPositionsCount = cameraPositionsGameObject.transform.childCount;
-        cameraPositions = new Vector3[cameraPositionsCount];
 
-        //
         cameraLevelSettings = new CameraLevelSettings[cameraPositionsCount];
 
+        // Initialize all Camera Data for Every Level
         int i = 0;
         foreach (Transform childTransform in cameraPositionsGameObject.transform)
         {
-            /*cameraLevelSettings[i].levelCameraPosition = childTransform.position;
-            Debug.Log(childTransform);
-            Debug.Log(cameraLevelSettings[i].levelCameraPosition);*/
-            cameraPositions[i++] = childTransform.position;
+            if (!childTransform.gameObject.TryGetComponent<CameraPositionScript>(out CameraPositionScript currentCameraPositionScript))
+            {
+                Debug.Log("No CameraPositionScript component found! - from MainCameraScript");
+                continue;
+            }
+            cameraLevelSettings[i++] = new CameraLevelSettings
+                (
+                    childTransform.position,
+                    currentCameraPositionScript.levelCameraState,
+                    currentCameraPositionScript.lockedToArea_xLength,
+                    currentCameraPositionScript.lockedToArea_yLength
+                );
         }
-
-        // Defaults everything to the Static state
-        individualSceneSettings = new CameraMovementStates[cameraPositionsCount];
-        // Specific overrides
-        individualSceneSettings[1] = CameraMovementStates.followPlayer;
-        individualSceneSettings[5] = CameraMovementStates.followPlayer;
 
         // Initialize Camera to position
         SetCameraPosition(cameraPositionIndex);
     }
 
-    public float lockedToArea_xLength = 0.0f;
-    public float lockedToArea_yLength = 0.0f;
     // Update is responsible for the actual smooth movement of the Camera
     void Update()
     {
         if (!isActive)
             return;
-        // Pan Camera to new pre-set Camera Position
+        // Camera is locked to pre-set Camera Position
         if (currentCameraState == CameraMovementStates.lockedToArea)
         {
-            Vector3 currentCameraPosition = cameraPositions[cameraPositionIndex];
+            Vector3 currentCameraPosition = cameraLevelSettings[cameraPositionIndex].levelCameraPosition;
             Vector3 targetCameraPosition = new Vector3
                 (
-                    Mathf.Clamp(playerGameObject.transform.position.x, currentCameraPosition.x, currentCameraPosition.x + lockedToArea_xLength),
-                    Mathf.Clamp(playerGameObject.transform.position.y, currentCameraPosition.y, currentCameraPosition.y + lockedToArea_yLength),
+                    Mathf.Clamp
+                    (
+                        playerGameObject.transform.position.x, 
+                        currentCameraPosition.x, 
+                        currentCameraPosition.x + cameraLevelSettings[cameraPositionIndex].lockedToArea_xLength
+                    ),
+                    Mathf.Clamp
+                    (
+                        playerGameObject.transform.position.y, 
+                        currentCameraPosition.y, 
+                        currentCameraPosition.y + cameraLevelSettings[cameraPositionIndex].lockedToArea_yLength
+                    ),
                     this.transform.position.z
                 );
             // Pans towards new camera position
@@ -87,7 +96,6 @@ public class MainCameraScript : MonoBehaviour
             (
                 this.transform.position,
                 targetCameraPosition,
-                //cameraPositions[cameraPositionIndex] + new Vector3(5.0f, 5.0f, 0.0f), 
                 cameraMoveSpeedCoefficient * Time.deltaTime
             );
         }
@@ -131,9 +139,7 @@ public class MainCameraScript : MonoBehaviour
             Debug.Log("cameraPositionIndex is OUT OF BOUNDS - in RefreshCamera() from MainCameraScript");
             return;
         }
-        currentCameraState = individualSceneSettings[cameraPositionIndex];
-        //if (currentCameraState == CameraMovementStates.Static)
-        //    stateStatic_isPanning = true;
+        currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
     }
 
     // Sets Camera to the position at Index, if Out of Bounds, then function does nothing
@@ -147,7 +153,7 @@ public class MainCameraScript : MonoBehaviour
         }
 
         cameraPositionIndex = Index;
-        this.transform.position = cameraPositions[cameraPositionIndex];
+        this.transform.position = cameraLevelSettings[cameraPositionIndex].levelCameraPosition;
         RefreshCamera();
     }
 }
