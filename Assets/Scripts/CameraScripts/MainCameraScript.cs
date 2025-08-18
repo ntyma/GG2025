@@ -129,9 +129,10 @@ public class MainCameraScript : MonoBehaviour
         else if (cameraPositionIndex >= cameraPositionsCount)
             cameraPositionIndex = cameraPositionsCount - 1;
 
-        RefreshCamera();
+        //RefreshCamera();
+        currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
     }
-    [ContextMenu("RefreshCamera()")]
+    /*[ContextMenu("RefreshCamera()")]
     public void RefreshCamera()
     {
         if (cameraPositionIndex < 0 || cameraPositionIndex >= cameraPositionsCount)
@@ -140,7 +141,7 @@ public class MainCameraScript : MonoBehaviour
             return;
         }
         currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
-    }
+    }*/
 
     // Sets Camera to the position at Index, if Out of Bounds, then function does nothing
     public void SetCameraPosition(int Index)
@@ -154,6 +155,7 @@ public class MainCameraScript : MonoBehaviour
 
         cameraPositionIndex = Index;
         this.transform.position = cameraLevelSettings[cameraPositionIndex].levelCameraPosition;
-        RefreshCamera();
+        //RefreshCamera();
+        currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
     }
 }
