@@ -49,7 +49,7 @@ public class MainCameraScript : MonoBehaviour
         {
             if (!childTransform.gameObject.TryGetComponent<CameraPositionScript>(out CameraPositionScript currentCameraPositionScript))
             {
-                Debug.Log("No CameraPositionScript component found! - from MainCameraScript");
+                Debug.Log("No CameraPositionScript component found! - from Start() in MainCameraScript");
                 continue;
             }
             cameraLevelSettings[i++] = new CameraLevelSettings
@@ -62,7 +62,7 @@ public class MainCameraScript : MonoBehaviour
         }
 
         // Initialize Camera to position
-        SetCameraPosition(cameraPositionIndex);
+        //SetCameraPosition(cameraPositionIndex);
     }
 
     // Update is responsible for the actual smooth movement of the Camera

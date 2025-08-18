@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovementTriggerScript : MonoBehaviour
+public class LevelProgressionTrigger : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D cameraMovementTriggerBoxCollider;
     [SerializeField] private SpriteRenderer cameraMovementTriggerSpriteRenderer;
     [SerializeField] private MainCameraScript mainCameraScript;
+    [SerializeField] private GameManagerScript gameManagerScript;
 
     [SerializeField] private enum Direction
     {
@@ -35,7 +36,7 @@ public class CameraMovementTriggerScript : MonoBehaviour
                 backwardDirection = Direction.Up;
                 break;
             default:    // case Direction.NoDirection:
-                Debug.Log("Forward Direction for CameraMovementTrigger CANNOT be NoDirection!");
+                Debug.Log("Forward Direction for CameraMovementTrigger CANNOT be NoDirection! - from Start() in LevelProgressionTrigger");
                 forwardDirection = Direction.Right;
                 backwardDirection = Direction.Left;
                 break;
@@ -54,7 +55,7 @@ public class CameraMovementTriggerScript : MonoBehaviour
         // Continue if playerRigidBody is acquired
         if (!collision.gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D playerRigidBody))
         {
-            Debug.Log("playerRigidBody NOT FOUND in CameraMovementTriggerScript!");
+            Debug.Log("playerRigidBody NOT FOUND in CameraMovementTriggerScript! - from OnTriggerEnter2D() in LevelProgressionTrigger");
             return;
         }
         // Check Player's directions when entering Trigger
@@ -80,7 +81,7 @@ public class CameraMovementTriggerScript : MonoBehaviour
         // Continue if playerRigidBody is acquired
         if (!collision.gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D playerRigidBody))
         {
-            Debug.Log("playerRigidBody NOT FOUND in CameraMovementTriggerScript!");
+            Debug.Log("playerRigidBody NOT FOUND in CameraMovementTriggerScript! - from OnTriggerExit2D() in LevelProgressionTrigger");
             return;
         }
         // Check Player's direction when exiting Trigger
@@ -102,12 +103,14 @@ public class CameraMovementTriggerScript : MonoBehaviour
         if (forwardDirection == Direction.Right || backwardDirection == Direction.Right)
         {
             if (playerEnterDirectionX == playerExitDirectionX)
-                mainCameraScript.ProgressCamera(forwardDirection == playerEnterDirectionX);
+                gameManagerScript.ProgressLevel(forwardDirection == playerEnterDirectionX);
+                //mainCameraScript.ProgressCamera(forwardDirection == playerEnterDirectionX);
         }
         else if (forwardDirection == Direction.Up || backwardDirection == Direction.Up)
         {
             if (playerEnterDirectionY == playerExitDirectionY)
-                mainCameraScript.ProgressCamera(forwardDirection == playerEnterDirectionY);
+                gameManagerScript.ProgressLevel(forwardDirection == playerEnterDirectionY);
+                //mainCameraScript.ProgressCamera(forwardDirection == playerEnterDirectionY);
         }
     }
 }
