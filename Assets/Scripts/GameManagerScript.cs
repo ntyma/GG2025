@@ -13,10 +13,11 @@ public class GameManagerScript : MonoBehaviour
 
     [Header("Level Statistics")]
     public int currentGameLevel = 0;
-    public int gameLevelCount = 0;
+    public int totalLevelCount = 0;
     [SerializeField] private GameObject[] levelObstaclesCollection;
     [SerializeField] private GameObject[] levelRespawnPointsCollection;
     [SerializeField] private bool[] levelHasObstacles;
+    [SerializeField] private int levelObstacleGenerationFrameSize = 2;
 
     public bool isForwardRoute = true;
 
@@ -26,34 +27,26 @@ public class GameManagerScript : MonoBehaviour
         if (!cameraGameObject.TryGetComponent<MainCameraScript>(out mainCameraScript))
             Debug.Log("camera Game Object DOES NOT HAVE a MainCameraScript Component! - from Start() in GameManagerScript");
 
-        gameLevelCount = levelObstaclesGameObject.transform.childCount;
+        totalLevelCount = levelObstaclesGameObject.transform.childCount;
 
         // Load in ALL Per-Level Obstacles
-        levelObstaclesCollection = new GameObject[gameLevelCount];
+        levelObstaclesCollection = new GameObject[totalLevelCount];
         int i = 0;
         foreach (Transform childTransform in levelObstaclesGameObject.transform)
         {
             levelObstaclesCollection[i++] = childTransform.gameObject;
         }
         // Generate a list of booleans that track whether not level i has obstacles
-        levelHasObstacles = new bool[gameLevelCount];
+        levelHasObstacles = new bool[totalLevelCount];
         // Load in ALL Per-Level Respawn Points
-        levelRespawnPointsCollection = new GameObject[gameLevelCount];
+        levelRespawnPointsCollection = new GameObject[totalLevelCount];
         i = 0;
         foreach (Transform childTransform in levelRespawnPointsGameObject.transform)
         {
             levelRespawnPointsCollection[i++] = childTransform.gameObject;
         }
 
-        // Spawn Player at appropriate respawn position
-        Vector3 spawnPosition = levelRespawnPointsCollection[currentGameLevel].transform.GetChild((isForwardRoute ? 0 : 1)).transform.position;
-        playerGameObject.transform.position = spawnPosition;
-        guideGameObject.transform.position = spawnPosition;
-
-        // Level Setup
-        FillLevelWithObstacles();
-        SetRespawnPoint();
-        mainCameraScript.SetCameraPosition(currentGameLevel);
+        SelectLevel(currentGameLevel);
     }
 
     public void ProgressLevel (bool isProgressing)
@@ -63,21 +56,46 @@ public class GameManagerScript : MonoBehaviour
         // Index out of bounds protection
         if (currentGameLevel < 0)
             currentGameLevel = 0;
-        else if (currentGameLevel >= gameLevelCount)
-            currentGameLevel = gameLevelCount - 1;
+        else if (currentGameLevel >= totalLevelCount)
+            currentGameLevel = totalLevelCount - 1;
 
         FillLevelWithObstacles();
         SetRespawnPoint();
         mainCameraScript.ProgressCamera(isProgressing);
     }
+    // Fill levels
+    // currentGameLevel - levelObstacleGenerationFrameSize
+    //          to
+    // currentGameLevel + levelObstacleGenerationFrameSize
+    // with Obstacles
     public void FillLevelWithObstacles ()
     {
-        // levelObstaclesCollection[currentGameLevel];
-        levelHasObstacles[currentGameLevel] = true;
+        for (int i = currentGameLevel - levelObstacleGenerationFrameSize; i < currentGameLevel + levelObstacleGenerationFrameSize + 1; i ++)
+        {
+            // Index out of bounds
+            if (i < 0 || i >= totalLevelCount)
+                continue;
+            // Level already has Obstacles
+            if (levelHasObstacles[i])
+                continue;
+
+            levelHasObstacles[i] = true;
+            // Generate Obstacles
+            // levelObstaclesCollection[i];
+        }
+        // Check Levels just outside of levelObstacleGenerationFrame boundary
+        int indexLowerThanFrame = currentGameLevel - levelObstacleGenerationFrameSize - 1;
+        int indexHigherThanFrame = currentGameLevel + levelObstacleGenerationFrameSize + 1;
+        if (indexLowerThanFrame >= 0 && levelHasObstacles[indexLowerThanFrame])
+            CleanLevelOfObstacles(indexLowerThanFrame);
+        if (indexHigherThanFrame < totalLevelCount && levelHasObstacles[indexHigherThanFrame])
+            CleanLevelOfObstacles(indexHigherThanFrame);
     }
-    public void CleanLevelOfObstacles ()
+    public void CleanLevelOfObstacles (int Index)
     {
-        levelHasObstacles[currentGameLevel] = false;
+        levelHasObstacles[Index] = false;
+        // Clear all Obstacles in Level Index
+
     }
     public void SetRespawnPoint ()
     {
@@ -96,11 +114,16 @@ public class GameManagerScript : MonoBehaviour
     public void SelectLevel (int Index)
     {
         // If Index is out of bounds
-        if (Index < 0 || Index >= gameLevelCount)
+        if (Index < 0 || Index >= totalLevelCount)
         {
             Debug.Log("Index is OUT OF BOUNDS - in SelectLevel() from GameManagerScript");
             return;
         }
+
+        // Spawn Player at appropriate respawn position
+        Vector3 spawnPosition = levelRespawnPointsCollection[currentGameLevel].transform.GetChild((isForwardRoute ? 0 : 1)).transform.position;
+        playerGameObject.transform.position = spawnPosition;
+        guideGameObject.transform.position = spawnPosition;
 
         FillLevelWithObstacles();
         SetRespawnPoint();

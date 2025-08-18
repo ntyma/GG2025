@@ -1178,10 +1178,11 @@ MonoBehaviour:
   levelObstaclesGameObject: {fileID: 5414197333132313690}
   levelRespawnPointsGameObject: {fileID: 2224509312672673617}
   currentGameLevel: 0
-  gameLevelCount: 0
+  totalLevelCount: 0
   levelObstaclesCollection: []
   levelRespawnPointsCollection: []
   levelHasObstacles: 
+  levelObstacleGenerationFrameSize: 1
   isForwardRoute: 1
 --- !u!1 &5003361739448824617
 GameObject:

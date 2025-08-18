@@ -11076,6 +11076,10 @@ PrefabInstance:
       propertyPath: playerGameObject
       value: 
       objectReference: {fileID: 33953521}
+    - target: {fileID: 398310880239249443, guid: cde2e6420e9278f4ebcf18013f2e9532, type: 3}
+      propertyPath: levelObstacleGenerationFrameSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2990165776223668662, guid: cde2e6420e9278f4ebcf18013f2e9532, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
