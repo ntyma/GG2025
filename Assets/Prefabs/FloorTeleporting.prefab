@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2580323988156195533}
   - component: {fileID: 2167367315466340135}
   m_Layer: 0
-  m_Name: Floor_Teleporting
+  m_Name: FloorTeleporting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

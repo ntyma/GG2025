@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 5365518483825827703}
   - component: {fileID: 3510751776171357692}
   m_Layer: 6
-  m_Name: Frozen_Platform
+  m_Name: FrozenPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

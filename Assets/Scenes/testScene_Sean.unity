@@ -137,7 +137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (4)
+      value: CandlePlaceholder (4)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 70268427}
   - component: {fileID: 70268426}
   m_Layer: 0
-  m_Name: Debris_Placeholder (1)
+  m_Name: DebrisPlaceholder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,7 +365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (4)
+      value: StateFloor (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 122572996}
   - component: {fileID: 122572998}
   m_Layer: 0
-  m_Name: Background_Placeholder
+  m_Name: BackgroundPlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (2)
+      value: CandlePlaceholder (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -655,7 +655,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (5)
+      value: FloorNotIlluminated (5)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -704,6 +704,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -857,7 +861,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (1)
+      value: FloorNotIlluminated (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -902,6 +906,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1050,7 +1058,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 529431902020354037, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_Name
-      value: Placeholder_Prop
+      value: PlaceholderProp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110015908072292757, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
+      propertyPath: m_Name
+      value: PlaceholderPropIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 2873703059457596055, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1116,7 +1128,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (5)
+      value: StateFloor (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1178,7 +1190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (5)
+      value: StateFloor (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1315,7 +1327,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -1361,6 +1373,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1381,7 +1397,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (1)
+      value: CandlePlaceholder (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1443,7 +1459,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (1)
+      value: StateFloor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1505,7 +1521,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (12)
+      value: FloorNotIlluminated (12)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -1551,6 +1567,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1575,7 +1595,7 @@ GameObject:
   - component: {fileID: 418741039}
   - component: {fileID: 418741038}
   m_Layer: 0
-  m_Name: Debris_Placeholder (5)
+  m_Name: DebrisPlaceholder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1741,7 +1761,7 @@ GameObject:
   - component: {fileID: 450373517}
   - component: {fileID: 450373516}
   m_Layer: 0
-  m_Name: Debris_Placeholder (2)
+  m_Name: DebrisPlaceholder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1903,7 +1923,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 529431902020354037, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_Name
-      value: Placeholder_Prop (1)
+      value: PlaceholderProp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110015908072292757, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
+      propertyPath: m_Name
+      value: PlaceholderPropIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 2873703059457596055, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_LocalScale.x
@@ -1989,7 +2013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (5)
+      value: CandlePlaceholder (5)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2051,7 +2075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 491042708}
   m_Layer: 0
-  m_Name: State_Platform (1)
+  m_Name: StatePlatform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2088,7 +2112,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (4)
+      value: FloorNotIlluminated (4)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -2137,6 +2161,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2193,7 +2221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
       propertyPath: m_Name
-      value: State_Floor Alt (1)
+      value: StateFloor Alt (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2220,7 +2248,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (15)
+      value: FloorNotIlluminated (15)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -2269,6 +2297,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2325,7 +2357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
       propertyPath: m_Name
-      value: State_Floor Alt (3)
+      value: StateFloor Alt (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2351,7 +2383,7 @@ GameObject:
   - component: {fileID: 589649739}
   - component: {fileID: 589649741}
   m_Layer: 0
-  m_Name: Debris_Placeholder
+  m_Name: DebrisPlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2518,7 +2550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635466140}
   m_Layer: 0
-  m_Name: State_Platform (2)
+  m_Name: StatePlatform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2559,7 +2591,7 @@ GameObject:
   - component: {fileID: 642640710}
   - component: {fileID: 642640709}
   m_Layer: 0
-  m_Name: Debris_Placeholder (4)
+  m_Name: DebrisPlaceholder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2738,7 +2770,7 @@ GameObject:
   - component: {fileID: 642728788}
   - component: {fileID: 642728789}
   m_Layer: 0
-  m_Name: Debris_Placeholder_Illuminated
+  m_Name: DebrisPlaceholderIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2866,7 +2898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
       propertyPath: m_Name
-      value: State_Floor Alt (2)
+      value: StateFloor Alt (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2913,7 +2945,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (5)
+      value: StateFloor (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3202,7 +3234,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (3)
+      value: StateFloor (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3264,7 +3296,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (13)
+      value: FloorNotIlluminated (13)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -3313,6 +3345,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3409,7 +3445,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -3455,6 +3491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3470,7 +3510,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (9)
+      value: FloorNotIlluminated (9)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -3516,6 +3556,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3536,7 +3580,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder
+      value: CandlePlaceholder
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3599,7 +3643,7 @@ GameObject:
   - component: {fileID: 944497118}
   - component: {fileID: 944497119}
   m_Layer: 0
-  m_Name: Debris_Placeholder_Illuminated
+  m_Name: DebrisPlaceholderIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3682,7 +3726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950222276}
   m_Layer: 0
-  m_Name: State_Platform_Alt
+  m_Name: StatePlatformAlt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3719,7 +3763,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor
+      value: StateFloor
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3776,7 +3820,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (1)
+      value: StateFloor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3833,7 +3877,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (2)
+      value: StateFloor (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3900,7 +3944,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (4)
+      value: StateFloor (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3962,7 +4006,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 529431902020354037, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_Name
-      value: Placeholder_Prop (3)
+      value: PlaceholderProp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110015908072292757, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
+      propertyPath: m_Name
+      value: PlaceholderPropIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 2873703059457596055, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4032,7 +4080,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -4078,6 +4126,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4098,7 +4150,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (1)
+      value: FloorNotIlluminated (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -4148,6 +4200,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4163,7 +4219,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor
+      value: StateFloor
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4479,7 +4535,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (1)
+      value: StateFloor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4545,7 +4601,7 @@ GameObject:
   - component: {fileID: 1053971654}
   - component: {fileID: 1053971653}
   m_Layer: 0
-  m_Name: Debris_Placeholder (3)
+  m_Name: DebrisPlaceholder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4707,7 +4763,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -4753,6 +4809,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4773,7 +4833,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (6)
+      value: CandlePlaceholder (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4867,7 +4927,7 @@ GameObject:
   - component: {fileID: 1095331076}
   - component: {fileID: 1095331077}
   m_Layer: 0
-  m_Name: Debris_Placeholder_Illuminated
+  m_Name: DebrisPlaceholderIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4951,7 +5011,7 @@ GameObject:
   - component: {fileID: 1097668523}
   - component: {fileID: 1097668524}
   m_Layer: 0
-  m_Name: Debris_Placeholder_Illuminated
+  m_Name: DebrisPlaceholderIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5049,7 +5109,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (2)
+      value: StateFloor (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5111,7 +5171,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (4)
+      value: StateFloor (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5174,7 +5234,7 @@ GameObject:
   - component: {fileID: 1271286437}
   - component: {fileID: 1271286438}
   m_Layer: 0
-  m_Name: Debris_Placeholder_Illuminated
+  m_Name: DebrisPlaceholderIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5257,7 +5317,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 529431902020354037, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_Name
-      value: Placeholder_Prop (1)
+      value: PlaceholderProp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110015908072292757, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
+      propertyPath: m_Name
+      value: PlaceholderPropIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 2873703059457596055, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5420,7 +5484,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (11)
+      value: FloorNotIlluminated (11)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -5470,6 +5534,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5490,7 +5558,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (3)
+      value: CandlePlaceholder (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5557,7 +5625,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (2)
+      value: StateFloor (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7206,7 +7274,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 529431902020354037, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_Name
-      value: Placeholder_Prop (2)
+      value: PlaceholderProp (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110015908072292757, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
+      propertyPath: m_Name
+      value: PlaceholderPropIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 2873703059457596055, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7268,7 +7340,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (1)
+      value: CandlePlaceholder (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7434,7 +7506,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (5)
+      value: StateFloor (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7491,7 +7563,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (10)
+      value: FloorNotIlluminated (10)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -7537,6 +7609,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7557,7 +7633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (7)
+      value: FloorNotIlluminated (7)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -7602,6 +7678,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7723,7 +7803,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -7768,6 +7848,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7864,7 +7948,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (2)
+      value: FloorNotIlluminated (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -7914,6 +7998,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7929,7 +8017,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (1)
+      value: FloorNotIlluminated (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -7975,6 +8063,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7995,7 +8087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1540273387}
   m_Layer: 0
-  m_Name: State_Platform
+  m_Name: StatePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8032,7 +8124,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (3)
+      value: StateFloor (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8134,7 +8226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
       propertyPath: m_Name
-      value: State_Floor Alt (5)
+      value: StateFloor Alt (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8151,11 +8243,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
   m_PrefabInstance: {fileID: 6081668220983612274}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1592232920 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-  m_PrefabInstance: {fileID: 5142064576230486963}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1601941671 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8107251723108724035, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
@@ -8171,7 +8258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639783582}
   m_Layer: 0
-  m_Name: State_Platform (3)
+  m_Name: StatePlatform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8267,7 +8354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (6)
+      value: FloorNotIlluminated (6)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -8312,6 +8399,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8379,7 +8470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor
+      value: StateFloor
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8428,8 +8519,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
 --- !u!331 &1779154472 stripped
 SpriteMask:
-  m_CorrespondingSourceObject: {fileID: 1536248623649883773, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-  m_PrefabInstance: {fileID: 5142064576230486963}
+  m_CorrespondingSourceObject: {fileID: 1701457206479757451, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+  m_PrefabInstance: {fileID: 1560617904599529208}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1814494807
 GameObject:
@@ -8472,7 +8563,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (8)
+      value: FloorNotIlluminated (8)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -8518,6 +8609,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8538,7 +8633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -8584,6 +8679,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8605,7 +8704,7 @@ GameObject:
   - component: {fileID: 1828065584}
   - component: {fileID: 1828065585}
   m_Layer: 0
-  m_Name: Lock_Illuminated
+  m_Name: LockIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8688,7 +8787,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (2)
+      value: CandlePlaceholder (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8755,7 +8854,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder (3)
+      value: CandlePlaceholder (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8817,7 +8916,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (3)
+      value: StateFloor (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8874,7 +8973,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (1)
+      value: FloorNotIlluminated (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -8919,6 +9018,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8990,7 +9093,7 @@ GameObject:
   - component: {fileID: 1866723196}
   - component: {fileID: 1866723197}
   m_Layer: 0
-  m_Name: Debris_Placeholder_Illuminated
+  m_Name: DebrisPlaceholderIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9078,7 +9181,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor
+      value: StateFloor
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9140,7 +9243,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (3)
+      value: StateFloor (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9506,7 +9609,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (1)
+      value: StateFloor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9563,7 +9666,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (14)
+      value: FloorNotIlluminated (14)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -9613,6 +9716,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9643,7 +9750,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (3)
+      value: FloorNotIlluminated (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -9693,6 +9800,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9713,7 +9824,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (1)
+      value: FloorNotIlluminated (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -9759,6 +9870,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9784,7 +9899,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -9830,6 +9945,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9840,173 +9959,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
   m_PrefabInstance: {fileID: 1997073102}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2066535038
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2066535041}
-  - component: {fileID: 2066535040}
-  - component: {fileID: 2066535039}
-  - component: {fileID: 2066535042}
-  - component: {fileID: 2066535043}
-  m_Layer: 0
-  m_Name: Guide
-  m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!331 &2066535039
-SpriteMask:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066535038}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
-  m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
-  m_SpriteSortPoint: 0
---- !u!212 &2066535040
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066535038}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.23529412}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &2066535041
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066535038}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4254, y: 0.6, z: 0}
-  m_LocalScale: {x: 3.1092, y: 3, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1592232920}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066535042
+--- !u!114 &2066535043 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7753555455211025400, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+  m_PrefabInstance: {fileID: 1560617904599529208}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066535038}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bed5a3615935e94c94a9661221c931f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guideSpriteMask: {fileID: 2066535039}
-  screenPosition: {x: 0, y: 0}
-  worldPosition: {x: 0, y: 0}
---- !u!114 &2066535043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066535038}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f45095a5c53c2f45b3e9ebe0aad5e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 7
 --- !u!1001 &2073399343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10017,7 +9980,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated (2)
+      value: FloorNotIlluminated (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.x
@@ -10063,6 +10026,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10083,7 +10050,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -10129,6 +10096,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10144,7 +10115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (4)
+      value: StateFloor (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10246,7 +10217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
       propertyPath: m_Name
-      value: State_Floor Alt (4)
+      value: StateFloor Alt (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10268,7 +10239,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder
+      value: CandlePlaceholder
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10335,7 +10306,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -10380,6 +10351,10 @@ PrefabInstance:
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10441,7 +10416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
       propertyPath: m_Name
-      value: State_Floor Alt
+      value: StateFloor Alt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10463,7 +10438,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor (2)
+      value: StateFloor (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10531,6 +10506,10 @@ PrefabInstance:
       propertyPath: gridLayout
       value: 
       objectReference: {fileID: 1690271417}
+    - target: {fileID: 3017630246442668727, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_Name
+      value: PlayerMemory
+      objectReference: {fileID: 0}
     - target: {fileID: 3679191582197060399, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10539,6 +10518,10 @@ PrefabInstance:
       propertyPath: playerParanoia
       value: 
       objectReference: {fileID: 1601941671}
+    - target: {fileID: 6390846793905022617, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_Name
+      value: PlayerIlluminated
+      objectReference: {fileID: 0}
     - target: {fileID: 7886678291153853983, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.78
@@ -10625,7 +10608,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270471901688153162, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_Name
-      value: Candle_Placeholder
+      value: CandlePlaceholder
       objectReference: {fileID: 0}
     - target: {fileID: 2153422120010423088, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10672,6 +10655,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4347eb5938a544b89303372c294c9f, type: 3}
+--- !u!1001 &1560617904599529208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4254
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574808533934984961, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451697719817834623, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+      propertyPath: m_Name
+      value: Guide
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
 --- !u!1001 &2882540062189037304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10680,9 +10720,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1503761749}
     m_Modifications:
+    - target: {fileID: 2225106491472992356, guid: 314adf095fbc1334a8290851b3ab48fc, type: 3}
+      propertyPath: m_Name
+      value: MovePositions
+      objectReference: {fileID: 0}
     - target: {fileID: 2471725166614803678, guid: 314adf095fbc1334a8290851b3ab48fc, type: 3}
       propertyPath: m_Name
-      value: Frozen_Platform
+      value: FrozenPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250158077267146959, guid: 314adf095fbc1334a8290851b3ab48fc, type: 3}
+      propertyPath: m_Name
+      value: FrozenPlatformIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 6084023331314310511, guid: 314adf095fbc1334a8290851b3ab48fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10779,74 +10827,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 608434840806954895, guid: d99ea6659e1b2994e84998774207419f, type: 3}
       propertyPath: m_Name
-      value: Floor_Teleporting
+      value: FloorTeleporting
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102117333010766762, guid: d99ea6659e1b2994e84998774207419f, type: 3}
+      propertyPath: m_Name
+      value: TeleportPoint (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2167367315466340135, guid: d99ea6659e1b2994e84998774207419f, type: 3}
       propertyPath: Teleport_Points_CurrIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333934705770864366, guid: d99ea6659e1b2994e84998774207419f, type: 3}
+      propertyPath: m_Name
+      value: TeleportPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926354945657598274, guid: d99ea6659e1b2994e84998774207419f, type: 3}
+      propertyPath: m_Name
+      value: OriginPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241644978497675352, guid: d99ea6659e1b2994e84998774207419f, type: 3}
+      propertyPath: m_Name
+      value: TeleportPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795183559031375580, guid: d99ea6659e1b2994e84998774207419f, type: 3}
+      propertyPath: m_Name
+      value: FloorTeleportingIlluminated
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99ea6659e1b2994e84998774207419f, type: 3}
---- !u!1001 &5142064576230486963
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2066535041}
-    m_Modifications:
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816477140610408235, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503843877395094544, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Name
-      value: Light
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
 --- !u!1001 &6081668220983612274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10857,7 +10868,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1620866632613959959, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_Name
-      value: Floor_NotIlluminated
+      value: FloorNotIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 4491286657474518224, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
       propertyPath: m_LocalScale.y
@@ -10903,6 +10914,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6859146489640500469, guid: ba46d612975cf6e48aeacd6392025ca8, type: 3}
+      propertyPath: m_Name
+      value: FloorIlluminated
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10918,7 +10933,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 529431902020354037, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_Name
-      value: Placeholder_Prop
+      value: PlaceholderProp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110015908072292757, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
+      propertyPath: m_Name
+      value: PlaceholderPropIlluminated
       objectReference: {fileID: 0}
     - target: {fileID: 2873703059457596055, guid: 9400ab3a6cd39264183972e845df73ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11032,7 +11051,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 7690493076449337902}
   - {fileID: 52649887036416382}
-  - {fileID: 2066535041}
+  - {fileID: 1560617904599529208}
   - {fileID: 1690271418}
   - {fileID: 1655328622}
   - {fileID: 1503761749}
