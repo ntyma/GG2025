@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b96668752481cee4c89f5fb5b115ed09
+guid: c613c6612f2f0984db363eaf52a768ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dialogue_box_sheet
+      name: dialogue_box
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a3ee4952b82f764d9e7bf692fcc2ea8
-      internalID: -674796145
+      spriteID: f04ffa2ede653c74baa068b79b497ea9
+      internalID: 1794144608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dialogue_box_portrait_1
+      name: dialogue_box_1
       rect:
         serializedVersion: 2
         x: 350
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ee4c340897718a46b2595e728e9bb89
-      internalID: -759764765
+      spriteID: 75748135258360449842f8b5f74b5291
+      internalID: -1285655037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dialogue_box_portrait_2
+      name: dialogue_box_2
       rect:
         serializedVersion: 2
         x: 700
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 691fa945b7fe7e5498158628bc4c9586
-      internalID: -155308989
+      spriteID: cb6d354aa7533d040963a73b8f6177aa
+      internalID: 112659182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dialogue_box_portrait_3
+      name: dialogue_box_3
       rect:
         serializedVersion: 2
         x: 1050
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa53c9be3b8bfa249a61623be120bb18
-      internalID: 1324455034
+      spriteID: 7d5be81b8e114aa4ebb58a2f99570d40
+      internalID: 1925540828
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dialogue_box_portrait_1: -759764765
-      dialogue_box_portrait_2: -155308989
-      dialogue_box_portrait_3: 1324455034
-      dialogue_box_sheet: -674796145
+      dialogue_box: 1794144608
+      dialogue_box_1: -1285655037
+      dialogue_box_2: 112659182
+      dialogue_box_3: 1925540828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
