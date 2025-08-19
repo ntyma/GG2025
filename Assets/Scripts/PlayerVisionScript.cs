@@ -6,6 +6,7 @@ public class PlayerVisionScript : MonoBehaviour
 {
     [SerializeField] private PlayerScript playerScript;
     [SerializeField] private SpriteMask playerSpriteMask;
+    [SerializeField] private SpriteRenderer playerParanoia;
 
     [SerializeField] private Vector3 playerVisionScaleMax = new Vector3(3.0f, 3.0f, 1.0f);
     [SerializeField] private Vector3 playerVisionScaleMin = new Vector3(0.8f, 0.8f, 1.0f);
@@ -21,6 +22,7 @@ public class PlayerVisionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerParanoia.enabled = true;
         playerSanity = playerSanityUpperBound;
     }
 
