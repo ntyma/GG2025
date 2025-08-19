@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Frozen_Platform_Script : MonoBehaviour
+public class FrozenPlatformScript : MonoBehaviourWithReset
 {
     [SerializeField] private SpriteRenderer frozenPlatformSpriteRenderer;
     [SerializeField] private BoxCollider2D frozenPlatformBoxCollider;
@@ -17,6 +17,11 @@ public class Frozen_Platform_Script : MonoBehaviour
     private Vector3 movementDestination;
     [SerializeField] private float moveTime = 2.0f;
 
+    // Reset Component Variable
+    private Color ColorInitial;
+    private bool isFrozenInitial;
+    private float freezeLevelInitial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +30,11 @@ public class Frozen_Platform_Script : MonoBehaviour
         this.transform.position = movementOrigin;
 
         movementDestination = platformMovePositions.transform.GetChild(1).position;
+
+        // Record Instantiation Variables
+        isFrozenInitial = isFrozen;
+        freezeLevelInitial = freezeLevel;
+        ColorInitial = frozenPlatformSpriteRenderer.color;
     }
 
     // Thaw Frozen Platform at the rate of thawRate per Second when Guide's Light touches
@@ -66,5 +76,13 @@ public class Frozen_Platform_Script : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+    }
+
+    public override void ResetToInstantiation()
+    {
+        this.transform.position = movementOrigin;
+        isFrozen = isFrozenInitial;
+        freezeLevel = freezeLevelInitial;
+        frozenPlatformSpriteRenderer.color = ColorInitial;
     }
 }

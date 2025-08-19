@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7421b35b5ee8e44788683bb9e61c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State_Floor_Collider2D: {fileID: 6838872900157140246}
-  State_Floor_SpriteRenderer: {fileID: 6987206681900309838}
+  stateFloorCollider: {fileID: 6838872900157140246}
+  stateFloorSpriteRenderer: {fileID: 6987206681900309838}
   isTangible: 1

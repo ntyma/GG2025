@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebrisScript : MonoBehaviour
+public class DebrisScript : MonoBehaviourWithReset
 {
     [SerializeField] private Vector3 respawnPoint;
     [SerializeField] private float respawnHeight;
@@ -10,6 +10,8 @@ public class DebrisScript : MonoBehaviour
 
     public float debrisSpeed = 2.0f;
 
+    // Reset Component Variable
+    private Vector3 positionInitial;
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +23,9 @@ public class DebrisScript : MonoBehaviour
         {
             this.transform.position = respawnPoint;
         }
+
+        // Record Instantiation Variables
+        positionInitial = this.transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) // Take damage when colliding with the player
@@ -33,5 +38,9 @@ public class DebrisScript : MonoBehaviour
                 healthComponent.TakeDamage(1);
             }
         }
+    }
+    public override void ResetToInstantiation()
+    {
+        this.transform.position = positionInitial;
     }
 }

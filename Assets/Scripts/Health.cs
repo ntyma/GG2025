@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public Transform respawnPoint;
     public FollowMouse guide;
+    public GameManagerScript gameManagerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -36,5 +37,7 @@ public class Health : MonoBehaviour
         transform.position = respawnPoint.position;
         guide.transform.position = respawnPoint.position;
         currentHealth = maxHealth; // restore full health on respawn
+
+        gameManagerScript.ResetLevelObstacles(gameManagerScript.currentGameLevel);
     }
 }

@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class State_Floor_Script : MonoBehaviour
+public class StateFloorScript : MonoBehaviourWithReset
 {
-    [SerializeField] private BoxCollider2D State_Floor_Collider2D;
-    [SerializeField] private SpriteRenderer State_Floor_SpriteRenderer;
+    [SerializeField] private BoxCollider2D stateFloorCollider;
+    [SerializeField] private SpriteRenderer stateFloorSpriteRenderer;
 
     [SerializeField] private bool isTangible = true;
 
+    // Reset Component Variable
     private void Start()
     {
         // Update isTrigger to match Tangibility
         // Note: isTrigger and isTangible should always be opposites of each other
-        State_Floor_Collider2D.isTrigger = !isTangible;
+        stateFloorCollider.isTrigger = !isTangible;
         UpdateColor();
+
+        // Record Instantiation Variables
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("entering " + collision.gameObject.tag);
         // Update Tangibility if Light touches this object
         if (collision.gameObject.tag == "Light")
             ChangeStates();
@@ -26,7 +28,6 @@ public class State_Floor_Script : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //Debug.Log("exiting " + collision.gameObject.tag);
         // Update Tangibility if Light touches this object
         if (collision.gameObject.tag == "Light")
             ChangeStates();
@@ -35,11 +36,11 @@ public class State_Floor_Script : MonoBehaviour
     // Function to update Sprite Color to reflect tangibility
     private void UpdateColor()
     {
-        Color currColor = State_Floor_SpriteRenderer.color;
+        Color currColor = stateFloorSpriteRenderer.color;
         if (isTangible)
-            State_Floor_SpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 1.0f);
+            stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 1.0f);
         else
-            State_Floor_SpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 0.3f);
+            stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 0.3f);
     }
 
     [ContextMenu("ChangeStates()")]
@@ -48,8 +49,13 @@ public class State_Floor_Script : MonoBehaviour
     {
         //Debug.Log("CHANGESTATES()");
         isTangible = !isTangible;
-        State_Floor_Collider2D.isTrigger = !State_Floor_Collider2D.isTrigger;
+        stateFloorCollider.isTrigger = !stateFloorCollider.isTrigger;
 
         UpdateColor();
+    }
+
+    public override void ResetToInstantiation()
+    {
+        return;
     }
 }

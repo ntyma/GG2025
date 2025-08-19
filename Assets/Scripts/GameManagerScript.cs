@@ -49,6 +49,13 @@ public class GameManagerScript : MonoBehaviour
         SelectLevel(currentGameLevel);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            CleanLevelOfObstacles(1);
+        }
+    }
     public void ProgressLevel (bool isProgressing)
     {
         currentGameLevel = currentGameLevel + (isProgressing ? 1 : -1);
@@ -59,7 +66,7 @@ public class GameManagerScript : MonoBehaviour
         else if (currentGameLevel >= totalLevelCount)
             currentGameLevel = totalLevelCount - 1;
 
-        FillLevelWithObstacles();
+        FillLevelFrameWithObstacles();
         SetRespawnPoint();
         mainCameraScript.ProgressCamera(isProgressing);
     }
@@ -68,7 +75,7 @@ public class GameManagerScript : MonoBehaviour
     //          to
     // currentGameLevel + levelObstacleGenerationFrameSize
     // with Obstacles
-    public void FillLevelWithObstacles ()
+    public void FillLevelFrameWithObstacles ()
     {
         for (int i = currentGameLevel - levelObstacleGenerationFrameSize; i < currentGameLevel + levelObstacleGenerationFrameSize + 1; i ++)
         {
@@ -79,9 +86,7 @@ public class GameManagerScript : MonoBehaviour
             if (levelHasObstacles[i])
                 continue;
 
-            levelHasObstacles[i] = true;
-            // Generate Obstacles
-            // levelObstaclesCollection[i];
+            FillLevelWithObstacles(i);
         }
         // Check Levels just outside of levelObstacleGenerationFrame boundary
         int indexLowerThanFrame = currentGameLevel - levelObstacleGenerationFrameSize - 1;
@@ -91,12 +96,53 @@ public class GameManagerScript : MonoBehaviour
         if (indexHigherThanFrame < totalLevelCount && levelHasObstacles[indexHigherThanFrame])
             CleanLevelOfObstacles(indexHigherThanFrame);
     }
+    // Fill Level Index with Pre-set Obstacles
+    public void FillLevelWithObstacles (int Index)
+    {
+        levelHasObstacles[Index] = true;
+        // Enable Obstacles in Level Index
+        foreach (Transform childTransform in levelObstaclesCollection[Index].transform)
+        {
+            // Enables current Obstacle
+            childTransform.gameObject.SetActive(true);
+        }
+    }
+    // Clean Level Index of Pre-set Obstacles
     public void CleanLevelOfObstacles (int Index)
     {
         levelHasObstacles[Index] = false;
-        // Clear all Obstacles in Level Index
+        // Disable all Obstacles in Level Index
+        foreach (Transform childTransform in levelObstaclesCollection[Index].transform)
+        {
+            // Reset Position of Obstacles to Instation State
+            MonoBehaviourWithReset monoBehaviourWithReset;
+            if (!childTransform.gameObject.TryGetComponent<MonoBehaviourWithReset>(out monoBehaviourWithReset))
+            {
+                Debug.Log("childTransform DOES NOT have MonoBehaviourWithReset component! - from CleanLevelOfObstacles() in GameManagerScript");
+                continue;
+            }
+            monoBehaviourWithReset.ResetToInstantiation();
 
+            // Disable current Obstacle
+            childTransform.gameObject.SetActive(false);
+        }
     }
+    // Reset Level Index Obstacles to their Original State upon Instantiation
+    public void ResetLevelObstacles (int Index)
+    {
+        // Reset all Obstacles in Level Index
+        foreach (Transform childTransform in levelObstaclesCollection[Index].transform)
+        {
+            MonoBehaviourWithReset monoBehaviourWithReset;
+            if (!childTransform.gameObject.TryGetComponent<MonoBehaviourWithReset>(out monoBehaviourWithReset))
+            {
+                Debug.Log("childTransform DOES NOT have MonoBehaviourWithReset component! - from ResetLevelObstacles() in GameManagerScript");
+                continue;
+            }
+            monoBehaviourWithReset.ResetToInstantiation();
+        }
+    }
+    // Set the Player's respawn point to one of the points in the Level
     public void SetRespawnPoint ()
     {
         Health playerHealthScript;
@@ -111,6 +157,8 @@ public class GameManagerScript : MonoBehaviour
             levelRespawnPointsCollection[currentGameLevel].transform.GetChild(0).transform:
             levelRespawnPointsCollection[currentGameLevel].transform.GetChild(1).transform;
     }
+
+    // Set the Player to Level Index
     public void SelectLevel (int Index)
     {
         // If Index is out of bounds
@@ -125,7 +173,7 @@ public class GameManagerScript : MonoBehaviour
         playerGameObject.transform.position = spawnPosition;
         guideGameObject.transform.position = spawnPosition;
 
-        FillLevelWithObstacles();
+        FillLevelFrameWithObstacles();
         SetRespawnPoint();
         mainCameraScript.SetCameraPosition(Index);
     }

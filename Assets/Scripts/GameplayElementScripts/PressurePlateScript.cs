@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressurePlateScript : MonoBehaviour
+public class PressurePlateScript : MonoBehaviourWithReset
 {
     [SerializeField] private GameObject doorGameObject;
     private Vector3 doorStartingPosition;
@@ -14,12 +14,27 @@ public class PressurePlateScript : MonoBehaviour
     [SerializeField] private float pressureDrainRate = 10.0f;
 
     public bool pressureIsActivated = false;
+
+    // Reset Component Variable
+    private float pressureStatusInitial;
+    private float pressureTargetInitial;
+    private float pressureFillRateInitial;
+    private float pressureDrainRateInitial;
+    private bool pressureIsActivatedInitial;
+
     // Start is called before the first frame update
     void Start()
     {
         doorStartingPosition = doorGameObject.transform.position;
         doorEndingPosition = doorGameObject.transform.position + doorEndingPositionOffset;
-    }
+
+        // Record Instantiation Variables
+        pressureStatusInitial = pressureStatus;
+        pressureTargetInitial = pressureTarget;
+        pressureFillRateInitial = pressureFillRate;
+        pressureDrainRateInitial = pressureDrainRate;
+        pressureIsActivatedInitial = pressureIsActivated;
+}
 
     // Update is called once per frame
     void Update()
@@ -38,5 +53,16 @@ public class PressurePlateScript : MonoBehaviour
             return;
 
         pressureStatus = Mathf.Clamp(pressureStatus + pressureFillRate * Time.deltaTime, 0.0f, pressureTarget);
+    }
+   
+    public override void ResetToInstantiation()
+    {
+        // Debug.Log("ResetToInstantiation() OVERRIDE - from ResetToInstantiation() in PressurePlateScript");
+
+        pressureStatus = pressureStatusInitial;
+        pressureTarget = pressureTargetInitial;
+        pressureFillRate = pressureFillRateInitial;
+        pressureDrainRate = pressureDrainRateInitial;
+        pressureIsActivated = pressureIsActivatedInitial;
     }
 }

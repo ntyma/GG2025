@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviourWithReset
 {
     private Rigidbody2D rb;
     public Transform playerPos;
@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstacleMask;*/
 
+    // Reset Component Variable
+    private Vector3 positionInitial;
     public Vector3 DirFromAngle(float angleInDeg)
     {
         return new Vector3(Mathf.Sin(Mathf.Deg2Rad * angleInDeg), Mathf.Cos(Mathf.Deg2Rad * angleInDeg), 0f);
@@ -31,6 +33,9 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         enemyIsInLight = false;
+
+        // Record Instantiation Variables
+        positionInitial = this.transform.position;
     }
     // Update is called once per frame
     void Update()
@@ -74,5 +79,10 @@ public class EnemyController : MonoBehaviour
             }
             
         }
+    }
+
+    public override void ResetToInstantiation()
+    {
+        this.transform.position = positionInitial;
     }
 }
