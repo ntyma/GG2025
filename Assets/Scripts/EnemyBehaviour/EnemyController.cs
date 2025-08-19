@@ -36,11 +36,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         float distance = Vector2.Distance(transform.position, playerPos.position);
+        float distanceX = transform.position.x - playerPos.position.x;
 
-        if(Mathf.Abs(distance) < viewDst && !enemyIsInLight)
+        if (Mathf.Abs(distance) < viewDst && !enemyIsInLight && Mathf.Abs(distanceX) > 0.2)
         {
             float movement = -Mathf.Sign(transform.position.x - playerPos.position.x) * speed;
-            Debug.Log("moving with the following velocity: " + movement);
             rb.velocity = new Vector2(movement, 0);
         }
     }

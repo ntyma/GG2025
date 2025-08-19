@@ -18,7 +18,7 @@ public class ViewDstVisualizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = Vector2.one * targetController.viewDst * 2;
+        transform.localScale = Vector2.one * targetController.viewDst * 4;
         transform.position = targetTransform.position;
     }
 }
