@@ -4,46 +4,75 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private Animator animator;
-
     private Rigidbody2D rb;
-
     public Transform playerPos;
+    public float speed;
+    public float viewDst = 5f;
 
-    public float viewDst = 5;
+    public bool enemyIsInLight = false;
 
-    public float speed = 5;
-    // Start is called before the first frame update
-    void Start()
+    /*[Range(0,360)]
+    public float fov = 90f;
+    public float angle;
+    public float angleToPlayer;
+
+    private float distance;
+
+    public LayerMask targetMask;
+    public LayerMask obstacleMask;*/
+
+    public Vector3 DirFromAngle(float angleInDeg)
     {
-        animator = GetComponent<Animator>();
-
-        rb = GetComponent<Rigidbody2D>();
+        return new Vector3(Mathf.Sin(Mathf.Deg2Rad * angleInDeg), Mathf.Cos(Mathf.Deg2Rad * angleInDeg), 0f);
     }
 
-    private void Update()
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        enemyIsInLight = false;
+    }
+    // Update is called once per frame
+    void Update()
     {
         float distance = Vector2.Distance(transform.position, playerPos.position);
+        float distanceX = transform.position.x - playerPos.position.x;
 
-        if (Mathf.Abs(distance) < viewDst)
+        if (Mathf.Abs(distance) < viewDst && !enemyIsInLight && Mathf.Abs(distanceX) > 0.2)
         {
-            animator.SetTrigger("PlayerInRange");
+            float movement = -Mathf.Sign(transform.position.x - playerPos.position.x) * speed;
+            rb.velocity = new Vector2(movement, 0);
         }
-        else animator.ResetTrigger("PlayerInRange");
     }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
         {
-            animator.SetTrigger("EnemyInLight");
+            Debug.Log("collided with " + collision.gameObject.name);
+            enemyIsInLight = true;
             rb.velocity = Vector2.zero;
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
-            animator.ResetTrigger("EnemyInLight");
+            enemyIsInLight = false;
+    }
+    private void OnCollisionEnter2D(Collision2D collision) // Take damage when colliding with the player
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if(collision.gameObject.transform.position.y < (transform.position.y + transform.localScale.y))
+            {
+                var healthComponent = collision.gameObject.GetComponent<Health>();
+                if (healthComponent != null)
+                {
+                    healthComponent.TakeDamage(1);
+                }
+            }
+            
+        }
     }
 }
