@@ -28,7 +28,6 @@ public class IdleWalkerScript : StateMachineBehaviour
 
         if (actionTimer <= 0f)
         {
-            Debug.Log("current action: " + currentAction);
             currentAction = currentAction == 3 ? 0 : currentAction + 1;
             actionTimer = decisionInterval;
         }

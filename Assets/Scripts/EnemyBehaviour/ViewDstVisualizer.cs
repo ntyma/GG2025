@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class ViewDstVisualizer : MonoBehaviour
 {
-    public GameObject target;
-    EnemyController targetController;
-    Transform targetTransform;
+    EnemyOverhead targetController;
+    public Transform targetTransform;
     
     // Start is called before the first frame update
     void Start()
     {
-        targetTransform = target.GetComponent<Transform>();
-        targetController = target.GetComponent<EnemyController>();
+        targetController = GetComponentInParent<EnemyOverhead>();
     }
 
     // Update is called once per frame
