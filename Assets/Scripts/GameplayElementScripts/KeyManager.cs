@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -11,10 +12,13 @@ public class KeyManager : MonoBehaviour
     public bool isPickedUp;
     private Vector2 vel;
     public float smoothTime;
+
+    public float maxFollowDistance = 5f;
+    private Vector3 originalPosition;
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -23,7 +27,15 @@ public class KeyManager : MonoBehaviour
         if (isPickedUp)
         {
             Vector3 offset = new Vector3(0, 0, 0); // offset so the key doesn't clip into the sprite, add actual values once art is added
-            transform.position = Vector2.SmoothDamp(transform.position, guide.transform.position + offset, ref vel, smoothTime);
+            float dist = Vector2.Distance(transform.position, guide.transform.position + offset);
+
+            if (dist > maxFollowDistance) // guide too far from key
+            {
+                UntetherKey();
+            } else
+            {
+                transform.position = Vector2.SmoothDamp(transform.position, guide.transform.position + offset, ref vel, smoothTime);
+            }
         }
     }
 
@@ -33,5 +45,16 @@ public class KeyManager : MonoBehaviour
         {
             isPickedUp = true;
         }
+    }
+
+    public void UntetherKey()
+    {
+        isPickedUp = false;
+        transform.position = originalPosition;
+
+        // reset velocity so it doesn’t keep sliding
+        vel = Vector2.zero;
+
+        UnityEngine.Debug.Log("Key detached");
     }
 }
