@@ -27,8 +27,6 @@ public class GameManagerScript : MonoBehaviour
         if (!cameraGameObject.TryGetComponent<MainCameraScript>(out mainCameraScript))
             Debug.Log("camera Game Object DOES NOT HAVE a MainCameraScript Component! - from Start() in GameManagerScript");
 
-        totalLevelCount = levelObstaclesGameObject.transform.childCount;
-
         // Load in ALL Per-Level Obstacles
         levelObstaclesCollection = new GameObject[totalLevelCount];
         int i = 0;
