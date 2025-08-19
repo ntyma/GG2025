@@ -49,13 +49,6 @@ public class GameManagerScript : MonoBehaviour
         SelectLevel(currentGameLevel);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            CleanLevelOfObstacles(1);
-        }
-    }
     public void ProgressLevel (bool isProgressing)
     {
         currentGameLevel = currentGameLevel + (isProgressing ? 1 : -1);
@@ -66,16 +59,15 @@ public class GameManagerScript : MonoBehaviour
         else if (currentGameLevel >= totalLevelCount)
             currentGameLevel = totalLevelCount - 1;
 
-        FillLevelFrameWithObstacles();
+        EnableObstaclesInLevelFrame();
         SetRespawnPoint();
         mainCameraScript.ProgressCamera(isProgressing);
     }
-    // Fill levels
+    // Enables the Obstacles of levels
     // currentGameLevel - levelObstacleGenerationFrameSize
     //          to
     // currentGameLevel + levelObstacleGenerationFrameSize
-    // with Obstacles
-    public void FillLevelFrameWithObstacles ()
+    public void EnableObstaclesInLevelFrame ()
     {
         for (int i = currentGameLevel - levelObstacleGenerationFrameSize; i < currentGameLevel + levelObstacleGenerationFrameSize + 1; i ++)
         {
@@ -86,18 +78,18 @@ public class GameManagerScript : MonoBehaviour
             if (levelHasObstacles[i])
                 continue;
 
-            FillLevelWithObstacles(i);
+            EnableObstaclesOfLevel(i);
         }
         // Check Levels just outside of levelObstacleGenerationFrame boundary
         int indexLowerThanFrame = currentGameLevel - levelObstacleGenerationFrameSize - 1;
         int indexHigherThanFrame = currentGameLevel + levelObstacleGenerationFrameSize + 1;
         if (indexLowerThanFrame >= 0 && levelHasObstacles[indexLowerThanFrame])
-            CleanLevelOfObstacles(indexLowerThanFrame);
+            DisableObstaclesOfLevel(indexLowerThanFrame);
         if (indexHigherThanFrame < totalLevelCount && levelHasObstacles[indexHigherThanFrame])
-            CleanLevelOfObstacles(indexHigherThanFrame);
+            DisableObstaclesOfLevel(indexHigherThanFrame);
     }
     // Fill Level Index with Pre-set Obstacles
-    public void FillLevelWithObstacles (int Index)
+    public void EnableObstaclesOfLevel (int Index)
     {
         levelHasObstacles[Index] = true;
         // Enable Obstacles in Level Index
@@ -108,7 +100,7 @@ public class GameManagerScript : MonoBehaviour
         }
     }
     // Clean Level Index of Pre-set Obstacles
-    public void CleanLevelOfObstacles (int Index)
+    public void DisableObstaclesOfLevel (int Index)
     {
         levelHasObstacles[Index] = false;
         // Disable all Obstacles in Level Index
@@ -118,7 +110,7 @@ public class GameManagerScript : MonoBehaviour
             MonoBehaviourWithReset monoBehaviourWithReset;
             if (!childTransform.gameObject.TryGetComponent<MonoBehaviourWithReset>(out monoBehaviourWithReset))
             {
-                Debug.Log("childTransform DOES NOT have MonoBehaviourWithReset component! - from CleanLevelOfObstacles() in GameManagerScript");
+                Debug.Log("childTransform DOES NOT have MonoBehaviourWithReset component! - from DisableObstaclesOfLevel() in GameManagerScript");
                 continue;
             }
             monoBehaviourWithReset.ResetToInstantiation();
@@ -173,7 +165,7 @@ public class GameManagerScript : MonoBehaviour
         playerGameObject.transform.position = spawnPosition;
         guideGameObject.transform.position = spawnPosition;
 
-        FillLevelFrameWithObstacles();
+        EnableObstaclesInLevelFrame();
         SetRespawnPoint();
         mainCameraScript.SetCameraPosition(Index);
     }

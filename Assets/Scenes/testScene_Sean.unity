@@ -11117,7 +11117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151312977026899455, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2407829934136595925, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: tilemap
@@ -11229,7 +11229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8730767018753696421, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
