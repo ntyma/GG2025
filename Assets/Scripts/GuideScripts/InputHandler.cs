@@ -32,7 +32,6 @@ public class InputHandler : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        UnityEngine.Debug.Log("click");
         if (!context.started) return;
 
         if (spriteMask != null)
