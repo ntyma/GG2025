@@ -224,8 +224,9 @@ public class GameManagerScript : MonoBehaviour
         SetRespawnPoint();
 
         if (respawnPlayer)
+        {
             playerHealthScript.Respawn();
-
-        mainCameraScript.SetCameraPosition(currentGameLevel);
+            mainCameraScript.SetCameraPosition(currentGameLevel);
+        } 
     }
 }

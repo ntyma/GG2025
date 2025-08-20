@@ -71,7 +71,9 @@ public class LevelProgressionTrigger : MonoBehaviour
         else if (playerRigidBody.velocity.y < 0.0f)
             playerEnterDirectionY = Direction.Down;
         else
-            playerEnterDirectionY = Direction.NoDirection;     
+            playerEnterDirectionY = Direction.NoDirection;
+
+        //Debug.Log("PLAYER DIRECTION ENTERED IS " + playerEnterDirectionX + ", " + playerEnterDirectionY);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -98,6 +100,8 @@ public class LevelProgressionTrigger : MonoBehaviour
             playerExitDirectionY = Direction.Down;
         else
             playerExitDirectionY = Direction.NoDirection;
+
+        //Debug.Log("PLAYER DIRECTION EXIT IS " + playerExitDirectionX + ", " + playerExitDirectionY);
 
         // Update Camera Position
         if (forwardDirection == Direction.Right || backwardDirection == Direction.Right)
