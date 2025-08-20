@@ -12,6 +12,13 @@ public class DebrisScript : MonoBehaviourWithReset
 
     // Reset Component Variable
     private Vector3 positionInitial;
+    // Awake is called before the first frame update and before Start
+    void Awake()
+    {
+        // Record Instantiation Variables
+        positionInitial = this.transform.position;
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -23,9 +30,6 @@ public class DebrisScript : MonoBehaviourWithReset
         {
             this.transform.position = respawnPoint;
         }
-
-        // Record Instantiation Variables
-        positionInitial = this.transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) // Take damage when colliding with the player

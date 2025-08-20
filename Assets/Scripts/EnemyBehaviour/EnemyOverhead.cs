@@ -17,8 +17,8 @@ public class EnemyOverhead : MonoBehaviourWithReset
     public float speed = 5;
 
     public Vector2 initialpos;
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before all Start() functions and the first frame update
+    void Awake()
     {
         animator = GetComponent<Animator>();
 

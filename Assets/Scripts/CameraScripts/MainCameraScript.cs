@@ -36,8 +36,8 @@ public class MainCameraScript : MonoBehaviour
     };
     [SerializeField] private CameraLevelSettings[] cameraLevelSettings;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before all Start() functions
+    void Awake()
     {
         cameraPositionsCount = cameraPositionsGameObject.transform.childCount;
 
@@ -149,7 +149,7 @@ public class MainCameraScript : MonoBehaviour
         // If Index is out of bounds
         if (Index < 0 || Index >= cameraPositionsCount)
         {
-            Debug.Log("Index is OUT OF BOUNDS - in SetCameraPosition() from MainCameraScript");
+            Debug.Log("Index " + Index + " is OUT OF BOUNDS - in SetCameraPosition() from MainCameraScript");
             return;
         }
 

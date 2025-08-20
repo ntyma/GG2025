@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 608434840806954895}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.241394, y: -4.017677, z: 0.09521003}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.45, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -145,11 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354480daf33f4ed4496195511691e35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Floor_Teleporting_Collider: {fileID: 2580323988156195533}
-  Teleport_Points_GameObject: {fileID: 2333934705770864366}
-  Teleport_Points_CurrIndex: 0
-  Teleport_Points: []
-  Teleport_Points_Count: 0
+  floorTeleportingCollider: {fileID: 2580323988156195533}
+  teleportPointsGameObject: {fileID: 2333934705770864366}
+  teleportPointsCurrentIndex: 0
+  teleportPointsCollection: []
+  teleportPointsCount: 0
 --- !u!1 &1102117333010766762
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7072522491323384298}
   m_Layer: 0
-  m_Name: Teleport_Point (1)
+  m_Name: TeleportPoint1
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1049923971571039630}
   m_Layer: 0
-  m_Name: Teleport_Points
+  m_Name: TeleportPointsCollection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1157025535962456026}
   m_Layer: 0
-  m_Name: Origin_Point
+  m_Name: TeleportPoint0
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3021943162362431566}
   m_Layer: 0
-  m_Name: Teleport_Point (2)
+  m_Name: TeleportPoint2
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 4807914626333262702}
   - component: {fileID: 664738623923841692}
   m_Layer: 0
-  m_Name: Floor_Teleporting_Illuminated
+  m_Name: FloorTeleportingIlluminated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

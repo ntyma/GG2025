@@ -19,10 +19,9 @@ public class KeyManager : MonoBehaviourWithReset
     // Reset Component Variable
     private bool isPickedUpInitial;
     private Vector3 originalPositionInitial;
-    private Vector3 velocityInitial;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before the first frame update and before Start
+    void Awake()
     {
         originalPosition = transform.position;
 
@@ -30,7 +29,6 @@ public class KeyManager : MonoBehaviourWithReset
         isPickedUpInitial = isPickedUp;
         originalPositionInitial = originalPosition;
     }
-
     // Update is called once per frame
     void Update()
     {

@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         transform.position = respawnPoint.position;
         guide.transform.position = respawnPoint.position;

@@ -22,8 +22,8 @@ public class FrozenPlatformScript : MonoBehaviourWithReset
     private bool isFrozenInitial;
     private float freezeLevelInitial;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before the first frame update and before Start
+    void Awake()
     {
         // Initialize Platform Start and End Positions
         movementOrigin = platformMovePositions.transform.GetChild(0).position;

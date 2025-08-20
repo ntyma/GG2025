@@ -14,8 +14,8 @@ public class FloorTeleporting : MonoBehaviourWithReset
     // Reset Component Variable
     private int teleportPointsCurrentIndexInitial;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before the first frame update and before Start
+    void Awake()
     {
         // Collect all Teleport Points from teleportPointsGameObject
         teleportPointsCount = teleportPointsGameObject.transform.childCount;

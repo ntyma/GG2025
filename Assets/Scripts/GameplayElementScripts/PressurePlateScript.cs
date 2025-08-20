@@ -22,8 +22,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
     private float pressureDrainRateInitial;
     private bool pressureIsActivatedInitial;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before the first frame update and before Start
+    void Awake()
     {
         doorStartingPosition = doorGameObject.transform.position;
         doorEndingPosition = doorGameObject.transform.position + doorEndingPositionOffset;

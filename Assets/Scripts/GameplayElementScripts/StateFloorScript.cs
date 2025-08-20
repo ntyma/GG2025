@@ -10,7 +10,9 @@ public class StateFloorScript : MonoBehaviourWithReset
     [SerializeField] private bool isTangible = true;
 
     // Reset Component Variable
-    private void Start()
+
+    // Awake is called before the first frame update and before Start
+    void Awake()
     {
         // Update isTrigger to match Tangibility
         // Note: isTrigger and isTangible should always be opposites of each other

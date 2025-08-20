@@ -6,16 +6,16 @@ using UnityEngine;
 public class Door : MonoBehaviourWithReset
 {
     public bool locked;
-    private Collider2D col;
-    private SpriteRenderer lockSpriteRenderer;
+    [SerializeField] private Collider2D col;
+    [SerializeField] private SpriteRenderer lockSpriteRenderer;
 
     // Reset Component Variable
     private bool lockedInitial;
     private Color lockSpriteRendererColorInitial;
     private bool lockColliderIsTriggerInitial;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before the first frame update and before Start
+    void Awake()
     {
         locked = true;
         col = GetComponent<Collider2D>();

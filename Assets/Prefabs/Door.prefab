@@ -257,3 +257,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 1
+  col: {fileID: 7988778761055720554}
+  lockSpriteRenderer: {fileID: 8075713296531109284}

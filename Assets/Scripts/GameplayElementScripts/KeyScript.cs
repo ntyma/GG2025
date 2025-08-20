@@ -15,7 +15,8 @@ public class KeyScript : MonoBehaviourWithReset
     private Color keyColorInitial;
     private Color lockColorInitial;
 
-    private void Start()
+    // Awake is called before the first frame update and before Start
+    void Awake()
     {
         // Record Instantiation Variables
         lockIsTriggerInitial = lockCollider.isTrigger;
