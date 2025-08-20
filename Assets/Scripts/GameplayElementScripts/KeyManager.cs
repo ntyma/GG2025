@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class KeyManager : MonoBehaviour
+public class KeyManager : MonoBehaviourWithReset
 {
     [SerializeField] GameObject guide;
 
@@ -15,10 +15,20 @@ public class KeyManager : MonoBehaviour
 
     public float maxFollowDistance = 5f;
     private Vector3 originalPosition;
+
+    // Reset Component Variable
+    private bool isPickedUpInitial;
+    private Vector3 originalPositionInitial;
+    private Vector3 velocityInitial;
+
     // Start is called before the first frame update
     void Start()
     {
         originalPosition = transform.position;
+
+        // Record Instantiation Variables
+        isPickedUpInitial = isPickedUp;
+        originalPositionInitial = originalPosition;
     }
 
     // Update is called once per frame
@@ -56,5 +66,11 @@ public class KeyManager : MonoBehaviour
         vel = Vector2.zero;
 
         UnityEngine.Debug.Log("Key detached");
+    }
+
+    public override void ResetToInstantiation()
+    {
+        isPickedUp = isPickedUpInitial;
+        this.transform.position = originalPositionInitial;
     }
 }

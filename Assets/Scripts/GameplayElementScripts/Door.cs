@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviourWithReset
 {
     public bool locked;
     private Collider2D col;
     private SpriteRenderer lockSpriteRenderer;
+
+    // Reset Component Variable
+    private bool lockedInitial;
+    private Color lockSpriteRendererColorInitial;
+    private bool lockColliderIsTriggerInitial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +22,11 @@ public class Door : MonoBehaviour
         col.isTrigger = false;
 
         lockSpriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Record Instantiation Variables
+        lockedInitial = locked;
+        lockSpriteRendererColorInitial = lockSpriteRenderer.color;
+        lockColliderIsTriggerInitial = col.isTrigger;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -31,7 +36,24 @@ public class Door : MonoBehaviour
             locked = false;
             col.isTrigger = true;
             lockSpriteRenderer.color = new Color(0.0f, 1.0f, 1.0f, 0.3f);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+
+            // Reset and Disable Key GameObject
+            MonoBehaviourWithReset keyScript;
+            if (!(other.gameObject.TryGetComponent<MonoBehaviourWithReset>(out keyScript)))
+            {
+                Debug.Log("Key DOES NOT have KeyScript! - from OnTriggerEnter2D() in Door.cs");
+                return;
+            }
+            keyScript.ResetToInstantiation();
+            other.gameObject.SetActive(false);
         }
+    }
+
+    public override void ResetToInstantiation()
+    {
+        locked = lockedInitial;
+        lockSpriteRenderer.color = lockSpriteRendererColorInitial;
+        col.isTrigger = lockColliderIsTriggerInitial;
     }
 }
