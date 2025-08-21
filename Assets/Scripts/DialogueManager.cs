@@ -21,6 +21,10 @@ public class DialogueManager : MonoBehaviour
 	public Animator animator;
     //public GameObject dialogueBox; // Dialogue box GameObject
 
+	private Coroutine typingCoroutine; // keep track of current typing
+	private DialogueLine currentLine; // finish current line
+	private bool isTyping = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -49,32 +53,59 @@ public class DialogueManager : MonoBehaviour
 
 	public void DisplayNextDialogueLine()
 	{
-		if (lines.Count == 0)
+		if (isTyping)
+		{
+			// if currently typing, skip to the end of the current line
+			StopCoroutine(typingCoroutine);
+			dialogueArea.text = currentLine.line; // show full line immediately
+            isTyping = false;
+            return;
+        }
+		else if (lines.Count == 0)
 		{
 			EndDialogue();
 			return;
 		}
 
-		DialogueLine currentLine = lines.Dequeue();
+		currentLine = lines.Dequeue();
 
 		// update headshot and name
 		characterIcon.sprite = currentLine.character.icon;
 		characterName.text = currentLine.character.name;
 
-		StopAllCoroutines(); // stop any ongoing typing effect
+		//StopAllCoroutines(); // stop any ongoing typing effect
+		typingCoroutine = StartCoroutine(TypeSentence(currentLine));
 
-        StartCoroutine(TypeSentence(currentLine)); // start typing effect
+        //StartCoroutine(TypeSentence(currentLine)); // start typing effect
     }
 
-	IEnumerator TypeSentence(DialogueLine dialogueLine)
+	private void Update()
 	{
-		dialogueArea.text = "";
+		if (isDialogueActive && Input.GetKeyDown(KeyCode.Space))
+		{
+			DisplayNextDialogueLine();
+		}
+		else if (isDialogueActive && Input.GetKeyDown(KeyCode.Z))
+		{
+			DisplayNextDialogueLine();
+        }
+
+
+    }
+
+    IEnumerator TypeSentence(DialogueLine dialogueLine)
+	{
+		isTyping = true;
+        dialogueArea.text = "";
+
 		foreach (char letter in dialogueLine.line.ToCharArray())
 		{
 			dialogueArea.text += letter;
 			yield return new WaitForSeconds(typingSpeed);
 		}
-	}
+
+		isTyping = false;
+    }
 
 	void EndDialogue()
 	{
