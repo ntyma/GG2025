@@ -28,9 +28,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        if (dialogue == null)
-            print("No dialogue assigned to this trigger.");
-
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 

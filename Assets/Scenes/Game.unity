@@ -409,7 +409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Girl
+  m_text: name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3fea6c4274288d6448b72644e7d0bd94, type: 2}
   m_sharedMaterial: {fileID: 854906816448680028, guid: 3fea6c4274288d6448b72644e7d0bd94, type: 2}
@@ -1253,6 +1253,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 782731735}
     m_Modifications:
+    - target: {fileID: 3615021546904004262, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
+      propertyPath: m_text
+      value: this is the dialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 4341325521271431964, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       propertyPath: m_Icon
       value: 
@@ -1402,7 +1406,7 @@ MonoBehaviour:
   characterName: {fileID: 231490216}
   dialogueArea: {fileID: 4320269649002746949}
   isDialogueActive: 0
-  typingSpeed: 0.2
+  typingSpeed: 0.03
   animator: {fileID: 127134250}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
