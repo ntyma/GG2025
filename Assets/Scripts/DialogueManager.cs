@@ -34,8 +34,6 @@ public class DialogueManager : MonoBehaviour
 
         isDialogueActive = true;
 
-		dialogueArea.gameObject.SetActive(true);
-
         animator.Play("show");
 
 		lines.Clear();
