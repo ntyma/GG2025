@@ -28,6 +28,9 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        if (dialogue == null)
+            print("No dialogue assigned to this trigger.");
+
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 
@@ -35,6 +38,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.tag == "Player") // if the player enters the trigger area
         {
+            print("Dialogue Triggered");
             TriggerDialogue();
         }
     }
