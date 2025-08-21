@@ -39,22 +39,27 @@ public class PressurePlateScript : MonoBehaviourWithReset
     // Update is called once per frame
     void Update()
     {
-        if (pressureIsActivated)
-            return;
-
-        pressureStatus = Mathf.Clamp(pressureStatus - pressureDrainRate * Time.deltaTime, 0.0f, pressureTarget);
+        if (!pressureIsActivated)
+            pressureStatus = Mathf.Clamp(pressureStatus - pressureDrainRate * Time.deltaTime, 0.0f, pressureTarget);
 
         doorGameObject.transform.position = Vector3.Lerp(doorStartingPosition, doorEndingPosition, pressureStatus*0.01f);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!(collision.gameObject.tag == "Player") && !(collision.gameObject.tag == "Enemy"))
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
             return;
 
+        pressureIsActivated = true;
         pressureStatus = Mathf.Clamp(pressureStatus + pressureFillRate * Time.deltaTime, 0.0f, pressureTarget);
     }
-   
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
+            return;
+
+        pressureIsActivated = false;
+    }
     public override void ResetToInstantiation()
     {
         // Debug.Log("ResetToInstantiation() OVERRIDE - from ResetToInstantiation() in PressurePlateScript");
