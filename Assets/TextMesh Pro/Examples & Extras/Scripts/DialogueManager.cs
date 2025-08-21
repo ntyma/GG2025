@@ -54,13 +54,14 @@ public class DialogueManager : MonoBehaviour
 
 		DialogueLine currentLine = lines.Dequeue();
 
+		// update headshot and name
 		characterIcon.sprite = currentLine.character.icon;
 		characterName.text = currentLine.character.name;
 
-		StopAllCoroutines();
+		StopAllCoroutines(); // stop any ongoing typing effect
 
-		StartCoroutine(TypeSentence(currentLine));
-	}
+        StartCoroutine(TypeSentence(currentLine)); // start typing effect
+    }
 
 	IEnumerator TypeSentence(DialogueLine dialogueLine)
 	{
