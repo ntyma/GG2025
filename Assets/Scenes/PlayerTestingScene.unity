@@ -859,6 +859,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 696774568}
     - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: testingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: maxFallSpeed
       value: 20
       objectReference: {fileID: 0}

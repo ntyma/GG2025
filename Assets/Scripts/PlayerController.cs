@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
-    [Header("Gravit")]
+    [Header("Gravity")]
     [SerializeField] private float baseGravity;
     [SerializeField] private float fallSpeedMultiplier;
     [SerializeField] private float maxFallSpeed;
@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.5f, 0.5f);
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    
 
+    [Header("Testing")]
+    [SerializeField] private bool testingMode;
     private Vector2 moveDirection;
     private InputAction move;
     private InputAction jump;
-    [SerializeField] private bool checkAirStatus = false;
 
     private void Awake()
     {
@@ -62,6 +62,26 @@ public class PlayerController : MonoBehaviour
         Gravity();
         UpdateAnimation();
         animator.SetBool("isJumping", !IsGrounded());
+        
+        
+        if (testingMode)
+        {
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                Debug.Log("Die");
+                Die();
+            }
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                Debug.Log("Lock controls");
+                LockPlayerControls();
+            }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Debug.Log("unLock controls");
+                UnlockPlayerControls();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -111,6 +131,22 @@ public class PlayerController : MonoBehaviour
         {
             rigidBody.gravityScale = baseGravity;
         }
+    }
+
+    public void Die()
+    {
+        animator.SetTrigger("TriggerDeath");
+        LockPlayerControls();
+    }
+
+    public void LockPlayerControls()
+    {
+        playerControls.Disable();
+    }
+
+    public void UnlockPlayerControls()
+    {
+        playerControls.Enable();
     }
 
     private void OnDrawGizmosSelected()
