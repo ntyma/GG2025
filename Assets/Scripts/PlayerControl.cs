@@ -19,12 +19,12 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        // disable character input if dialogue is active
-        //if (DialogueManager.Instance.isDialogueActive)
-        //{
-        //    horizontal = 0f;
-        //    return;
-        //}
+        // reset movement if dialogue is active
+        if (DialogueManager.Instance.isDialogueActive)
+        {
+            movement = Vector2.zero;
+            return;
+        }
 
         // wasd input
         float h = Input.GetAxisRaw("Horizontal");
@@ -35,7 +35,11 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        // uses Rigidbody2D to move the player
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        // only move the player if dialogue is not active
+        if (!DialogueManager.Instance.isDialogueActive)
+        {
+            // uses Rigidbody2D to move the player
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
     }
 }

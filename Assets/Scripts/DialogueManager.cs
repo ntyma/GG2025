@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 	public float typingSpeed = 0.03f;
 
 	public Animator animator;
+    //public GameObject dialogueBox; // Dialogue box GameObject
 
     private void Awake()
     {
