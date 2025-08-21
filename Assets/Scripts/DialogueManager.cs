@@ -31,13 +31,11 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-        //lines = new Queue<DialogueLine>();
-
         isDialogueActive = true;
 
         //animator.Play("show");
-        //dialogueBox.SetActive(true); // set the dialogue box active
         animator.SetTrigger("showTrigger");
+		print("Dialogue started");
 
         lines.Clear();
 
@@ -81,7 +79,7 @@ public class DialogueManager : MonoBehaviour
 	void EndDialogue()
 	{
 		isDialogueActive = false;
-        //animator.Play("hide");
         animator.SetTrigger("hideTrigger");
+		print("Dialogue ended");
     }
 }
