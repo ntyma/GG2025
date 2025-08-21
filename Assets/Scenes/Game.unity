@@ -184,7 +184,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9328003, y: 2.9328003}
+  m_Size: {x: 1.012317, y: 1.012317}
   m_EdgeRadius: 0
 --- !u!212 &52891267
 SpriteRenderer:
@@ -1335,7 +1335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8295734447525573458, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -260.92
+      value: -657
       objectReference: {fileID: 0}
     - target: {fileID: 8295734447525573458, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1364,7 +1364,7 @@ PrefabInstance:
       addedObject: {fileID: 4320269649002746952}
     - targetCorrespondingSourceObject: {fileID: 4341325521271431964, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4320269649002746953}
+      addedObject: {fileID: 4320269649002746957}
   m_SourcePrefab: {fileID: 100100000, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
 --- !u!114 &4320269649002746949 stripped
 MonoBehaviour:
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   isDialogueActive: 0
   typingSpeed: 0.03
   animator: {fileID: 127134250}
---- !u!95 &4320269649002746953
+--- !u!95 &4320269649002746957
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
