@@ -33,7 +33,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player") // if the player enters the trigger area
         {
             TriggerDialogue();
         }
