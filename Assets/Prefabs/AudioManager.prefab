@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Footsteps
-    clip: {fileID: 8300000, guid: 0570401fbd35b104abc592546fd6282d, type: 3}
+  - name: Footstep
+    clip: {fileID: 8300000, guid: f8c354d37bdcb2343bd87e8fc3d4f809, type: 3}
     volume: 0.417
     pitch: 0.25
     loop: 0
@@ -71,13 +71,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: KeyPickUp
     clip: {fileID: 8300000, guid: 4a6b9c5c18f132d4387d2502fbc2e1be, type: 3}
-    volume: 0.3
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: KeyDrop
     clip: {fileID: 8300000, guid: 7422dbe149769a241bfd248a1da99ea1, type: 3}
-    volume: 0.3
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -86,4 +86,10 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Title
+    clip: {fileID: 8300000, guid: 36ed3ce31481c1c4d8d9ef6482a9e6c3, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

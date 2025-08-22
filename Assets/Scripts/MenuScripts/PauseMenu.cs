@@ -64,6 +64,7 @@ public class PauseMenu : MonoBehaviour
         //Application.Quit();
 
         Debug.Log("Saving and returning to title");
+        AudioManager.instance.StopAllAudio();
         SceneManager.LoadScene("testMainMenu");
     }
 }

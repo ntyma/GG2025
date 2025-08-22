@@ -6,10 +6,16 @@ public class DialogueTriggerTest : MonoBehaviour
 {
     bool isPlaying = false;
     private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
+
+        if (audioManager == null)
+        {
+            UnityEngine.Debug.LogError("AudioManager instance not found!");
+        }
     }
 
     // Update is called once per frame

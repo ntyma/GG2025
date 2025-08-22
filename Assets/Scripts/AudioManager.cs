@@ -35,11 +35,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        Play("Theme");
-    }
-
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -73,7 +68,7 @@ public class AudioManager : MonoBehaviour
         Play(loopName);
     }
 
-    // 🔑 Hard stop everything including coroutines
+    // stop everything including coroutines
     public void StopIntroThenLoop(string introName, string loopName)
     {
         if (introLoopCoroutine != null)
@@ -122,9 +117,27 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        s.source.Stop();
+        if (s.source != null)
+            s.source.Stop();
+        else
+            UnityEngine.Debug.LogWarning("Sound: " + name + " has no AudioSource attached!");
     }
 
+    public void StopAllAudio()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
+
+        if (introLoopCoroutine != null)
+        {
+            StopCoroutine(introLoopCoroutine);
+            introLoopCoroutine = null;
+        }
+    }
+
+
     // To play a sound, add this line
-    // FindObjectOfType<AudioManager>().Play("SoundName");
+    // AudioManager.instance.Play("SoundName");
 }

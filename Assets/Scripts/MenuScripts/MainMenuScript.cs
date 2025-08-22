@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public void Start()
+    {
+        AudioManager.instance.Play("Title");
+    }
+
     public void ContinueGame()
     {
         SaveData continuingData = SaveManager.LoadGame();
@@ -29,6 +34,8 @@ public class MainMenuScript : MonoBehaviour
         SaveManager.SaveGame(data);
         SaveManager.loadingData = false;
         SceneManager.LoadScene("testScene_Sean");
+        AudioManager.instance.Stop("Title");
+        AudioManager.instance.Play("Theme");
     }
 
     public void QuitGame()

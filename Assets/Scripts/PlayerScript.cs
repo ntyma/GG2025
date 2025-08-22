@@ -14,12 +14,15 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float walkSpeed = 1.0f;
     [SerializeField] private float jumpForce = 1.0f;
     [SerializeField] private float checkRadius = 0.5f;
+    [SerializeField] private float stepInterval = 0.4f; // how often footsteps play when walking
 
     [SerializeField] private LayerMask whatIsGround;
 
     public bool isForwardRoute = false;
     public bool playerIsInLight = false;
     public bool playerIsInCover = false;
+
+    private float stepTimer = 0f; // timer for footsteps
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +39,8 @@ public class PlayerScript : MonoBehaviour
         {
             playerRigidBody.velocity = Vector2.up * jumpForce;
         }
+
+        Footsteps();
     }
 
     private bool isGrounded()
@@ -65,5 +70,23 @@ public class PlayerScript : MonoBehaviour
         this.isForwardRoute = isForwardRoute;
         this.playerHealthScript.SetRoute(isForwardRoute);
         this.playerVisionScript.SetRoute(isForwardRoute);
+    }
+
+    private void Footsteps()
+    {
+        bool isMoving = Mathf.Abs(playerRigidBody.velocity.x) > 0.1f;
+        bool grounded = isGrounded();
+
+        if (isMoving && grounded)
+        {
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0f)
+            {
+                AudioManager.instance.Play("Footstep"); // single step sound
+                stepTimer = stepInterval; // reset timer
+            }
+        }
+        else
+            stepTimer = 0f; // reset when not moving
     }
 }

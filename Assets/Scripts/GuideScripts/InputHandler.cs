@@ -7,18 +7,14 @@ public class InputHandler : MonoBehaviour
 {
     private Camera _mainCamera;
 
-    [SerializeField]
-    private SpriteMask spriteMask;
+    [SerializeField] private SpriteMask spriteMask;
 
-    [SerializeField]
-    private float scaleAmount = 0.2f;      // how much to expand
-    [SerializeField]
-    private float scaleDuration = 0.1f;    // how long to expand/shrink
-    [SerializeField]
-    private float holdTime = 0.1f;         // how long to stay expanded
+    private float targetScale;
 
-    private Vector3 originalScale;
-    private Coroutine pulseCoroutine;
+    [SerializeField] private float scrollSensitivity = 0.001f;
+    [SerializeField] private float minSize = 0.5f;
+    [SerializeField] private float maxSize = 2f;
+    [SerializeField] private float lerpSpeed = 10f;
 
     private void Awake()
     {
@@ -26,48 +22,32 @@ public class InputHandler : MonoBehaviour
 
         if (spriteMask != null)
         {
-            originalScale = spriteMask.transform.localScale;
+            targetScale = spriteMask.transform.localScale.x;
         }
     }
 
-    public void OnClick(InputAction.CallbackContext context)
+    private void Update()
     {
-        if (!context.started) return;
-
         if (spriteMask != null)
         {
-            if (pulseCoroutine != null)
-            {
-                StopCoroutine(pulseCoroutine);
-            }
-            pulseCoroutine = StartCoroutine(PulseSpriteMask());
+            float current = spriteMask.transform.localScale.x;
+            float newScale = Mathf.Lerp(current, targetScale, Time.deltaTime * lerpSpeed);
+
+            spriteMask.transform.localScale = new Vector3(newScale, newScale, 1f);
         }
     }
 
-    private IEnumerator PulseSpriteMask()
+    public void OnScroll(InputAction.CallbackContext context)
     {
-        Vector3 targetScale = originalScale + Vector3.one * scaleAmount;
+        float scrollY = context.ReadValue<Vector2>().y;
 
-        // expand
-        yield return ScaleOverTime(spriteMask.transform, originalScale, targetScale, scaleDuration);
-
-        // hold at expanded size
-        yield return new WaitForSeconds(holdTime);
-
-        // shrink
-        yield return ScaleOverTime(spriteMask.transform, targetScale, originalScale, scaleDuration);
-    }
-
-    private IEnumerator ScaleOverTime(Transform target, Vector3 from, Vector3 to, float duration)
-    {
-        float time = 0f;
-        while (time < duration)
+        if (Mathf.Abs(scrollY) > 0.01f)
         {
-            float t = time / duration;
-            target.localScale = Vector3.Lerp(from, to, t);
-            time += Time.deltaTime;
-            yield return null;
+            // accumulate target size instead of snapping
+            targetScale += scrollY * scrollSensitivity;
+
+            // clamp so it doesn't grow/shrink forever
+            targetScale = Mathf.Clamp(targetScale, minSize, maxSize);
         }
-        target.localScale = to;
     }
 }
