@@ -36,6 +36,7 @@ public class Door : MonoBehaviourWithReset
             locked = false;
             col.isTrigger = true;
             lockSpriteRenderer.color = new Color(0.0f, 1.0f, 1.0f, 0.3f);
+            FindObjectOfType<AudioManager>().Play("DoorOpen");
             //Destroy(other.gameObject);
 
             // Reset and Disable Key GameObject

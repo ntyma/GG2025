@@ -52,12 +52,14 @@ public class KeyManager : MonoBehaviourWithReset
         if (other.gameObject.CompareTag("Guide") && !isPickedUp)
         {
             isPickedUp = true;
+            FindObjectOfType<AudioManager>().Play("KeyPickUp");
         }
     }
 
     public void UntetherKey()
     {
         isPickedUp = false;
+        FindObjectOfType<AudioManager>().Play("KeyDrop");
         transform.position = originalPosition;
 
         // reset velocity so it doesn’t keep sliding
