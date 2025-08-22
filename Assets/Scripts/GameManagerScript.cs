@@ -26,6 +26,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("starting game");
         if (!cameraGameObject.TryGetComponent<MainCameraScript>(out mainCameraScript))
             Debug.Log("Camera Game Object DOES NOT HAVE a MainCameraScript Component! - from Start() in GameManagerScript");
 
@@ -50,6 +51,14 @@ public class GameManagerScript : MonoBehaviour
             levelRespawnPointsCollection[i++] = childTransform.gameObject;
         }
 
+        if (SaveManager.loadingData)
+        {
+            currentGameLevel = SaveManager.levelLoading;
+            Debug.Log("loaded save data! Current level: " + currentGameLevel);
+        }
+        //to resume time in case it was stopped by a previous pause
+        Time.timeScale = 1f;
+        Debug.Log(currentGameLevel);
         SelectLevel(currentGameLevel);
     }
     public void Update()
@@ -58,6 +67,7 @@ public class GameManagerScript : MonoBehaviour
             SwapRoute();
         if (Input.GetKeyDown(KeyCode.R))
             playerHealthScript.Respawn();
+            
     }
     public void ProgressLevel (bool isProgressing)
     {
@@ -72,6 +82,11 @@ public class GameManagerScript : MonoBehaviour
         EnableObstaclesInLevelFrame();
         SetRespawnPoint();
         mainCameraScript.ProgressCamera(isProgressing);
+        SaveData data = new SaveData
+        {
+            playerLevel = currentGameLevel,
+        };
+        SaveManager.SaveGame(data);
     }
     // Enables the Obstacles of levels
     // currentGameLevel - levelObstacleGenerationFrameSize
