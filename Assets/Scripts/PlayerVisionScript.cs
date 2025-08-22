@@ -19,6 +19,8 @@ public class PlayerVisionScript : MonoBehaviour
     [SerializeField] private float playerSanityRegainRate = 50.0f;
     [SerializeField] private float playerSanityDepletionRate = 20.0f;
 
+    private bool isForwardRoute = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,5 +59,13 @@ public class PlayerVisionScript : MonoBehaviour
             playerVisionScaleMax,
             playerSanity*0.01f
         );
+    }
+
+    public void SetRoute(bool isForwardRoute = true)
+    {
+        this.isForwardRoute = isForwardRoute;
+
+        // Enable Paranoia only for ForwardRoute, and Disables in for BackwardRoute
+        playerParanoia.enabled = this.isForwardRoute;
     }
 }

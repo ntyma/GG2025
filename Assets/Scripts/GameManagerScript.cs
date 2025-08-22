@@ -11,6 +11,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject levelRespawnPointsGameObject;
     private MainCameraScript mainCameraScript;
 
+    [SerializeField] private PlayerScript playerScript;
     private Health playerHealthScript;
     [Header("Level Statistics")]
     public int currentGameLevel = 0;
@@ -202,7 +203,9 @@ public class GameManagerScript : MonoBehaviour
         guideGameObject.transform.position = spawnPosition;
 
         EnableObstaclesInLevelFrame();
+        guideGameObject.SetActive(isForwardRoute);
         SetRespawnPoint();
+        playerScript.SetRoute(isForwardRoute);
         mainCameraScript.SetCameraPosition(Index);
     }
 
@@ -220,8 +223,10 @@ public class GameManagerScript : MonoBehaviour
             DisableObstaclesOfLevel(i);
         }
 
+        guideGameObject.SetActive(isForwardRoute);
         EnableObstaclesInLevelFrame();
         SetRespawnPoint();
+        playerScript.SetRoute(isForwardRoute);
 
         if (respawnPlayer)
         {

@@ -5,19 +5,35 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     public Transform respawnPoint;
     public FollowMouse guide;
-    public GameManagerScript gameManagerScript;
 
+    [SerializeField] private PlayerScript playerScript;
+    [SerializeField] private GameManagerScript gameManagerScript;
+    private bool isForwardRoute = true;
+
+    [SerializeField] private float backwardRouteHealthDrain = 2.0f;
+    [SerializeField] private float backwardRouteHealthRegen = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
     }
-
-    public void TakeDamage(int amount)
+    private void Update()
+    {
+        if (isForwardRoute)
+            return;
+        // if in BackwardRoute
+        // Drain Health in Light AND not in Cover
+        if (playerScript.playerIsInLight && !playerScript.playerIsInCover)
+            TakeDamage(backwardRouteHealthDrain * Time.deltaTime);
+        // Else Regen Health
+        else
+            Heal(backwardRouteHealthRegen * Time.deltaTime);
+    }
+    public void TakeDamage(float amount)
     {
         // add sound here
 
@@ -31,6 +47,10 @@ public class Health : MonoBehaviour
             Respawn();
         }
     }
+    public void Heal(float healAmount)
+    {
+        currentHealth = Mathf.Clamp((currentHealth + healAmount), 0.0f, maxHealth);
+    }
 
     public void Respawn()
     {
@@ -39,5 +59,9 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth; // restore full health on respawn
 
         gameManagerScript.ResetLevelObstacles(gameManagerScript.currentGameLevel);
+    }
+    public void SetRoute(bool isForwardRoute = true)
+    {
+        this.isForwardRoute = isForwardRoute;
     }
 }

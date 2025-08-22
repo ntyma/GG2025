@@ -8,6 +8,7 @@ TagManager:
   - Guide
   - Key
   - Enemy
+  - Cover
   layers:
   - Default
   - TransparentFX

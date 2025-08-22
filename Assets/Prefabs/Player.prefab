@@ -369,6 +369,8 @@ MonoBehaviour:
   playerRigidBody: {fileID: 5847426900027297644}
   playerSpriteRenderer: {fileID: 1813961100509740003}
   playerBoxCollider: {fileID: 7900465043187211988}
+  playerHealthScript: {fileID: 0}
+  playerVisionScript: {fileID: 6366481074498299424}
   isFacingRight: 1
   walkSpeed: 5
   jumpForce: 12
@@ -376,7 +378,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  isForwardRoute: 0
   playerIsInLight: 0
+  playerIsInCover: 0
 --- !u!1 &6390846793905022617
 GameObject:
   m_ObjectHideFlags: 0

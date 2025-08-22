@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRigidBody;
     [SerializeField] private SpriteRenderer playerSpriteRenderer;
     [SerializeField] private BoxCollider2D playerBoxCollider;
+    [SerializeField] private Health playerHealthScript;
+    [SerializeField] private PlayerVisionScript playerVisionScript;
 
     public bool isFacingRight = true;
     [SerializeField] private float walkSpeed = 1.0f;
@@ -15,7 +17,9 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] private LayerMask whatIsGround;
 
+    public bool isForwardRoute = false;
     public bool playerIsInLight = false;
+    public bool playerIsInCover = false;
     // Update is called once per frame
     void Update()
     {
@@ -45,10 +49,21 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Light")
             playerIsInLight = true;
+        else if (collision.gameObject.tag == "Cover")
+            playerIsInCover = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
             playerIsInLight = false;
+        else if (collision.gameObject.tag == "Cover")
+            playerIsInCover = false;
+    }
+
+    public void SetRoute(bool isForwardRoute = true)
+    {
+        this.isForwardRoute = isForwardRoute;
+        this.playerHealthScript.SetRoute(isForwardRoute);
+        this.playerVisionScript.SetRoute(isForwardRoute);
     }
 }
