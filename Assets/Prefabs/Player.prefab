@@ -187,10 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda95c474c7b8824d9375d4bb72655bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 0.5
-  tilemap: {fileID: 0}
+  currentPlayerMemoryTilemap: {fileID: 0}
   gridLayout: {fileID: 0}
-  worldPosition: {x: 2.53, y: 0.55, z: 0}
+  playerMemoryRadius: 2
 --- !u!1 &3679191582197060399
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,10 +370,12 @@ MonoBehaviour:
   playerBoxCollider: {fileID: 7900465043187211988}
   playerHealthScript: {fileID: 0}
   playerVisionScript: {fileID: 6366481074498299424}
+  playerMemoryScript: {fileID: 2407829934136595925}
   isFacingRight: 1
   walkSpeed: 5
   jumpForce: 12
   checkRadius: 0.5
+  stepInterval: 0.4
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64

@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     [SerializeField] private GameManagerScript gameManagerScript;
     private bool isForwardRoute = true;
 
+    [SerializeField] private float forwardRouteHealthRegen = 0.2f;
     [SerializeField] private float backwardRouteHealthDrain = 2.0f;
     [SerializeField] private float backwardRouteHealthRegen = 0.5f;
     // Start is called before the first frame update
@@ -23,15 +24,22 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
+        // in ForwardRoute
         if (isForwardRoute)
-            return;
-        // if in BackwardRoute
-        // Drain Health in Light AND not in Cover
-        if (playerScript.playerIsInLight && !playerScript.playerIsInCover)
-            TakeDamage(backwardRouteHealthDrain * Time.deltaTime);
-        // Else Regen Health
+        {
+            if (playerScript.playerIsInLight)
+                Heal(forwardRouteHealthRegen * Time.deltaTime);
+        }
+        // in BackwardRoute
         else
-            Heal(backwardRouteHealthRegen * Time.deltaTime);
+        {
+            // Drain Health in Light AND not in Cover
+            if (playerScript.playerIsInLight && !playerScript.playerIsInCover)
+                TakeDamage(backwardRouteHealthDrain * Time.deltaTime);
+            // Else Regen Health
+            else
+                Heal(backwardRouteHealthRegen * Time.deltaTime);
+        }
     }
     public void TakeDamage(float amount)
     {

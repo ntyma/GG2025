@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private BoxCollider2D playerBoxCollider;
     [SerializeField] private Health playerHealthScript;
     [SerializeField] private PlayerVisionScript playerVisionScript;
+    [SerializeField] private PlayerMemoryScript playerMemoryScript;
 
     public bool isFacingRight = true;
     [SerializeField] private float walkSpeed = 1.0f;
@@ -71,7 +73,10 @@ public class PlayerScript : MonoBehaviour
         this.playerHealthScript.SetRoute(isForwardRoute);
         this.playerVisionScript.SetRoute(isForwardRoute);
     }
-
+    public void SetPlayerMemoryTilemap (Tilemap Input)
+    {
+        playerMemoryScript.SetPlayerMemoryTilemap(Input);
+    }
     private void Footsteps()
     {
         bool isMoving = Mathf.Abs(playerRigidBody.velocity.x) > 0.1f;

@@ -99,3 +99,5 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 LevelDesign.*
+Assets/Scenes/PlayerMemoryTestScene.unity
+Assets/Scenes/PlayerMemoryTestScene.unity.meta

@@ -9,6 +9,7 @@ TagManager:
   - Key
   - Enemy
   - Cover
+  - Memory
   layers:
   - Default
   - TransparentFX
