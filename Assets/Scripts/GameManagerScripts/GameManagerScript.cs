@@ -8,6 +8,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private GameObject guideGameObject;
     [SerializeField] private GameObject cameraGameObject;
+    [SerializeField] private GameObject levelProgressionTriggersGameObject;
+    [SerializeField] private GameObject cameraPositionsGameObject;
     [SerializeField] private GameObject levelObstaclesGameObject;
     [SerializeField] private GameObject levelRespawnPointsGameObject;
     [SerializeField] private GameObject levelPlayerMemoryTilemapsGameObject;
@@ -30,6 +32,22 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         Debug.Log("starting game");
+        // Check if every Game Manager Collection is consistent with the number of levels
+        if  (
+                (levelObstaclesGameObject.transform.childCount != levelRespawnPointsGameObject.transform.childCount) ||
+                (levelObstaclesGameObject.transform.childCount != levelPlayerMemoryTilemapsGameObject.transform.childCount) ||
+                (levelObstaclesGameObject.transform.childCount != levelProgressionTriggersGameObject.transform.childCount+1) ||
+                (levelObstaclesGameObject.transform.childCount != cameraPositionsGameObject.transform.childCount)
+            )
+        {
+            Debug.Log("A Level Component is Missing! - from Start() in GameManagerScript\n" +
+                "There are " + levelObstaclesGameObject.transform.childCount + " sets of Level Obstacles... (CLICK FOR MORE INFO)\n" +
+                "There are " + levelRespawnPointsGameObject.transform.childCount + " sets of Level Respawn Points\n" +
+                "There are " + levelPlayerMemoryTilemapsGameObject.transform.childCount + " sets of Player Memory Tilemaps\n" +
+                "There are " + cameraPositionsGameObject.transform.childCount + " sets of Level Camera Positions" +
+                "There are " + levelProgressionTriggersGameObject.transform.childCount + " sets of Level Progression Triggers (this should be 1 less than other Values)\n");
+        }
+
         if (!cameraGameObject.TryGetComponent<MainCameraScript>(out mainCameraScript))
             Debug.Log("Camera Game Object DOES NOT HAVE a MainCameraScript Component! - from Start() in GameManagerScript");
 

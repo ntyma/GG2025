@@ -362,7 +362,7 @@ MonoBehaviour:
   chandelierPositions: {fileID: 7765263581365265697}
   isInLight: 0
   isFalling: 0
-  isRetracting: 1
+  isRetracting: 0
   fallingRate: 3
   fallingAcceleration: 15
   retractingRate: 2

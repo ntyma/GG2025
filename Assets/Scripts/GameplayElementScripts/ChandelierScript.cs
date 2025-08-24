@@ -10,23 +10,29 @@ public class ChandelierScript : MonoBehaviourWithReset
 
     private Vector3 startingPosition;
     private Vector3 endingPosition;
-    [SerializeField] private bool isInLight = false;
-    [SerializeField] private bool isFalling = false;
-    [SerializeField] private bool isRetracting = false;
+    private bool isInLight = false;
+    private bool isFalling = false;
+    private bool isRetracting = false;
 
     [SerializeField] private float fallingRate = 3.0f;
     [SerializeField] private float fallingAcceleration = 2.0f;
-    private float currentFallingAccerleration = 0.0f;
+    [SerializeField] private float currentFallingAccerleration = 0.0f;
     [SerializeField] private float retractingRate = 2.0f;
     [SerializeField] private float Damage = 5.0f;
     // Awake is called before the first frame update and before Start
     void Awake()
     {
+        isInLight = false;
+        isFalling = false;
+        isRetracting = false;
         startingPosition = chandelierPositions.transform.GetChild(0).position;
         endingPosition = chandelierPositions.transform.GetChild(1).position;
         this.transform.position = startingPosition;
 
         currentFallingAccerleration = 0.0f;
+
+        if (mainCameraScript == null)
+            Debug.Log("This Chandelier CAN'T Shake Camera! - from Awake() in ChandelierScript");
     }
 
     // Update is called once per frame
@@ -78,7 +84,9 @@ public class ChandelierScript : MonoBehaviourWithReset
     {
         currentFallingAccerleration = 0.0f;
         isFalling = false;
-        mainCameraScript.CameraShake();
+
+        if (mainCameraScript != null)
+            mainCameraScript.CameraShake();
 
         if (SetIsRetractingCoroutine != null)
             StopCoroutine(SetIsRetractingCoroutine);

@@ -203,7 +203,8 @@ GameObject:
   - component: {fileID: 7900465043187211988}
   - component: {fileID: 5847426900027297644}
   - component: {fileID: 1720682838101609978}
-  m_Layer: 0
+  - component: {fileID: 6879298931766031301}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -342,7 +343,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 18d13fef1b1894c4ba322597916364ba, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -382,6 +383,27 @@ MonoBehaviour:
   isForwardRoute: 0
   playerIsInLight: 0
   playerIsInCover: 0
+--- !u!114 &6879298931766031301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679191582197060399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b718e570d80f767419d04a3518dfe23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  currentHealth: 2
+  respawnPoint: {fileID: 0}
+  guide: {fileID: 0}
+  playerScript: {fileID: 1720682838101609978}
+  gameManagerScript: {fileID: 0}
+  forwardRouteHealthRegen: 0.2
+  backwardRouteHealthDrain: 2
+  backwardRouteHealthRegen: 0.5
 --- !u!1 &6390846793905022617
 GameObject:
   m_ObjectHideFlags: 0
