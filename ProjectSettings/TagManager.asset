@@ -50,3 +50,6 @@ TagManager:
   - name: PlayerParanoia
     uniqueID: 270012629
     locked: 0
+  - name: PlayerRespawn
+    uniqueID: 117296109
+    locked: 0
