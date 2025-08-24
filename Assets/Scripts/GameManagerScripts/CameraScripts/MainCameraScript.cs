@@ -158,4 +158,42 @@ public class MainCameraScript : MonoBehaviour
         //RefreshCamera();
         currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
     }
+
+    // Camera Shake
+    private float cameraShakeDuration = 0.1f;
+    private float cameraShakeIntensity = 0.02f;
+    private Coroutine shakeCoroutine;
+    public void CameraShake(float cameraShakeDuration = 0.1f, float cameraShakeIntensity = 0.02f)
+    {
+        this.cameraShakeDuration = cameraShakeDuration;
+        this.cameraShakeIntensity = cameraShakeIntensity;
+
+        // Don't shake the Camera more than once at a time
+        if (shakeCoroutine != null)
+            StopCoroutine(shakeCoroutine);
+
+        shakeCoroutine = StartCoroutine(CameraShakeCoroutine());
+    }
+    // Thanks for giving me a start Google AI, I can't believe I just typed  that
+    private IEnumerator CameraShakeCoroutine()
+    {
+        float currentShakeDuration = cameraShakeDuration;
+        float currentCameraShakeIntensity = cameraShakeIntensity;
+        while (currentShakeDuration > 0)
+        {
+            // Calculate random offset
+            Vector3 randomOffset = Random.insideUnitSphere * currentCameraShakeIntensity;
+
+            // Apply offset to camera position
+            this.transform.position = this.transform.position + randomOffset;
+
+            // Reduce shake magnitude over time
+            currentCameraShakeIntensity = Mathf.Lerp(currentCameraShakeIntensity, 0.0f, Time.deltaTime);
+
+            // Reduce duration
+            currentShakeDuration = currentShakeDuration - Time.deltaTime;
+
+            yield return null; // Wait for the next frame
+        }
+    }
 }
