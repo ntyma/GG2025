@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PressurePlateScript : MonoBehaviourWithReset
 {
+    public Sprite plateOff;
+    public Sprite plateOn;
+
     [SerializeField] private GameObject doorGameObject;
     private Vector3 doorStartingPosition;
     private Vector3 doorEndingPosition;
@@ -12,6 +15,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
     [SerializeField] private float pressureTarget = 100.0f;
     [SerializeField] private float pressureFillRate = 50.0f;
     [SerializeField] private float pressureDrainRate = 10.0f;
+    [SerializeField] private SpriteRenderer plateSpriteRenderer;
+    [SerializeField] private SpriteRenderer plateIllumSpriteRenderer;
 
     public bool pressureIsActivated = false;
 
@@ -52,6 +57,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
 
         pressureIsActivated = true;
         pressureStatus = Mathf.Clamp(pressureStatus + pressureFillRate * Time.deltaTime, 0.0f, pressureTarget);
+        plateSpriteRenderer.sprite = plateOn;
+        plateIllumSpriteRenderer.sprite = plateOn;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -59,6 +66,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
             return;
 
         pressureIsActivated = false;
+        plateSpriteRenderer.sprite = plateOff;
+        plateIllumSpriteRenderer.sprite = plateOff;
     }
     public override void ResetToInstantiation()
     {
@@ -69,5 +78,7 @@ public class PressurePlateScript : MonoBehaviourWithReset
         pressureFillRate = pressureFillRateInitial;
         pressureDrainRate = pressureDrainRateInitial;
         pressureIsActivated = pressureIsActivatedInitial;
+        plateSpriteRenderer.sprite = plateOff;
+        plateIllumSpriteRenderer.sprite = plateOff;
     }
 }
