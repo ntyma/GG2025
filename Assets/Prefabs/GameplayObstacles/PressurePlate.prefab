@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 4300862116456937670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.02, y: 5.09, z: 0}
-  m_LocalScale: {x: 1, y: 3.2, z: 1}
+  m_LocalPosition: {x: 20.2, y: 17.2, z: 0}
+  m_LocalScale: {x: 3, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5210633277194622911}
@@ -244,7 +244,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.53, y: -2.996, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8902207763500566243}
@@ -292,8 +292,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
+  m_Sprite: {fileID: 21300000, guid: b4799317105b32e4cb7d88b72094a20e, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -339,7 +339,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -360,12 +360,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c098d7c820623c94eb8b6e0b7b4c6a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plateOff: {fileID: 21300000, guid: b4799317105b32e4cb7d88b72094a20e, type: 3}
+  plateOn: {fileID: 21300000, guid: c98103b97c5248946a1786097394cb91, type: 3}
   doorGameObject: {fileID: 4300862116456937670}
   doorEndingPositionOffset: {x: 0, y: 5, z: 0}
   pressureStatus: 0
   pressureTarget: 100
   pressureFillRate: 25
   pressureDrainRate: 10
+  plateSpriteRenderer: {fileID: 4024237660249224871}
+  plateIllumSpriteRenderer: {fileID: 2663664242648900572}
   pressureIsActivated: 0
 --- !u!1 &8861747276913721398
 GameObject:
@@ -440,7 +444,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4799317105b32e4cb7d88b72094a20e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
