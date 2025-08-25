@@ -16599,7 +16599,7 @@ Transform:
   m_GameObject: {fileID: 6889977182510226614}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16609,7 +16609,7 @@ Transform:
   - {fileID: 4672978625042012077}
   - {fileID: 1719357095653561814}
   - {fileID: 7837919019874730773}
-  m_Father: {fileID: 1150108781620632014}
+  m_Father: {fileID: 6340847194564810912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1091592216631085935
 Transform:
@@ -16638,8 +16638,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 814899097506955998}
+  m_Children: []
   m_Father: {fileID: 6340847194564810912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1190179721088125828
@@ -16931,6 +16930,8 @@ MonoBehaviour:
   levelCameraState: 1
   lockedToArea_xLength: 0
   lockedToArea_yLength: 0
+  followPlayer_xOffset: 0
+  followPlayer_yOffset: 1
 --- !u!1 &2124762072502764639
 GameObject:
   m_ObjectHideFlags: 0
@@ -17632,6 +17633,8 @@ MonoBehaviour:
   levelCameraState: 0
   lockedToArea_xLength: 0
   lockedToArea_yLength: 0
+  followPlayer_xOffset: 0
+  followPlayer_yOffset: 0
 --- !u!1 &3864953564568671564
 GameObject:
   m_ObjectHideFlags: 0
@@ -17779,6 +17782,8 @@ MonoBehaviour:
   levelCameraState: 0
   lockedToArea_xLength: 0
   lockedToArea_yLength: 0
+  followPlayer_xOffset: 0
+  followPlayer_yOffset: 0
 --- !u!81 &4210495631155131695
 AudioListener:
   m_ObjectHideFlags: 0
@@ -18010,6 +18015,8 @@ MonoBehaviour:
   levelCameraState: 1
   lockedToArea_xLength: 0
   lockedToArea_yLength: 0
+  followPlayer_xOffset: 0
+  followPlayer_yOffset: 1
 --- !u!1 &4786908232706119117
 GameObject:
   m_ObjectHideFlags: 0
@@ -18304,6 +18311,8 @@ MonoBehaviour:
   levelCameraState: 0
   lockedToArea_xLength: 0
   lockedToArea_yLength: 0
+  followPlayer_xOffset: 0
+  followPlayer_yOffset: 0
 --- !u!114 &5571250963722629937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18351,6 +18360,8 @@ MonoBehaviour:
   levelCameraState: 0
   lockedToArea_xLength: 5
   lockedToArea_yLength: 0
+  followPlayer_xOffset: 0
+  followPlayer_yOffset: 0
 --- !u!1 &5862106196090636527
 GameObject:
   m_ObjectHideFlags: 0
@@ -18611,6 +18622,7 @@ Transform:
   - {fileID: 8237810608940320489}
   - {fileID: 8039052202448560689}
   - {fileID: 1150108781620632014}
+  - {fileID: 814899097506955998}
   - {fileID: 1832594531}
   - {fileID: 1313904388}
   - {fileID: 1690271418}
@@ -19534,6 +19546,8 @@ MonoBehaviour:
   playerGameObject: {fileID: 33953521}
   guideGameObject: {fileID: 1919596422}
   cameraGameObject: {fileID: 3902990454215269345}
+  levelProgressionTriggersGameObject: {fileID: 3523465653208625921}
+  cameraPositionsGameObject: {fileID: 6889977182510226614}
   levelObstaclesGameObject: {fileID: 3864953564568671564}
   levelRespawnPointsGameObject: {fileID: 6944285010755190343}
   levelPlayerMemoryTilemapsGameObject: {fileID: 2004649635}
@@ -19607,8 +19621,7 @@ MonoBehaviour:
   playerGameObject: {fileID: 33953521}
   isActive: 1
   cameraPositionIndex: 0
-  currentCameraState: 0
-  cameraLevelSettings: []
+  currentCameraPositionGameObject: {fileID: 0}
 --- !u!4 &9123113079377030983
 Transform:
   m_ObjectHideFlags: 0

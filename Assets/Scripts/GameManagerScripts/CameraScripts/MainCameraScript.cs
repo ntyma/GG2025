@@ -15,54 +15,14 @@ public class MainCameraScript : MonoBehaviour
     }
 
     [SerializeField] private int cameraPositionIndex = 0;
-    [SerializeField] private CameraMovementStates currentCameraState;
     private float cameraMoveSpeedCoefficient = 5.0f;
 
-    [System.Serializable]
-    public class CameraLevelSettings
-    {
-        public Vector3 levelCameraPosition;
-        public CameraMovementStates levelCameraState;
-        public float lockedToArea_xLength;
-        public float lockedToArea_yLength;
-
-        public CameraLevelSettings (Vector3 CameraPosition, CameraMovementStates CameraState = CameraMovementStates.lockedToArea, float xLength = 0.0f, float yLength = 0.0f)
-        {
-            this.levelCameraPosition = CameraPosition;
-            this.levelCameraState = CameraState;
-            this.lockedToArea_xLength = xLength;
-            this.lockedToArea_yLength = yLength;
-        }
-    };
-    [SerializeField] private CameraLevelSettings[] cameraLevelSettings;
-
+    [SerializeField] private GameObject currentCameraPositionGameObject;
+    private CameraPositionScript currentCameraPositionsScript;
     // Awake is called before all Start() functions
     void Awake()
     {
         cameraPositionsCount = cameraPositionsGameObject.transform.childCount;
-
-        cameraLevelSettings = new CameraLevelSettings[cameraPositionsCount];
-
-        // Initialize all Camera Data for Every Level
-        int i = 0;
-        foreach (Transform childTransform in cameraPositionsGameObject.transform)
-        {
-            if (!childTransform.gameObject.TryGetComponent<CameraPositionScript>(out CameraPositionScript currentCameraPositionScript))
-            {
-                Debug.Log("No CameraPositionScript component found! - from Start() in MainCameraScript");
-                continue;
-            }
-            cameraLevelSettings[i++] = new CameraLevelSettings
-                (
-                    childTransform.position,
-                    currentCameraPositionScript.levelCameraState,
-                    currentCameraPositionScript.lockedToArea_xLength,
-                    currentCameraPositionScript.lockedToArea_yLength
-                );
-        }
-
-        // Initialize Camera to position
-        //SetCameraPosition(cameraPositionIndex);
     }
 
     // Update is responsible for the actual smooth movement of the Camera
@@ -71,22 +31,22 @@ public class MainCameraScript : MonoBehaviour
         if (!isActive)
             return;
         // Camera is locked to pre-set Camera Position
-        if (currentCameraState == CameraMovementStates.lockedToArea)
+        if (currentCameraPositionsScript.levelCameraState == CameraMovementStates.lockedToArea)
         {
-            Vector3 currentCameraPosition = cameraLevelSettings[cameraPositionIndex].levelCameraPosition;
+            Vector3 currentCameraPosition = currentCameraPositionsScript.transform.position;
             Vector3 targetCameraPosition = new Vector3
                 (
                     Mathf.Clamp
                     (
                         playerGameObject.transform.position.x, 
-                        currentCameraPosition.x, 
-                        currentCameraPosition.x + cameraLevelSettings[cameraPositionIndex].lockedToArea_xLength
+                        currentCameraPosition.x,
+                        currentCameraPosition.x + currentCameraPositionsScript.lockedToArea_xLength
                     ),
                     Mathf.Clamp
                     (
                         playerGameObject.transform.position.y, 
-                        currentCameraPosition.y, 
-                        currentCameraPosition.y + cameraLevelSettings[cameraPositionIndex].lockedToArea_yLength
+                        currentCameraPosition.y,
+                        currentCameraPosition.y + currentCameraPositionsScript.lockedToArea_yLength
                     ),
                     this.transform.position.z
                 );
@@ -100,15 +60,15 @@ public class MainCameraScript : MonoBehaviour
             );
         }
         // Camera follows Player
-        if (currentCameraState == CameraMovementStates.followPlayer)
+        if (currentCameraPositionsScript.levelCameraState == CameraMovementStates.followPlayer)
         {
             this.transform.position = Vector3.Lerp
                 (
                     this.transform.position, 
                     new Vector3
                     (
-                        playerGameObject.transform.position.x, 
-                        playerGameObject.transform.position.y+1.0f, 
+                        playerGameObject.transform.position.x + currentCameraPositionsScript.followPlayer_xOffset,
+                        playerGameObject.transform.position.y + currentCameraPositionsScript.followPlayer_yOffset,
                         this.transform.position.z
                     ), 
                     cameraMoveSpeedCoefficient * Time.deltaTime
@@ -121,27 +81,12 @@ public class MainCameraScript : MonoBehaviour
     public void ProgressCamera(bool isProgressing)
     {
         // Increment Index if Increment is true, Decrement otherwise
-        cameraPositionIndex = cameraPositionIndex + (isProgressing ? 1 : -1);
+        // Mathf.Clamp() is for Index Out of Bounds Protection
+        cameraPositionIndex = Mathf.Clamp(cameraPositionIndex + (isProgressing ? 1 : -1), 0, cameraPositionsCount - 1);
 
-        // Index out of bounds protection
-        if (cameraPositionIndex < 0)
-            cameraPositionIndex = 0;
-        else if (cameraPositionIndex >= cameraPositionsCount)
-            cameraPositionIndex = cameraPositionsCount - 1;
-
-        //RefreshCamera();
-        currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
+        currentCameraPositionGameObject = cameraPositionsGameObject.transform.GetChild(cameraPositionIndex).gameObject;
+        currentCameraPositionsScript = currentCameraPositionGameObject.GetComponent<CameraPositionScript>();
     }
-    /*[ContextMenu("RefreshCamera()")]
-    public void RefreshCamera()
-    {
-        if (cameraPositionIndex < 0 || cameraPositionIndex >= cameraPositionsCount)
-        {
-            Debug.Log("cameraPositionIndex is OUT OF BOUNDS - in RefreshCamera() from MainCameraScript");
-            return;
-        }
-        currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
-    }*/
 
     // Sets Camera to the position at Index, if Out of Bounds, then function does nothing
     public void SetCameraPosition(int Index)
@@ -154,9 +99,9 @@ public class MainCameraScript : MonoBehaviour
         }
 
         cameraPositionIndex = Index;
-        this.transform.position = cameraLevelSettings[cameraPositionIndex].levelCameraPosition;
-        //RefreshCamera();
-        currentCameraState = cameraLevelSettings[cameraPositionIndex].levelCameraState;
+        currentCameraPositionGameObject = cameraPositionsGameObject.transform.GetChild(Index).gameObject;
+        currentCameraPositionsScript = currentCameraPositionGameObject.GetComponent<CameraPositionScript>();
+        this.transform.position = currentCameraPositionsScript.transform.position;
     }
 
     // Camera Shake

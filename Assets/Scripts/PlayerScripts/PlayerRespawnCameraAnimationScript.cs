@@ -26,6 +26,7 @@ public class PlayerRespawnCameraAnimationScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightShift))
             PlayPlayerDeathCameraAnimation();
     }
+    //  Enables or Disables Player Spotlight Sprite Mask and Black Background based on Input
     public void SetAllSpriteComponents (bool Input = true)
     {
         playerSpotlightSpriteMask.enabled = Input;

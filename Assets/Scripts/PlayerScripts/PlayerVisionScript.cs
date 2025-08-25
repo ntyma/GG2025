@@ -5,13 +5,12 @@ using UnityEngine;
 public class PlayerVisionScript : MonoBehaviour
 {
     [SerializeField] private PlayerScript playerScript;
-    [SerializeField] private SpriteMask playerSpriteMask;
-    [SerializeField] private SpriteRenderer playerParanoia;
+    [SerializeField] private GameObject playerVisionGameObject;
+    [SerializeField] private SpriteMask playerVisionSpriteMask;
+    [SerializeField] private SpriteRenderer playerParanoiaSpriteRenderer;
 
     [SerializeField] private Vector3 playerVisionScaleMax = new Vector3(3.0f, 3.0f, 1.0f);
     [SerializeField] private Vector3 playerVisionScaleMin = new Vector3(0.8f, 0.8f, 1.0f);
-
-    public bool drainSanityInDark = true;
 
     [SerializeField] private float playerSanity = 100.0f;
     [SerializeField] private float playerSanityLowerBound = 0.0f;
@@ -24,7 +23,7 @@ public class PlayerVisionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerParanoia.enabled = true;
+        SetAllSpriteComponents(true);
         playerSanity = playerSanityUpperBound;
     }
 
@@ -53,7 +52,7 @@ public class PlayerVisionScript : MonoBehaviour
         }
 
         // Shrink player vision based on Sanity
-        this.transform.localScale = Vector3.Lerp
+        playerVisionGameObject.transform.localScale = Vector3.Lerp
         (
             playerVisionScaleMin, 
             playerVisionScaleMax,
@@ -66,6 +65,12 @@ public class PlayerVisionScript : MonoBehaviour
         this.isForwardRoute = isForwardRoute;
 
         // Enable Paranoia only for ForwardRoute, and Disables in for BackwardRoute
-        playerParanoia.enabled = this.isForwardRoute;
+        SetAllSpriteComponents(this.isForwardRoute);
+    }
+    // Enables or Disables the Player Vision Sprite Mask and Player Paranoia Sprite Renderer based on Input
+    private void SetAllSpriteComponents(bool Input = true)
+    {
+        playerVisionSpriteMask.enabled = Input;
+        playerParanoiaSpriteRenderer.enabled = Input; 
     }
 }
