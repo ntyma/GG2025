@@ -12,6 +12,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject cameraPositionsGameObject;
     [SerializeField] private GameObject levelObstaclesGameObject;
     [SerializeField] private GameObject levelRespawnPointsGameObject;
+    [SerializeField] private GameObject levelForegroundTilemapsGameObject;
     [SerializeField] private GameObject levelPlayerMemoryTilemapsGameObject;
     private MainCameraScript mainCameraScript;
 
@@ -25,6 +26,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private bool[] levelHasObstacles;
     [SerializeField] private int levelObstacleGenerationFrameSize = 2;
     [SerializeField] private GameObject[] levelPlayerMemoryTilemapsCollection;
+    [SerializeField] private GameObject[] levelForegroundTilemapsCollection;
 
     public bool isForwardRoute = true;
 
@@ -35,6 +37,7 @@ public class GameManagerScript : MonoBehaviour
         // Check if every Game Manager Collection is consistent with the number of levels
         if  (
                 (levelObstaclesGameObject.transform.childCount != levelRespawnPointsGameObject.transform.childCount) ||
+                (levelObstaclesGameObject.transform.childCount != levelForegroundTilemapsGameObject.transform.childCount) ||
                 (levelObstaclesGameObject.transform.childCount != levelPlayerMemoryTilemapsGameObject.transform.childCount) ||
                 (levelObstaclesGameObject.transform.childCount != levelProgressionTriggersGameObject.transform.childCount+1) ||
                 (levelObstaclesGameObject.transform.childCount != cameraPositionsGameObject.transform.childCount)
@@ -43,6 +46,7 @@ public class GameManagerScript : MonoBehaviour
             Debug.Log("A Level Component is Missing! - from Start() in GameManagerScript\n" +
                 "There are " + levelObstaclesGameObject.transform.childCount + " sets of Level Obstacles... (CLICK FOR MORE INFO)\n" +
                 "There are " + levelRespawnPointsGameObject.transform.childCount + " sets of Level Respawn Points\n" +
+                "There are " + levelForegroundTilemapsGameObject.transform.childCount + " sets of Player Foreground Tilemaps\n" +
                 "There are " + levelPlayerMemoryTilemapsGameObject.transform.childCount + " sets of Player Memory Tilemaps\n" +
                 "There are " + cameraPositionsGameObject.transform.childCount + " sets of Level Camera Positions" +
                 "There are " + levelProgressionTriggersGameObject.transform.childCount + " sets of Level Progression Triggers (this should be 1 less than other Values)\n");
@@ -70,6 +74,13 @@ public class GameManagerScript : MonoBehaviour
         foreach (Transform childTransform in levelRespawnPointsGameObject.transform)
         {
             levelRespawnPointsCollection[i++] = childTransform.gameObject;
+        }
+        // Load in ALL level specific Foreground Tilemaps
+        levelForegroundTilemapsCollection = new GameObject[totalLevelCount];
+        i = 0;
+        foreach (Transform childTransform in levelForegroundTilemapsGameObject.transform)
+        {
+            levelForegroundTilemapsCollection[i++] = childTransform.gameObject;
         }
         // Load in ALL level specific Player Memory Tilemaps
         levelPlayerMemoryTilemapsCollection = new GameObject[totalLevelCount];
@@ -167,6 +178,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         // Enable corresponding Player Memory Tilemap
+        levelForegroundTilemapsCollection[Index].SetActive(true);
         levelPlayerMemoryTilemapsCollection[Index].SetActive(true);
     }
     // Clean Level Index of Pre-set Obstacles
@@ -205,6 +217,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         // Disable corresponding Player Memory Tilemap
+        levelForegroundTilemapsCollection[Index].SetActive(false);
         levelPlayerMemoryTilemapsCollection[Index].SetActive(false);
     }
     // Reset Level Index's ForwardRoute or BackwardRoute Obstacles to their Original State upon Instantiation

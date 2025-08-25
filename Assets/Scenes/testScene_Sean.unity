@@ -19760,6 +19760,7 @@ MonoBehaviour:
   cameraPositionsGameObject: {fileID: 6889977182510226614}
   levelObstaclesGameObject: {fileID: 3864953564568671564}
   levelRespawnPointsGameObject: {fileID: 6944285010755190343}
+  levelForegroundTilemapsGameObject: {fileID: 2004649635}
   levelPlayerMemoryTilemapsGameObject: {fileID: 2004649635}
   playerScript: {fileID: 52649887036416383}
   currentGameLevel: 0
@@ -19769,6 +19770,7 @@ MonoBehaviour:
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 1
   levelPlayerMemoryTilemapsCollection: []
+  levelForegroundTilemapsCollection: []
   isForwardRoute: 1
 --- !u!4 &8866311163255139312
 Transform:
