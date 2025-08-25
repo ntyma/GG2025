@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class KeyScript : MonoBehaviourWithReset
 {
+    public Sprite keyLocked;
+    public Sprite keyUnlocked;
+
     // Start is called before the first frame update
     [SerializeField] private CircleCollider2D keyCollider;
     [SerializeField] private BoxCollider2D lockCollider;
     [SerializeField] private SpriteRenderer keySpriteRenderer;
+    [SerializeField] private SpriteRenderer keyIllumSpriteRenderer;
     [SerializeField] private SpriteRenderer lockSpriteRenderer;
 
     // Reset Component Variable
@@ -31,14 +35,17 @@ public class KeyScript : MonoBehaviourWithReset
         // Player collects the Key
         // Unlock the the door
         lockCollider.isTrigger = true;
-        keySpriteRenderer.color = keySpriteRenderer.color - new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        keySpriteRenderer.sprite = keyUnlocked;
+        keyIllumSpriteRenderer.sprite = keyUnlocked;
+        //keySpriteRenderer.color = keySpriteRenderer.color - new Color(0.0f, 0.0f, 0.0f, 1.0f);
         lockSpriteRenderer.color = new Color(0.0f, 1.0f, 1.0f, 0.3f);
     }
 
     public override void ResetToInstantiation()
     {
         lockCollider.isTrigger = lockIsTriggerInitial;
-        keySpriteRenderer.color = keyColorInitial;
+        keySpriteRenderer.sprite = keyLocked;
+        keyIllumSpriteRenderer.sprite = keyLocked;
         lockSpriteRenderer.color = lockColorInitial;
     }
 }

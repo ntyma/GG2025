@@ -6,8 +6,11 @@ using UnityEngine;
 public class Door : MonoBehaviourWithReset
 {
     public bool locked;
+    public Sprite doorLocked;
+    public Sprite doorUnlocked;
     [SerializeField] private Collider2D col;
     [SerializeField] private SpriteRenderer lockSpriteRenderer;
+    [SerializeField] private SpriteRenderer illumSpriteRenderer;
 
     // Reset Component Variable
     private bool lockedInitial;
@@ -35,17 +38,15 @@ public class Door : MonoBehaviourWithReset
         {
             locked = false;
             col.isTrigger = true;
-            lockSpriteRenderer.color = new Color(0.0f, 1.0f, 1.0f, 0.3f);
+            lockSpriteRenderer.sprite = doorUnlocked;
+            illumSpriteRenderer.sprite = doorUnlocked;
             FindObjectOfType<AudioManager>().Play("DoorOpen");
             //Destroy(other.gameObject);
 
             // Reset and Disable Key GameObject
             MonoBehaviourWithReset keyScript;
             if (!(other.gameObject.TryGetComponent<MonoBehaviourWithReset>(out keyScript)))
-            {
-                Debug.Log("Key DOES NOT have KeyScript! - from OnTriggerEnter2D() in Door.cs");
                 return;
-            }
             keyScript.ResetToInstantiation();
             other.gameObject.SetActive(false);
         }
@@ -55,6 +56,8 @@ public class Door : MonoBehaviourWithReset
     {
         locked = lockedInitial;
         lockSpriteRenderer.color = lockSpriteRendererColorInitial;
+        lockSpriteRenderer.sprite = doorLocked;
+        illumSpriteRenderer.sprite = doorLocked;
         col.isTrigger = lockColliderIsTriggerInitial;
     }
 }
