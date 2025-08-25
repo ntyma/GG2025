@@ -17,6 +17,7 @@ public class StateFloorScript : MonoBehaviourWithReset
         // Update isTrigger to match Tangibility
         // Note: isTrigger and isTangible should always be opposites of each other
         stateFloorCollider.isTrigger = !isTangible;
+        this.gameObject.layer = (isTangible ? LayerMask.NameToLayer("Floor") : 0);
         UpdateColor();
 
         // Record Instantiation Variables
@@ -52,6 +53,7 @@ public class StateFloorScript : MonoBehaviourWithReset
         //Debug.Log("CHANGESTATES()");
         isTangible = !isTangible;
         stateFloorCollider.isTrigger = !stateFloorCollider.isTrigger;
+        this.gameObject.layer = (isTangible ? LayerMask.NameToLayer("Floor") : 0);
 
         UpdateColor();
     }
