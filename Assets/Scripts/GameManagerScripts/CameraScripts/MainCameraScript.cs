@@ -101,7 +101,41 @@ public class MainCameraScript : MonoBehaviour
         cameraPositionIndex = Index;
         currentCameraPositionGameObject = cameraPositionsGameObject.transform.GetChild(Index).gameObject;
         currentCameraPositionsScript = currentCameraPositionGameObject.GetComponent<CameraPositionScript>();
-        this.transform.position = currentCameraPositionsScript.transform.position;
+
+        if (currentCameraPositionsScript.levelCameraState == CameraMovementStates.lockedToArea)
+        {
+            this.transform.position = new Vector3
+                (
+                    Mathf.Clamp
+                    (
+                        playerGameObject.transform.position.x,
+                        currentCameraPositionsScript.transform.position.x,
+                        currentCameraPositionsScript.transform.position.x + currentCameraPositionsScript.lockedToArea_xLength
+                    ),
+                    Mathf.Clamp
+                    (
+                        playerGameObject.transform.position.y,
+                        currentCameraPositionsScript.transform.position.y,
+                        currentCameraPositionsScript.transform.position.y + currentCameraPositionsScript.lockedToArea_yLength
+                    ),
+                    this.transform.position.z
+                );
+        }
+        else if (currentCameraPositionsScript.levelCameraState == CameraMovementStates.followPlayer)
+        {
+            this.transform.position = new Vector3
+                (
+                    playerGameObject.transform.position.x + currentCameraPositionsScript.followPlayer_xOffset,
+                    playerGameObject.transform.position.y + currentCameraPositionsScript.followPlayer_yOffset,
+                    this.transform.position.z
+                );
+        }
+        else
+        {
+            Debug.Log("WHAT DO YOU MEAN THERE'S ANOTHER CAMERA STATE?! - From SetCameraPosition() in MainCameraScript");
+            this.transform.position = currentCameraPositionsScript.transform.position;
+        }
+        
     }
 
     // Camera Shake

@@ -7,16 +7,15 @@ public class DebrisScript : MonoBehaviourWithReset
     [SerializeField] private Vector3 respawnPoint;
     [SerializeField] private float respawnHeight;
     [SerializeField] private Rigidbody2D debrisRigidBody;
-
+    [SerializeField] private int Damage = 5;
     public float debrisSpeed = 2.0f;
 
     // Reset Component Variable
-    private Vector3 positionInitial;
+
     // Awake is called before the first frame update and before Start
     void Awake()
     {
-        // Record Instantiation Variables
-        positionInitial = this.transform.position;
+        respawnPoint = this.transform.position;
     }
     
     // Update is called once per frame
@@ -39,12 +38,12 @@ public class DebrisScript : MonoBehaviourWithReset
             var healthComponent = collision.gameObject.GetComponent<Health>();
             if(healthComponent != null)
             {
-                healthComponent.TakeDamage(1);
+                healthComponent.TakeDamage(Damage);
             }
         }
     }
     public override void ResetToInstantiation()
     {
-        this.transform.position = positionInitial;
+        this.transform.position = respawnPoint;
     }
 }

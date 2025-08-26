@@ -168,6 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 7
+  texWidth: 512
+  texHeight: 512
+  maskThreshold: 2
 --- !u!61 &1437098062453366736
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -264,6 +267,22 @@ PrefabInstance:
     - target: {fileID: 3503843877395094544, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
       propertyPath: m_Name
       value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

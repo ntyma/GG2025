@@ -62,6 +62,8 @@ public class Health : MonoBehaviour
 
     public void Respawn()
     {
+        // Set Velocity to 0 because you can 100% die moving fast and it'd have you fall through stuff
+        this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         transform.position = respawnPoint.position;
         guide.transform.position = respawnPoint.position;
         currentHealth = maxHealth; // restore full health on respawn
