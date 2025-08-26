@@ -311,7 +311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &382304916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 479585394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1280.26, y: -668.75, z: 10.195615}
+  m_LocalPosition: {x: -1280.98, y: -669.18, z: 10.195615}
   m_LocalScale: {x: 0.2179, y: 0.2179, z: 0.2179}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2187,7 +2187,7 @@ Canvas:
   m_GameObject: {fileID: 1695173860}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1793946403}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
