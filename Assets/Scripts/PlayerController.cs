@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stats")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpSpeedMultiplier;
+    [SerializeField] private float speedMultiplier = 1;
 
     [Header("Gravity")]
     [SerializeField] private float baseGravity;
@@ -22,6 +24,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.5f, 0.5f);
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    //[SerializeField] private AnimationEndBehaviour jumpStartAnimationBehaviour;
+    [SerializeField] private AnimationClip jumpStartClip;
+    [SerializeField] private AnimationClip jumpLandClip;
+
+    [SerializeField] private bool wasGrounded;
+    [SerializeField] private bool isGrounded;
+    private bool isJumping;
 
     [Header("Testing")]
     [SerializeField] private bool testingMode;
@@ -32,7 +41,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
+        //jumpStartAnimationBehaviour.OnAnimationEnded += JumpStartAnimEnded;
     }
+
     private void OnEnable()
     {
         move = playerControls.Player.Move;
@@ -58,11 +69,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        wasGrounded = isGrounded;
+        isGrounded = IsGrounded();
+
         moveDirection = move.ReadValue<Vector2>();
         Gravity();
         UpdateAnimation();
-        animator.SetBool("isJumping", !IsGrounded());
-        
+        animator.SetBool("isJumping", !isGrounded);
+
+        if(!isJumping)
+        {
+            animator.SetBool("isFalling", !isGrounded);
+        }
+        if(!wasGrounded && isGrounded)
+        {
+            Debug.Log("XX 80");
+            OnLand();
+        }
         
         if (testingMode)
         {
@@ -86,19 +109,19 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(moveDirection.x * speed, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(moveDirection.x * speed * speedMultiplier, rigidBody.velocity.y);
         
     }
 
     private void UpdateAnimation()
     {
         animator.SetFloat("speed", Mathf.Abs(moveDirection.x * speed));
-        if(moveDirection.x >= 0)
-        {
-            spriteRenderer.flipX = true;
-        } else
+        if(moveDirection.x > 0)
         {
             spriteRenderer.flipX = false;
+        } else if (moveDirection.x < 0)
+        {
+            spriteRenderer.flipX = true;
         }
     }
 
@@ -106,12 +129,44 @@ public class PlayerController : MonoBehaviour
     {
         if(IsGrounded())
         {
-            animator.SetBool("isJumping", true);
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
+            animator.SetTrigger("StartJump");
+            LockPlayerControls();
+            isJumping = true;
+            speedMultiplier = jumpSpeedMultiplier;
+            //animator.SetBool("isJumping", true);
+            //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
+            Invoke(nameof(JumpStartAnimEnded), jumpStartClip.length);
         }
         
     }
 
+    private void OnLand()
+    {
+        Debug.Log("PLAYER LANDED");
+        animator.SetTrigger("LandJump");
+        LockPlayerControls();
+        rigidBody.velocity = Vector2.zero;
+        speedMultiplier = 1f;
+        Invoke(nameof(JumpLandAnimEnded), jumpLandClip.length);
+        isJumping = false;
+    }
+
+    private void JumpStartAnimEnded()
+    {
+        //Debug.Log("PLAYER jump start ended");
+        animator.SetBool("isJumping", true);
+        UnlockPlayerControls();
+        rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
+    }
+
+    private void JumpLandAnimEnded()
+    {
+        Debug.Log("PLAYER LANDED animation ended");
+        UnlockPlayerControls();
+    }
+
+    // True -> touching ground
+    // False -> Not touching ground
     private bool IsGrounded()
     {
         if(Physics2D.OverlapBox(groundChecker.position, groundCheckSize, 0, groundLayer))

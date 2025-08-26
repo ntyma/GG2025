@@ -551,9 +551,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 951f386835904ed4d98eb68f53784aae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 122803205f3fb5540a38272f5f0a1e30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.5, y: 5.23}
@@ -706,7 +706,7 @@ Transform:
   m_GameObject: {fileID: 1926489886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44, y: -1.19, z: 0}
+  m_LocalPosition: {x: -1.15, y: -0.69, z: 0}
   m_LocalScale: {x: 4.280045, y: 0.4609, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -836,7 +836,7 @@ Transform:
   m_GameObject: {fileID: 1951991972}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.13, y: 0.85, z: 0}
+  m_LocalPosition: {x: 4, y: 1.29, z: 0}
   m_LocalScale: {x: 4.280045, y: 0.3485, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -851,21 +851,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1107898436525935995, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.485
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107898436525935995, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 696774568}
     - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: jumpEndClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 626754c1dac5fcb4b92fc1aec994c681, type: 2}
+    - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: testingMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: jumpLandClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 626754c1dac5fcb4b92fc1aec994c681, type: 2}
+    - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: maxFallSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: jumpStartClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 4cdb7cde4ed1dd64d80d4fac42d0652a, type: 2}
     - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: spriteRenderer
       value: 
@@ -882,13 +902,21 @@ PrefabInstance:
       propertyPath: fallSpeedMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: jumpSpeedMultiplier
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290036193043148766, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
+      propertyPath: jumpStartAnimationBehaviour
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2688542466909943235, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.83
       objectReference: {fileID: 0}
     - target: {fileID: 2688542466909943235, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.023989478
+      value: 2.38
       objectReference: {fileID: 0}
     - target: {fileID: 2688542466909943235, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_LocalPosition.z
@@ -924,11 +952,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4117152800163234351, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_Size.x
-      value: 1.5274258
+      value: 0.85495377
       objectReference: {fileID: 0}
     - target: {fileID: 4117152800163234351, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_Size.y
-      value: 2.2746115
+      value: 1.3833778
       objectReference: {fileID: 0}
     - target: {fileID: 4117152800163234351, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_Material
@@ -936,11 +964,11 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 034d0c2c2f8f0bd4c9b92ae2d3a11e83, type: 2}
     - target: {fileID: 4117152800163234351, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_Offset.x
-      value: 0.30766487
+      value: -0.28295183
       objectReference: {fileID: 0}
     - target: {fileID: 4117152800163234351, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_Offset.y
-      value: 0.060478926
+      value: 0.89168894
       objectReference: {fileID: 0}
     - target: {fileID: 6251580848352063147, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
       propertyPath: m_Enabled
@@ -950,7 +978,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6251580848352063147, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2688542466909943235, guid: 5a9871f0f72ca49459a191ee53db9713, type: 3}
