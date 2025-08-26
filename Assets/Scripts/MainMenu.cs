@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame ()
+    public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // load next level in queue
     }
 
-    public void QuitGame ()
+    public void Quit()
     {
         Debug.Log("QUIT");
         Application.Quit();
