@@ -55,6 +55,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
             return;
 
+        if (!pressureIsActivated)
+            AudioManager.instance.Play("PlateOn");
         pressureIsActivated = true;
         pressureStatus = Mathf.Clamp(pressureStatus + pressureFillRate * Time.deltaTime, 0.0f, pressureTarget);
         plateSpriteRenderer.sprite = plateOn;
@@ -65,6 +67,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
             return;
 
+        if (pressureIsActivated)
+            AudioManager.instance.Play("PlateOff");
         pressureIsActivated = false;
         plateSpriteRenderer.sprite = plateOff;
         plateIllumSpriteRenderer.sprite = plateOff;

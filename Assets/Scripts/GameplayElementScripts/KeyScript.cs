@@ -34,6 +34,8 @@ public class KeyScript : MonoBehaviourWithReset
 
         // Player collects the Key
         // Unlock the the door
+        if (!lockCollider.isTrigger)
+            AudioManager.instance.Play("SwitchOn");
         lockCollider.isTrigger = true;
         keySpriteRenderer.sprite = keyUnlocked;
         keyIllumSpriteRenderer.sprite = keyUnlocked;

@@ -173,6 +173,7 @@ MonoBehaviour:
   respawnPoint: {x: 60.91, y: -3.58, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 12346236}
+  Damage: 5
   debrisSpeed: 15
 --- !u!50 &12346236
 Rigidbody2D:
@@ -491,6 +492,7 @@ MonoBehaviour:
   respawnPoint: {x: 60.79, y: -3.17, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 70268427}
+  Damage: 5
   debrisSpeed: 35
 --- !u!50 &70268427
 Rigidbody2D:
@@ -673,6 +675,7 @@ MonoBehaviour:
   respawnPoint: {x: 56.59, y: -3.58, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 88571659}
+  Damage: 5
   debrisSpeed: 15
 --- !u!50 &88571659
 Rigidbody2D:
@@ -3665,6 +3668,7 @@ MonoBehaviour:
   respawnPoint: {x: 74.5486, y: -3.17, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 418741039}
+  Damage: 5
   debrisSpeed: 25
 --- !u!50 &418741039
 Rigidbody2D:
@@ -3966,6 +3970,7 @@ MonoBehaviour:
   respawnPoint: {x: 64.89, y: -3.17, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 450373517}
+  Damage: 5
   debrisSpeed: 35
 --- !u!50 &450373517
 Rigidbody2D:
@@ -4964,6 +4969,7 @@ MonoBehaviour:
   respawnPoint: {x: 65.03, y: -3.58, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 524564669}
+  Damage: 5
   debrisSpeed: 15
 --- !u!50 &524564669
 Rigidbody2D:
@@ -5393,6 +5399,7 @@ MonoBehaviour:
   respawnPoint: {x: 70.16, y: -3.58, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 638415988}
+  Damage: 5
   debrisSpeed: 15
 --- !u!50 &638415988
 Rigidbody2D:
@@ -5559,6 +5566,7 @@ MonoBehaviour:
   respawnPoint: {x: 72.398605, y: -3.17, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 642640710}
+  Damage: 5
   debrisSpeed: 25
 --- !u!50 &642640710
 Rigidbody2D:
@@ -7039,6 +7047,7 @@ MonoBehaviour:
   respawnPoint: {x: 73.26, y: -3.58, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 919036792}
+  Damage: 5
   debrisSpeed: 15
 --- !u!50 &919036792
 Rigidbody2D:
@@ -8287,6 +8296,7 @@ MonoBehaviour:
   respawnPoint: {x: 70.1386, y: -3.17, z: 0}
   respawnHeight: -13
   debrisRigidBody: {fileID: 1053971654}
+  Damage: 5
   debrisSpeed: 25
 --- !u!50 &1053971654
 Rigidbody2D:
@@ -19469,8 +19479,60 @@ PrefabInstance:
     m_TransformParent: {fileID: 6340847194564810912}
     m_Modifications:
     - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 505f2ea6e8f94584397cadc4303b866b, type: 3}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[8].name
+      value: SwitchOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 932f1c3f110725c43ad02d5a917bc67c, type: 3}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[9].name
+      value: PlateOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 590a77c528ff8ca4dbe5ff82474844ec, type: 3}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[10].name
+      value: PlateOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[8].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[9].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0.503
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[10].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[9].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 417257575981488408, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
+      propertyPath: sounds.Array.data[10].volume
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3549823266174687444, guid: 0c8ce4bcddc02d74fbbf0f4f27e198bc, type: 3}
       propertyPath: m_Name
