@@ -19,7 +19,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private PlayerScript playerScript;
     private Health playerHealthScript;
     [Header("Level Statistics")]
-    public int currentGameLevel = 0;
+    private int currentGameLevel = 0;
+    public int furthestGameLevel = 0;
     public int totalLevelCount = 0;
     [SerializeField] private GameObject[] levelObstaclesCollection;
     [SerializeField] private GameObject[] levelRespawnPointsCollection;
@@ -92,13 +93,14 @@ public class GameManagerScript : MonoBehaviour
 
         if (SaveManager.loadingData)
         {
+            furthestGameLevel = SaveManager.levelLoading;
             currentGameLevel = SaveManager.levelLoading;
-            Debug.Log("loaded save data! Current level: " + currentGameLevel);
+            Debug.Log("loaded save data! Current level: " + furthestGameLevel);
         }
         //to resume time in case it was stopped by a previous pause
         Time.timeScale = 1f;
-        Debug.Log(currentGameLevel);
-        SelectLevel(currentGameLevel);
+        Debug.Log(furthestGameLevel);
+        SelectLevel(furthestGameLevel);
     }
     public void Update()
     {
@@ -110,13 +112,12 @@ public class GameManagerScript : MonoBehaviour
     }
     public void ProgressLevel (bool isProgressing)
     {
-        currentGameLevel = currentGameLevel + (isProgressing ? 1 : -1);
-
-        // Index out of bounds protection
-        if (currentGameLevel < 0)
-            currentGameLevel = 0;
-        else if (currentGameLevel >= totalLevelCount)
-            currentGameLevel = totalLevelCount - 1;
+        currentGameLevel = Mathf.Clamp((currentGameLevel + (isProgressing ? 1 : -1)), 0, totalLevelCount - 1);
+        // Update Furthest Level the Player has gotten
+        if (isForwardRoute && currentGameLevel > furthestGameLevel)
+            furthestGameLevel = currentGameLevel;
+        else if (!isForwardRoute && currentGameLevel < furthestGameLevel)
+            furthestGameLevel = currentGameLevel;
 
         EnableObstaclesInLevelFrame();
         SetRespawnPoint();
@@ -126,7 +127,7 @@ public class GameManagerScript : MonoBehaviour
 
         SaveData data = new SaveData
         {
-            playerLevel = currentGameLevel,
+            playerLevel = furthestGameLevel,
         };
         SaveManager.SaveGame(data);
     }
@@ -148,12 +149,24 @@ public class GameManagerScript : MonoBehaviour
             EnableObstaclesOfLevel(i);
         }
         // Check Levels just outside of levelObstacleGenerationFrame boundary
-        int indexLowerThanFrame = currentGameLevel - levelObstacleGenerationFrameSize - 1;
+        /*int indexLowerThanFrame = currentGameLevel - levelObstacleGenerationFrameSize - 1;
         int indexHigherThanFrame = currentGameLevel + levelObstacleGenerationFrameSize + 1;
         if (indexLowerThanFrame >= 0 && levelHasObstacles[indexLowerThanFrame])
             DisableObstaclesOfLevel(indexLowerThanFrame);
         if (indexHigherThanFrame < totalLevelCount && levelHasObstacles[indexHigherThanFrame])
-            DisableObstaclesOfLevel(indexHigherThanFrame);
+            DisableObstaclesOfLevel(indexHigherThanFrame);*/
+
+        for (int i = 0; i < currentGameLevel - levelObstacleGenerationFrameSize; i ++)
+        {
+            if (levelHasObstacles[i])
+                DisableObstaclesOfLevel(i);
+        }
+        for (int i = currentGameLevel + levelObstacleGenerationFrameSize + 1; i < totalLevelCount; i++)
+        {
+            if (levelHasObstacles[i])
+                DisableObstaclesOfLevel(i);
+        }
+
     }
     // Fill Level Index with Pre-set Obstacles
     public void EnableObstaclesOfLevel (int Index)
@@ -244,6 +257,9 @@ public class GameManagerScript : MonoBehaviour
             return;
         }
         playerMemoryTilemapScript.ResetToInstantiation();
+
+        // Set Level to furthestGameLevel
+        SelectLevel(furthestGameLevel);
     }
     // Set the Player's respawn point to one of the points in the Level
     public void SetRespawnPoint ()
@@ -257,8 +273,8 @@ public class GameManagerScript : MonoBehaviour
 
         playerHealthScript.respawnPoint =
             isForwardRoute ?
-            levelRespawnPointsCollection[currentGameLevel].transform.GetChild(0).transform:
-            levelRespawnPointsCollection[currentGameLevel].transform.GetChild(1).transform;
+            levelRespawnPointsCollection[furthestGameLevel].transform.GetChild(0).transform:
+            levelRespawnPointsCollection[furthestGameLevel].transform.GetChild(1).transform;
     }
 
     // Set the Player to Level Index
@@ -270,9 +286,9 @@ public class GameManagerScript : MonoBehaviour
             Debug.Log("Index is OUT OF BOUNDS - in SelectLevel() from GameManagerScript");
             return;
         }
-
+        currentGameLevel = Index;
         // Spawn Player at appropriate respawn position
-        Vector3 spawnPosition = levelRespawnPointsCollection[currentGameLevel].transform.GetChild((isForwardRoute ? 0 : 1)).transform.position;
+        Vector3 spawnPosition = levelRespawnPointsCollection[Index].transform.GetChild((isForwardRoute ? 0 : 1)).transform.position;
         playerGameObject.transform.position = spawnPosition;
         guideGameObject.transform.position = spawnPosition;
 
@@ -309,7 +325,7 @@ public class GameManagerScript : MonoBehaviour
         if (respawnPlayer)
         {
             playerHealthScript.Respawn();
-            mainCameraScript.SetCameraPosition(currentGameLevel);
+            //mainCameraScript.SetCameraPosition(currentGameLevel);
         } 
     }
 }

@@ -68,7 +68,7 @@ public class Health : MonoBehaviour
         guide.transform.position = respawnPoint.position;
         currentHealth = maxHealth; // restore full health on respawn
 
-        gameManagerScript.ResetLevelObstacles(gameManagerScript.currentGameLevel);
+        gameManagerScript.ResetLevelObstacles(gameManagerScript.furthestGameLevel);
     }
     public void SetRoute(bool isForwardRoute = true)
     {
