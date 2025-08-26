@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3549823266174687444}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.989932, y: 0.9615964, z: -0.03807384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   sounds:
   - name: Footstep
     clip: {fileID: 8300000, guid: f8c354d37bdcb2343bd87e8fc3d4f809, type: 3}
-    volume: 0.417
+    volume: 0.503
     pitch: 0.25
     loop: 0
     source: {fileID: 0}
@@ -92,4 +92,22 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: SwitchOn
+    clip: {fileID: 8300000, guid: 505f2ea6e8f94584397cadc4303b866b, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlateOn
+    clip: {fileID: 8300000, guid: 932f1c3f110725c43ad02d5a917bc67c, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlateOff
+    clip: {fileID: 8300000, guid: 590a77c528ff8ca4dbe5ff82474844ec, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
