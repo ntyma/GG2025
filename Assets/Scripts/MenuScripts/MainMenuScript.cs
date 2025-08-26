@@ -35,7 +35,7 @@ public class MainMenuScript : MonoBehaviour
         SaveManager.loadingData = false;
         SceneManager.LoadScene("testScene_Sean");
         AudioManager.instance.Stop("Title");
-        AudioManager.instance.Play("Theme");
+        AudioManager.instance.Play("House");
     }
 
     public void QuitGame()
