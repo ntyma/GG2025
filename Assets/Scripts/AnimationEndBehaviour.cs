@@ -3,12 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationEndBehaviour : StateMachineBehaviour
+public class AnimationEndBehaviour : MonoBehaviour
 {
-    public Action OnAnimationEnded;
-    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public Action OnLandAnimationEnded;
+    public Action OnStartJumpAnimationEnded;
+
+    public void LandAnimationEnded()
     {
-        OnAnimationEnded.Invoke();
-        
+        OnLandAnimationEnded.Invoke();
+    }
+
+    public void StartJumpAnimationEnded()
+    {
+        OnStartJumpAnimationEnded.Invoke();
     }
 }

@@ -24,9 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.5f, 0.5f);
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    //[SerializeField] private AnimationEndBehaviour jumpStartAnimationBehaviour;
-    [SerializeField] private AnimationClip jumpStartClip;
-    [SerializeField] private AnimationClip jumpLandClip;
+    [SerializeField] private AnimationEndBehaviour animationEndBehaviour;
+    [SerializeField] private float clipSpeedMultiplier;
 
     [SerializeField] private bool wasGrounded;
     [SerializeField] private bool isGrounded;
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
-        //jumpStartAnimationBehaviour.OnAnimationEnded += JumpStartAnimEnded;
     }
 
     private void OnEnable()
@@ -52,6 +50,10 @@ public class PlayerController : MonoBehaviour
         jump = playerControls.Player.Jump;
         jump.Enable();
         jump.performed += Jump;
+
+        animationEndBehaviour.OnLandAnimationEnded += JumpLandAnimEnded;
+        animationEndBehaviour.OnStartJumpAnimationEnded += JumpStartAnimEnded;
+
     }
 
     private void OnDisable()
@@ -59,11 +61,14 @@ public class PlayerController : MonoBehaviour
         move.Disable();
         jump.Disable();
         jump.performed -= Jump;
+        animationEndBehaviour.OnLandAnimationEnded -= JumpLandAnimEnded;
+        animationEndBehaviour.OnStartJumpAnimationEnded -= JumpStartAnimEnded;
     }
 
     private void Start()
     {
         baseGravity = rigidBody.gravityScale;
+        animator.SetFloat("ClipSpeedMultiplier", clipSpeedMultiplier);
     }
 
     // Update is called once per frame
@@ -83,7 +88,6 @@ public class PlayerController : MonoBehaviour
         }
         if(!wasGrounded && isGrounded)
         {
-            Debug.Log("XX 80");
             OnLand();
         }
         
@@ -133,27 +137,21 @@ public class PlayerController : MonoBehaviour
             LockPlayerControls();
             isJumping = true;
             speedMultiplier = jumpSpeedMultiplier;
-            //animator.SetBool("isJumping", true);
-            //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
-            Invoke(nameof(JumpStartAnimEnded), jumpStartClip.length);
         }
         
     }
 
     private void OnLand()
     {
-        Debug.Log("PLAYER LANDED");
         animator.SetTrigger("LandJump");
         LockPlayerControls();
         rigidBody.velocity = Vector2.zero;
         speedMultiplier = 1f;
-        Invoke(nameof(JumpLandAnimEnded), jumpLandClip.length);
-        isJumping = false;
+        
     }
 
     private void JumpStartAnimEnded()
     {
-        //Debug.Log("PLAYER jump start ended");
         animator.SetBool("isJumping", true);
         UnlockPlayerControls();
         rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
@@ -161,8 +159,8 @@ public class PlayerController : MonoBehaviour
 
     private void JumpLandAnimEnded()
     {
-        Debug.Log("PLAYER LANDED animation ended");
         UnlockPlayerControls();
+        isJumping = false;
     }
 
     // True -> touching ground
