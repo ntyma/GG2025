@@ -137,6 +137,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public string CurrentlyPlaying()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.source != null && s.source.isPlaying)
+            {
+                return s.name; // return the first one that’s playing
+            }
+        }
+
+        return null;
+    }
 
     // To play a sound, add this line
     // AudioManager.instance.Play("SoundName");
