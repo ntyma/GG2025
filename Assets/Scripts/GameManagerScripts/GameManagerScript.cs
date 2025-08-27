@@ -31,6 +31,7 @@ public class GameManagerScript : MonoBehaviour
 
     public bool isForwardRoute = true;
 
+    [SerializeField] private GameObject backwardRouteScrollingLightWall;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +91,7 @@ public class GameManagerScript : MonoBehaviour
         {
             levelPlayerMemoryTilemapsCollection[i++] = childTransform.gameObject;
         }
+        backwardRouteScrollingLightWall.SetActive(false);
 
         if (SaveManager.loadingData)
         {
@@ -298,6 +300,9 @@ public class GameManagerScript : MonoBehaviour
         playerScript.SetPlayerMemoryTilemap(levelPlayerMemoryTilemapsCollection[Index].GetComponent<Tilemap>());
         playerScript.SetRoute(isForwardRoute);
         mainCameraScript.SetCameraPosition(Index);
+
+        backwardRouteScrollingLightWall.SetActive(!isForwardRoute);
+        SetScrollingLightWallPosition(spawnPosition);
     }
 
     [ContextMenu("SwapRoute()")]
@@ -318,14 +323,28 @@ public class GameManagerScript : MonoBehaviour
         EnableObstaclesInLevelFrame();
         SetRespawnPoint();
         playerScript.SetRoute(isForwardRoute);
+        backwardRouteScrollingLightWall.SetActive(!isForwardRoute);
+
+        SetScrollingLightWallPosition(playerGameObject.transform.position);
 
         // No need to update which Memory Tileset the Player is manipulating
         // SwapRoute would always place the player in the same room
-
         if (respawnPlayer)
         {
             playerHealthScript.Respawn();
             //mainCameraScript.SetCameraPosition(currentGameLevel);
         } 
+    }
+
+    public void SetScrollingLightWallPosition(Vector3 spawnPosition)
+    {
+        // Must Offset spawnPosition based on Scale of Light Wall
+        backwardRouteScrollingLightWall.transform.position =
+            (
+                furthestGameLevel <= 16 ? 
+                spawnPosition + Vector3.right * (backwardRouteScrollingLightWall.transform.localScale.x/2 + 4) 
+                    :
+                spawnPosition + Vector3.up * (backwardRouteScrollingLightWall.transform.localScale.y/2 + 4)
+            );
     }
 }

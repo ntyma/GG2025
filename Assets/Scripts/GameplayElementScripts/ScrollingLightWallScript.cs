@@ -2,35 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollingLightWallScript : MonoBehaviourWithReset
+public class ScrollingLightWallScript : MonoBehaviour
 {
-    [SerializeField] private GameObject lightWallGameObject;
     [SerializeField] private SpriteRenderer lightWallSpriteRenderer;
+    [SerializeField] private SpriteMask lightWallSpriteMask;
     [SerializeField] private BoxCollider2D lightWallBoxCollider;
-    [SerializeField] private GameObject lightWallScrollingPoints;
+    [SerializeField] private Rigidbody2D lightWallRigidBody;
 
-    [SerializeField]  private Vector3 lightWallStartPoint;
-    [SerializeField]  private Vector3 lightWallEndPoint;
+    [SerializeField] private GameObject Target;
 
-    [SerializeField] private float scrollingSpeed = 2.0f;
-    private void Awake()
-    {
-        lightWallStartPoint = lightWallScrollingPoints.transform.GetChild(0).transform.position;
-        lightWallEndPoint = lightWallScrollingPoints.transform.GetChild(1).transform.position;
+    [SerializeField] private float scrollingSpeed = 3.0f;
+    [SerializeField] private float catchUpMultiplier = 1.0f;
 
-        lightWallGameObject.transform.position = lightWallStartPoint;
-    }
     private void Update()
     {
-        lightWallGameObject.transform.position = Vector3.MoveTowards
+        if (Vector3.Distance(this.transform.position, Target.transform.position) > (this.transform.localScale.x/2)+2)
+        {
+            catchUpMultiplier = 2.0f;
+        }
+        else
+        {
+            catchUpMultiplier = 1.0f;
+        }
+        this.transform.position = Vector3.MoveTowards
             (
-            lightWallGameObject.transform.position,
-            lightWallEndPoint,
-            scrollingSpeed * Time.deltaTime
+                this.transform.position,
+                Target.transform.position,
+                scrollingSpeed * catchUpMultiplier * Time.deltaTime
             );
     }
-    public override void ResetToInstantiation()
+    public void SetTarget(GameObject Input)
     {
-        lightWallGameObject.transform.position = lightWallStartPoint;
+        Target = Input;
     }
 }
