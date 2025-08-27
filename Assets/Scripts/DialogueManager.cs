@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour
 	public float typingSpeed = 0.03f;
 
 	public Animator animator;
+
+	public string wasPlaying;
     //public GameObject dialogueBox; // Dialogue box GameObject
 
 	private Coroutine typingCoroutine; // keep track of current typing
@@ -37,7 +39,9 @@ public class DialogueManager : MonoBehaviour
 	{
         isDialogueActive = true;
 
-        AudioManager.instance.Pause(AudioManager.instance.CurrentlyPlaying());
+		wasPlaying = AudioManager.instance.CurrentlyPlaying();
+		Debug.Log(wasPlaying);
+        AudioManager.instance.Pause(wasPlaying);
         AudioManager.instance.PlayIntroThenLoop("GuideIntro", "GuideLoop");
 
         //animator.Play("show");
@@ -114,7 +118,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		isDialogueActive = false;
         AudioManager.instance.StopIntroThenLoop("GuideIntro", "GuideLoop");
-        AudioManager.instance.Unpause(AudioManager.instance.CurrentlyPlaying());
+        AudioManager.instance.Unpause(wasPlaying);
         animator.SetTrigger("hideTrigger");
 		print("Dialogue ended");
     }

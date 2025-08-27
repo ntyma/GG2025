@@ -141,9 +141,9 @@ public class AudioManager : MonoBehaviour
     {
         foreach (Sound s in sounds)
         {
-            if (s.source != null && s.source.isPlaying)
+            if (s.source != null && s.source.isPlaying && s.isMusic)
             {
-                return s.name; // return the first one that’s playing
+                return s.name; // return the first music that’s playing
             }
         }
 

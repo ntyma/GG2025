@@ -13,6 +13,7 @@ public class Sound // Sound class
     [Range(0.1f, 3f)]
     public float pitch;
 
+    public bool isMusic;
     public bool loop;
 
     [HideInInspector]
