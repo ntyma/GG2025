@@ -20,7 +20,7 @@ public class LightScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) // untether key when light hits enemy
+    /*private void OnTriggerEnter2D(Collider2D other) // untether key when light hits enemy
     {
         if (other.CompareTag("Enemy"))
         {
@@ -29,5 +29,5 @@ public class LightScript : MonoBehaviour
                 keyManager.UntetherKey();
             }
         }
-    }
+    }*/
 }

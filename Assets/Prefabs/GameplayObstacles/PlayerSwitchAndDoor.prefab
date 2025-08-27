@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 5849832706106635024}
   - component: {fileID: 1901286880063083823}
   m_Layer: 0
-  m_Name: PlayerSwitchAndDorr
+  m_Name: PlayerSwitchAndDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

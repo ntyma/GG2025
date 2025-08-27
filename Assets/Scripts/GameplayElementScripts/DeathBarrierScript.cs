@@ -8,6 +8,11 @@ public class DeathBarrierScript : MonoBehaviourWithReset
     [SerializeField] private SpriteRenderer deathBarrierSpriteRenderer;
 
     [SerializeField] private int Damage = 99;
+
+    private void Awake()
+    {
+        deathBarrierSpriteRenderer.enabled = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Player")

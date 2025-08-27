@@ -103,7 +103,7 @@ MonoBehaviour:
   guide: {fileID: 0}
   isPickedUp: 0
   smoothTime: 0.4
-  maxFollowDistance: 5
+  maxFollowDistance: 3
 --- !u!61 &616897325321555622
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &7339592777164549327
 Rigidbody2D:

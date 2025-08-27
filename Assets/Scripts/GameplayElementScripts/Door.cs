@@ -32,9 +32,10 @@ public class Door : MonoBehaviourWithReset
         lockColliderIsTriggerInitial = col.isTrigger;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Key"))
+        Debug.Log("BURH");
+        if (other.gameObject.CompareTag("Key") && locked)
         {
             locked = false;
             col.isTrigger = true;
