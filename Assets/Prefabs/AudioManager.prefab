@@ -49,65 +49,76 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f8c354d37bdcb2343bd87e8fc3d4f809, type: 3}
     volume: 0.503
     pitch: 0.25
+    isMusic: 0
     loop: 0
     source: {fileID: 0}
   - name: GuideIntro
     clip: {fileID: 8300000, guid: a614a65f352457d4b8da183d572b19ba, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 1
     loop: 0
     source: {fileID: 0}
   - name: GuideLoop
     clip: {fileID: 8300000, guid: aebb225f9955bfe4ab47a3ed331f2736, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 1
     loop: 1
     source: {fileID: 0}
   - name: House
     clip: {fileID: 8300000, guid: 3f105ed50aefec549bab172fec07cfeb, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 1
     loop: 1
     source: {fileID: 0}
   - name: KeyPickUp
     clip: {fileID: 8300000, guid: 4a6b9c5c18f132d4387d2502fbc2e1be, type: 3}
     volume: 0.1
     pitch: 1
+    isMusic: 0
     loop: 0
     source: {fileID: 0}
   - name: KeyDrop
     clip: {fileID: 8300000, guid: 7422dbe149769a241bfd248a1da99ea1, type: 3}
     volume: 0.1
     pitch: 1
+    isMusic: 0
     loop: 0
     source: {fileID: 0}
   - name: DoorOpen
     clip: {fileID: 8300000, guid: 4d1a3528c0a4d434d9dc55ce97adad82, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 0
     loop: 0
     source: {fileID: 0}
   - name: Title
     clip: {fileID: 8300000, guid: 36ed3ce31481c1c4d8d9ef6482a9e6c3, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 1
     loop: 1
     source: {fileID: 0}
   - name: SwitchOn
     clip: {fileID: 8300000, guid: 505f2ea6e8f94584397cadc4303b866b, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 0
     loop: 0
     source: {fileID: 0}
   - name: PlateOn
     clip: {fileID: 8300000, guid: 932f1c3f110725c43ad02d5a917bc67c, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 0
     loop: 0
     source: {fileID: 0}
   - name: PlateOff
     clip: {fileID: 8300000, guid: 590a77c528ff8ca4dbe5ff82474844ec, type: 3}
     volume: 0.3
     pitch: 1
+    isMusic: 0
     loop: 0
     source: {fileID: 0}

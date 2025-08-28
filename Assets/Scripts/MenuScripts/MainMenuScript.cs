@@ -17,7 +17,7 @@ public class MainMenuScript : MonoBehaviour
             SaveManager.loadingData = true;
             SaveManager.levelLoading = continuingData.playerLevel;
             Debug.Log("Game Loaded: Level " + continuingData.playerLevel);
-            SceneManager.LoadScene("testScene_Sean");
+            SceneManager.LoadScene("MainGame");
         }
         else
         {
@@ -33,7 +33,7 @@ public class MainMenuScript : MonoBehaviour
         };
         SaveManager.SaveGame(data);
         SaveManager.loadingData = false;
-        SceneManager.LoadScene("testScene_Sean");
+        SceneManager.LoadScene("MainGame");
         AudioManager.instance.Stop("Title");
         AudioManager.instance.Play("House");
     }
