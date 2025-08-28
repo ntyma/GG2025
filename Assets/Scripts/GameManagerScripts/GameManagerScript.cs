@@ -132,6 +132,9 @@ public class GameManagerScript : MonoBehaviour
             playerLevel = furthestGameLevel,
         };
         SaveManager.SaveGame(data);
+
+        if (currentGameLevel == 17)
+            SetScrollingLightWallPosition(levelRespawnPointsCollection[currentGameLevel].transform.GetChild(1).transform.position);
     }
     // Enables the Obstacles of levels
     // currentGameLevel - levelObstacleGenerationFrameSize
@@ -341,10 +344,10 @@ public class GameManagerScript : MonoBehaviour
         // Must Offset spawnPosition based on Scale of Light Wall
         backwardRouteScrollingLightWall.transform.position =
             (
-                furthestGameLevel <= 16 ? 
-                spawnPosition + Vector3.right * (backwardRouteScrollingLightWall.transform.localScale.x/2 + 4) 
+                furthestGameLevel <= 17 ? 
+                spawnPosition + Vector3.right * (backwardRouteScrollingLightWall.transform.localScale.x/2 + 6) 
                     :
-                spawnPosition + Vector3.up * (backwardRouteScrollingLightWall.transform.localScale.y/2 + 4)
+                spawnPosition + Vector3.up * (backwardRouteScrollingLightWall.transform.localScale.y/2 + 6)
             );
     }
 }

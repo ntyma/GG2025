@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 2950929331351188518}
   - component: {fileID: 5748526722040157499}
   - component: {fileID: 8627415825899041006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chandelier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,11 +360,9 @@ MonoBehaviour:
   chandelierHitbox: {fileID: 2241731892152711988}
   mainCameraScript: {fileID: 0}
   chandelierPositions: {fileID: 7765263581365265697}
-  isInLight: 0
-  isFalling: 0
-  isRetracting: 0
   fallingRate: 3
   fallingAcceleration: 15
+  currentFallingAccerleration: 0
   retractingRate: 2
   Damage: 5
 --- !u!1 &5340243017076644405

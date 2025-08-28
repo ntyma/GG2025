@@ -109,7 +109,13 @@ public class ChandelierScript : MonoBehaviourWithReset
         if (collision.gameObject.tag != "Player" || !isFalling || isInLight)
             return;
 
-        Health healthScript = collision.gameObject.GetComponent<Health>();
+        Health healthScript;
+        if (!(collision.gameObject.TryGetComponent<Health>(out healthScript)))
+        {
+            Debug.Log("Player DOES NOT have a HealthScript Component! - From OnCollisionEnter2D in Chandelier Script");
+            return;
+        }
+        
         healthScript.TakeDamage(Damage);
     }
     private void OnTriggerStay2D(Collider2D collision)
