@@ -6,7 +6,7 @@ public class StateFloorScript : MonoBehaviourWithReset
 {
     [SerializeField] private BoxCollider2D stateFloorCollider;
     [SerializeField] private SpriteRenderer stateFloorSpriteRenderer;
-
+    [SerializeField] private SpriteRenderer stateFloorIlluminatedSpriteRenderer;
     [SerializeField] private bool isTangible = true;
 
     // Reset Component Variable
@@ -40,10 +40,17 @@ public class StateFloorScript : MonoBehaviourWithReset
     private void UpdateColor()
     {
         Color currColor = stateFloorSpriteRenderer.color;
+        Color currColorIlluminated = stateFloorIlluminatedSpriteRenderer.color;
         if (isTangible)
+        {
             stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 1.0f);
+            stateFloorIlluminatedSpriteRenderer.color = new Color(currColorIlluminated.r, currColorIlluminated.g, currColorIlluminated.b, 1.0f);
+        }
         else
-            stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 0.3f);
+        {
+            stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 0.5f);
+            stateFloorIlluminatedSpriteRenderer.color = new Color(currColorIlluminated.r, currColorIlluminated.g, currColorIlluminated.b, 0.5f); 
+        }
     }
 
     [ContextMenu("ChangeStates()")]

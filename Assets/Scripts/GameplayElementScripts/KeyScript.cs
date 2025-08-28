@@ -13,19 +13,19 @@ public class KeyScript : MonoBehaviourWithReset
     [SerializeField] private SpriteRenderer keySpriteRenderer;
     [SerializeField] private SpriteRenderer keyIllumSpriteRenderer;
     [SerializeField] private SpriteRenderer lockSpriteRenderer;
+    [SerializeField] private SpriteRenderer lockIlluminatedSpriteRenderer;
 
     // Reset Component Variable
     private bool lockIsTriggerInitial = false;
-    private Color keyColorInitial;
     private Color lockColorInitial;
-
+    private Color lockIlluminatedColorInitial;
     // Awake is called before the first frame update and before Start
     void Awake()
     {
         // Record Instantiation Variables
         lockIsTriggerInitial = lockCollider.isTrigger;
-        keyColorInitial = keySpriteRenderer.color;
         lockColorInitial = lockSpriteRenderer.color;
+        lockIlluminatedColorInitial = lockIlluminatedSpriteRenderer.color;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -39,8 +39,8 @@ public class KeyScript : MonoBehaviourWithReset
         lockCollider.isTrigger = true;
         keySpriteRenderer.sprite = keyUnlocked;
         keyIllumSpriteRenderer.sprite = keyUnlocked;
-        //keySpriteRenderer.color = keySpriteRenderer.color - new Color(0.0f, 0.0f, 0.0f, 1.0f);
-        lockSpriteRenderer.color = new Color(0.0f, 1.0f, 1.0f, 0.3f);
+        lockSpriteRenderer.color = new Color(0.0f, 0.0f, 0.0f, 0.5f);
+        lockIlluminatedSpriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     }
 
     public override void ResetToInstantiation()
@@ -49,5 +49,6 @@ public class KeyScript : MonoBehaviourWithReset
         keySpriteRenderer.sprite = keyLocked;
         keyIllumSpriteRenderer.sprite = keyLocked;
         lockSpriteRenderer.color = lockColorInitial;
+        lockIlluminatedSpriteRenderer.color = lockIlluminatedColorInitial;
     }
 }

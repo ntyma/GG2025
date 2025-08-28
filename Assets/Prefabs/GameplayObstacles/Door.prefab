@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 41f46dbd5f444ca48a71a8e5b654fcca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 41f46dbd5f444ca48a71a8e5b654fcca, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -257,8 +257,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 1
-  doorLocked: {fileID: 0}
+  doorLocked: {fileID: 21300000, guid: 41f46dbd5f444ca48a71a8e5b654fcca, type: 3}
   doorUnlocked: {fileID: 21300000, guid: f263308e4c34f654f8a1621e9e4f3d7f, type: 3}
+  doorUnlockedOffset: {x: 1.1, y: 0, z: 0}
   col: {fileID: 7988778761055720554}
   lockSpriteRenderer: {fileID: 8075713296531109284}
   illumSpriteRenderer: {fileID: 1264238308048095445}
