@@ -16755,7 +16755,7 @@ Transform:
   m_GameObject: {fileID: 339900834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 308.5, y: 4, z: 0}
+  m_LocalPosition: {x: 311, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35791,7 +35791,7 @@ MonoBehaviour:
   levelForegroundTilemapsGameObject: {fileID: 1173274649}
   levelPlayerMemoryTilemapsGameObject: {fileID: 1701006077}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 17
+  furthestGameLevel: 0
   totalLevelCount: 0
   levelObstaclesCollection: []
   levelRespawnPointsCollection: []

@@ -6,6 +6,9 @@ public class SaveData
 {
     public int playerLevel;
     public float playerHealth;
+
+    // Player Memory Tilemaps Data
+    public bool[][] playerMemory;
 }
 
 public static class SaveManager
