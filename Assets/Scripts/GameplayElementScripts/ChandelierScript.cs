@@ -147,5 +147,6 @@ public class ChandelierScript : MonoBehaviourWithReset
         isFalling = false;
         isRetracting = false;
         isInLight = false;
+        hasActivated = false;
     }
 }
