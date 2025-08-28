@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5446853589619220309}
   - component: {fileID: 1395913035422204231}
   - component: {fileID: 8514654663762260714}
-  - component: {fileID: 3721694484697191904}
+  - component: {fileID: 7972666799810288520}
   - component: {fileID: 9074603413956665740}
   - component: {fileID: 5017354571727266599}
   m_Layer: 11
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 0.9254902, b: 0, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 270012629
   m_BackSortingLayerID: 0
@@ -139,8 +139,8 @@ SpriteMask:
   m_BackSortingOrder: -2
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
---- !u!61 &3721694484697191904
-BoxCollider2D:
+--- !u!58 &7972666799810288520
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -172,18 +172,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!50 &9074603413956665740
 Rigidbody2D:
   serializedVersion: 4
@@ -225,8 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightWallSpriteRenderer: {fileID: 1395913035422204231}
   lightWallSpriteMask: {fileID: 8514654663762260714}
-  lightWallBoxCollider: {fileID: 3721694484697191904}
-  lightWallRigidBody: {fileID: 0}
+  lightWallCircleCollider: {fileID: 7972666799810288520}
+  lightWallRigidBody: {fileID: 9074603413956665740}
   Target: {fileID: 0}
-  scrollingSpeed: 3
+  scrollingSpeed: 2.7
   catchUpMultiplier: 1

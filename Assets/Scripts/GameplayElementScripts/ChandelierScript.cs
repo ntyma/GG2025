@@ -106,7 +106,7 @@ public class ChandelierScript : MonoBehaviourWithReset
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Player" || !isFalling || isInLight)
+        if (collision.gameObject.tag != "Player" || !isFalling)
             return;
 
         Health healthScript;

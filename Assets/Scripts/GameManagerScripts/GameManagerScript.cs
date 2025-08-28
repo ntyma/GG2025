@@ -133,8 +133,8 @@ public class GameManagerScript : MonoBehaviour
         };
         SaveManager.SaveGame(data);
 
-        if (currentGameLevel == 17)
-            SetScrollingLightWallPosition(levelRespawnPointsCollection[currentGameLevel].transform.GetChild(1).transform.position);
+        /*if (currentGameLevel == 17)
+            SetScrollingLightWallPosition(levelRespawnPointsCollection[currentGameLevel].transform.GetChild(1).transform.position);*/
     }
     // Enables the Obstacles of levels
     // currentGameLevel - levelObstacleGenerationFrameSize

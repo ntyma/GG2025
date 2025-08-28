@@ -6,7 +6,7 @@ public class ScrollingLightWallScript : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer lightWallSpriteRenderer;
     [SerializeField] private SpriteMask lightWallSpriteMask;
-    [SerializeField] private BoxCollider2D lightWallBoxCollider;
+    [SerializeField] private CircleCollider2D lightWallCircleCollider;
     [SerializeField] private Rigidbody2D lightWallRigidBody;
 
     [SerializeField] private GameObject Target;
