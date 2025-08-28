@@ -365,6 +365,7 @@ MonoBehaviour:
   currentFallingAccerleration: 0
   retractingRate: 2
   Damage: 5
+  activationDelay: 0.3
 --- !u!1 &5340243017076644405
 GameObject:
   m_ObjectHideFlags: 0

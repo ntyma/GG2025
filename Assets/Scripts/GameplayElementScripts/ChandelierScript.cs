@@ -13,6 +13,7 @@ public class ChandelierScript : MonoBehaviourWithReset
     private bool isInLight = false;
     private bool isFalling = false;
     private bool isRetracting = false;
+    private bool hasActivated = false;
 
     [SerializeField] private float fallingRate = 3.0f;
     [SerializeField] private float fallingAcceleration = 2.0f;
@@ -67,7 +68,10 @@ public class ChandelierScript : MonoBehaviourWithReset
                 );
 
             if (this.transform.position == startingPosition)
+            {
+                hasActivated = false;
                 isRetracting = false;
+            }
         }
     }
     public void ActivateChandelier()
@@ -75,6 +79,7 @@ public class ChandelierScript : MonoBehaviourWithReset
         if (isRetracting || isInLight)
             return;
 
+        hasActivated = true;
         isFalling = true;
     }
 
@@ -106,7 +111,7 @@ public class ChandelierScript : MonoBehaviourWithReset
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Player" || !isFalling)
+        if (collision.gameObject.tag != "Player" || !isFalling || isInLight)
             return;
 
         Health healthScript;
@@ -115,14 +120,15 @@ public class ChandelierScript : MonoBehaviourWithReset
             Debug.Log("Player DOES NOT have a HealthScript Component! - From OnCollisionEnter2D in Chandelier Script");
             return;
         }
-        
-        healthScript.TakeDamage(Damage);
+        if (Damage > 1)
+            healthScript.TakeDamage(Damage);
     }
+    public float activationDelay = 0.2f;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !hasActivated)
         {
-            ActivateChandelier();
+            Invoke("ActivateChandelier", activationDelay);
         }
         else if (collision.gameObject.tag == "Light")
         {
