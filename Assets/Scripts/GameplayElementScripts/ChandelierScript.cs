@@ -76,8 +76,8 @@ public class ChandelierScript : MonoBehaviourWithReset
     }
     public void ActivateChandelier()
     {
-        if (isRetracting || isInLight)
-            return;
+        /*if (isRetracting || isInLight)
+            return;*/
 
         hasActivated = true;
         isFalling = true;
@@ -89,6 +89,8 @@ public class ChandelierScript : MonoBehaviourWithReset
     {
         currentFallingAccerleration = 0.0f;
         isFalling = false;
+
+                            AudioManager.instance.Play("ChandelierImpact");
 
         if (mainCameraScript != null)
             mainCameraScript.CameraShake();
@@ -123,22 +125,38 @@ public class ChandelierScript : MonoBehaviourWithReset
         if (Damage > 1)
             healthScript.TakeDamage(Damage);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Light")
+        {
+            isInLight = true;
+
+                            AudioManager.instance.Play("EnemyFreeze");
+
+        }
+    }
     public float activationDelay = 0.2f;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !hasActivated)
+        if (collision.gameObject.tag == "Player" && !hasActivated && !isInLight)
         {
+            hasActivated = true;
+                            AudioManager.instance.Play("ChandelierRattle.wav");
             Invoke("ActivateChandelier", activationDelay);
         }
-        else if (collision.gameObject.tag == "Light")
+        /*else if (collision.gameObject.tag == "Light")
         {
             isInLight = true;
-        }
+        }*/
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
+        {
             isInLight = false;
+
+                            AudioManager.instance.Play("EnemyUnfreeze");
+        }
     }
     public override void ResetToInstantiation()
     {
