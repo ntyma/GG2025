@@ -46,13 +46,17 @@ public class EnemyOverhead : MonoBehaviourWithReset
         {
             animator.SetTrigger("EnemyInLight");
             rb.velocity = Vector2.zero;
+            AudioManager.instance.Play("EnemyFreeze");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
+        {
             animator.ResetTrigger("EnemyInLight");
+            AudioManager.instance.Play("EnemyUnfreeze");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) // Take damage when colliding with the player
@@ -65,6 +69,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
                 if (healthComponent != null)
                 {
                     healthComponent.TakeDamage(1);
+                    AudioManager.instance.Play("PlayerHurt");
                 }
             }
 

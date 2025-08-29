@@ -49,9 +49,8 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // dead, we'll have to link to a death animation later
             UnityEngine.Debug.Log("dead");
-
+            AudioManager.instance.Play("PlayerDeath");
             Respawn();
         }
     }
