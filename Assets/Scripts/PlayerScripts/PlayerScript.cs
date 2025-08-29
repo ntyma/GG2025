@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour
     public bool playerIsInCover = false;
 
     private float stepTimer = 0f; // timer for footsteps
+    private bool isPlayingBuzz;
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +41,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             playerRigidBody.velocity = Vector2.up * jumpForce;
+            AudioManager.instance.Play("Jump");
         }
 
         Footsteps();
@@ -55,14 +57,28 @@ public class PlayerScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
+        {
             playerIsInLight = true;
+            if (!isPlayingBuzz)
+            {
+                isPlayingBuzz = true;
+                AudioManager.instance.Play("GuideBuzz");
+            }
+        }
         else if (collision.gameObject.tag == "Cover")
             playerIsInCover = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
+        {
             playerIsInLight = false;
+            if (isPlayingBuzz)
+            {
+                isPlayingBuzz = false;
+                AudioManager.instance.Stop("GuideBuzz");
+            }
+        }
         else if (collision.gameObject.tag == "Cover")
             playerIsInCover = false;
     }
