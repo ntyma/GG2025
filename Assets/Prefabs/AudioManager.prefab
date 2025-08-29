@@ -74,7 +74,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: KeyPickUp
-    clip: {fileID: 8300000, guid: 4a6b9c5c18f132d4387d2502fbc2e1be, type: 3}
+    clip: {fileID: 8300000, guid: dd8b8a987b7560948a942a615234eebe, type: 3}
     volume: 0.1
     pitch: 1
     isMusic: 0
@@ -117,6 +117,55 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlateOff
     clip: {fileID: 8300000, guid: 590a77c528ff8ca4dbe5ff82474844ec, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: GuideBuzz
+    clip: {fileID: 8300000, guid: 713b3fdd1c149ab45813cf0a88846c4d, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: SwitchPlateDoorOpen
+    clip: {fileID: 8300000, guid: 5f03588aaa96698488e2ae528ebc759a, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: c6e42b2903a204d448e3723c2305a810, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: 4dcb51e5689dc8347915f57f9b52f8df, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyFreeze
+    clip: {fileID: 8300000, guid: e331e957e74b872459479f189e0ca788, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyUnfreeze
+    clip: {fileID: 8300000, guid: e5baf31f22314914fb029bd37987fddf, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: d55fd15287da79940a984092f6b0247c, type: 3}
     volume: 0.3
     pitch: 1
     isMusic: 0

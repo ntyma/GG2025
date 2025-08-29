@@ -67461,10 +67461,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 545242851}
     m_Modifications:
     - target: {fileID: 651005251284895216, guid: 5736a26a7df29364687d02269eed7740, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 651005251284895216, guid: 5736a26a7df29364687d02269eed7740, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.54071
       objectReference: {fileID: 0}
@@ -86916,7 +86912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCameraState: 0
-  lockedToArea_xLength: 5
+  lockedToArea_xLength: 6
   lockedToArea_yLength: 5
   followPlayer_xOffset: 0
   followPlayer_yOffset: 0

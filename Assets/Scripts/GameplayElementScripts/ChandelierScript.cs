@@ -69,6 +69,7 @@ public class ChandelierScript : MonoBehaviourWithReset
 
             if (this.transform.position == startingPosition)
             {
+                AudioManager.instance.Stop("ChandelierRetracting");
                 hasActivated = false;
                 isRetracting = false;
             }
@@ -90,7 +91,7 @@ public class ChandelierScript : MonoBehaviourWithReset
         currentFallingAccerleration = 0.0f;
         isFalling = false;
 
-                            AudioManager.instance.Play("ChandelierImpact");
+        AudioManager.instance.Play("ChandelierImpact");
 
         if (mainCameraScript != null)
             mainCameraScript.CameraShake();
@@ -102,6 +103,7 @@ public class ChandelierScript : MonoBehaviourWithReset
     }
     private IEnumerator SetIsRetracting()
     {
+        AudioManager.instance.Play("ChandelierRetracting");
         float Timer = 0.0f;
         while (Timer <= postImpactRetractionDelay)
         {
@@ -131,8 +133,10 @@ public class ChandelierScript : MonoBehaviourWithReset
         {
             isInLight = true;
 
-                            AudioManager.instance.Play("EnemyFreeze");
+            AudioManager.instance.Play("EnemyFreeze");
 
+            if (isRetracting)
+                AudioManager.instance.Stop("ChandelierRetracting");
         }
     }
     public float activationDelay = 0.2f;
@@ -141,7 +145,7 @@ public class ChandelierScript : MonoBehaviourWithReset
         if (collision.gameObject.tag == "Player" && !hasActivated && !isInLight)
         {
             hasActivated = true;
-                            AudioManager.instance.Play("ChandelierRattle.wav");
+            AudioManager.instance.Play("ChandelierRattle");
             Invoke("ActivateChandelier", activationDelay);
         }
         /*else if (collision.gameObject.tag == "Light")
@@ -155,7 +159,9 @@ public class ChandelierScript : MonoBehaviourWithReset
         {
             isInLight = false;
 
-                            AudioManager.instance.Play("EnemyUnfreeze");
+            AudioManager.instance.Play("EnemyUnfreeze");
+            if (isRetracting)
+                AudioManager.instance.Play("ChandelierRetracting");
         }
     }
     public override void ResetToInstantiation()
