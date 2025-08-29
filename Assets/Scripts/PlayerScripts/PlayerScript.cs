@@ -26,6 +26,7 @@ public class PlayerScript : MonoBehaviour
 
     private float stepTimer = 0f; // timer for footsteps
     private bool isPlayingBuzz;
+    private bool wasGrounded = false;
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +44,13 @@ public class PlayerScript : MonoBehaviour
             playerRigidBody.velocity = Vector2.up * jumpForce;
             AudioManager.instance.Play("Jump");
         }
+
+        if (isGrounded() && !wasGrounded)
+        {
+            AudioManager.instance.Play("JumpLand");
+        }
+
+        wasGrounded = isGrounded();
 
         Footsteps();
     }
