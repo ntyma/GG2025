@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3549823266174687444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5194041749310218722}
+  - component: {fileID: 417257575981488408}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5194041749310218722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549823266174687444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.989932, y: 0.9615964, z: -0.03807384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417257575981488408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549823266174687444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b888cea2b4608664182d52b15a01149a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Footstep
+    clip: {fileID: 8300000, guid: f8c354d37bdcb2343bd87e8fc3d4f809, type: 3}
+    volume: 0.503
+    pitch: 0.25
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: GuideIntro
+    clip: {fileID: 8300000, guid: a614a65f352457d4b8da183d572b19ba, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GuideLoop
+    clip: {fileID: 8300000, guid: aebb225f9955bfe4ab47a3ed331f2736, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: House
+    clip: {fileID: 8300000, guid: 3f105ed50aefec549bab172fec07cfeb, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: KeyPickUp
+    clip: {fileID: 8300000, guid: dd8b8a987b7560948a942a615234eebe, type: 3}
+    volume: 0.1
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: KeyDrop
+    clip: {fileID: 8300000, guid: 7422dbe149769a241bfd248a1da99ea1, type: 3}
+    volume: 0.1
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: 4d1a3528c0a4d434d9dc55ce97adad82, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Title
+    clip: {fileID: 8300000, guid: 36ed3ce31481c1c4d8d9ef6482a9e6c3, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: SwitchOn
+    clip: {fileID: 8300000, guid: 505f2ea6e8f94584397cadc4303b866b, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlateOn
+    clip: {fileID: 8300000, guid: 932f1c3f110725c43ad02d5a917bc67c, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlateOff
+    clip: {fileID: 8300000, guid: 590a77c528ff8ca4dbe5ff82474844ec, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: GuideBuzz
+    clip: {fileID: 8300000, guid: 713b3fdd1c149ab45813cf0a88846c4d, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: SwitchPlateDoorOpen
+    clip: {fileID: 8300000, guid: 5f03588aaa96698488e2ae528ebc759a, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: c6e42b2903a204d448e3723c2305a810, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: 4dcb51e5689dc8347915f57f9b52f8df, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyFreeze
+    clip: {fileID: 8300000, guid: e331e957e74b872459479f189e0ca788, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyUnfreeze
+    clip: {fileID: 8300000, guid: e5baf31f22314914fb029bd37987fddf, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: d55fd15287da79940a984092f6b0247c, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Light
+  - Guide
+  - Key
+  - Enemy
+  - Cover
+  - Memory
   layers:
   - Default
   - TransparentFX
@@ -11,12 +17,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Floor
+  - Memory
+  - Player
+  - Key
+  - Enemy
+  - Light
   - 
   - 
   - 
@@ -38,6 +44,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 167365105
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PlayerParanoia
+    uniqueID: 270012629
+    locked: 0
+  - name: PlayerRespawn
+    uniqueID: 117296109
     locked: 0
