@@ -27,8 +27,8 @@ public class GameManagerScript : MonoBehaviour
     private GameObject[] levelRespawnPointsCollection;
     [SerializeField] private bool[] levelHasObstacles;
     [SerializeField] private int levelObstacleGenerationFrameSize = 2;
-    private GameObject[] levelPlayerMemoryTilemapsCollection;
-    private GameObject[] levelForegroundTilemapsCollection;
+    //private GameObject[] levelPlayerMemoryTilemapsCollection;
+    //private GameObject[] levelForegroundTilemapsCollection;
 
     public bool isForwardRoute = true;
 
@@ -80,25 +80,27 @@ public class GameManagerScript : MonoBehaviour
         {
             levelRespawnPointsCollection[i++] = childTransform.gameObject;
         }
-        // Load in ALL level specific Background Tilemaps
+        // Disable ALL level specific Background Tilemaps
         foreach (Transform childTransform in levelBackgroundTilemapsGameObject.transform)
         {
             childTransform.gameObject.SetActive(false);
         }
 
-        // Load in ALL level specific Foreground Tilemaps
-        levelForegroundTilemapsCollection = new GameObject[totalLevelCount];
+        // Disable ALL level specific Foreground Tilemaps
+        //levelForegroundTilemapsCollection = new GameObject[totalLevelCount];
         i = 0;
         foreach (Transform childTransform in levelForegroundTilemapsGameObject.transform)
         {
-            levelForegroundTilemapsCollection[i++] = childTransform.gameObject;
+            //levelForegroundTilemapsCollection[i++] = childTransform.gameObject;
+            childTransform.gameObject.SetActive(false);
         }
-        // Load in ALL level specific Player Memory Tilemaps
-        levelPlayerMemoryTilemapsCollection = new GameObject[totalLevelCount];
+        // Disble ALL level specific Player Memory Tilemaps
+        //levelPlayerMemoryTilemapsCollection = new GameObject[totalLevelCount];
         i = 0;
         foreach (Transform childTransform in levelPlayerMemoryTilemapsGameObject.transform)
         {
-            levelPlayerMemoryTilemapsCollection[i++] = childTransform.gameObject;
+            childTransform.gameObject.SetActive(false);
+            //levelPlayerMemoryTilemapsCollection[i++] = childTransform.gameObject;
         }
         backwardRouteScrollingLightWall.SetActive(false);
 
@@ -132,7 +134,8 @@ public class GameManagerScript : MonoBehaviour
 
         EnableObstaclesInLevelFrame();
         SetRespawnPoint();
-        playerScript.SetPlayerMemoryTilemap(levelPlayerMemoryTilemapsCollection[currentGameLevel].GetComponent<Tilemap>());
+        //playerScript.SetPlayerMemoryTilemap(levelPlayerMemoryTilemapsCollection[currentGameLevel].GetComponent<Tilemap>());\
+        playerScript.SetPlayerMemoryTilemap(levelPlayerMemoryTilemapsGameObject.transform.GetChild(currentGameLevel).GetComponent<Tilemap>());
         mainCameraScript.ProgressCamera(isProgressing);
 
 
@@ -206,8 +209,10 @@ public class GameManagerScript : MonoBehaviour
 
         // Enable corresponding Tilemaps
         levelBackgroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(true);
-        levelForegroundTilemapsCollection[Index].SetActive(true);
-        levelPlayerMemoryTilemapsCollection[Index].SetActive(true);
+        //levelForegroundTilemapsCollection[Index].SetActive(true);
+        levelForegroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(true);
+        //levelPlayerMemoryTilemapsCollection[Index].SetActive(true);
+        levelPlayerMemoryTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(true);
     }
     // Clean Level Index of Pre-set Obstacles
     public void DisableObstaclesOfLevel (int Index)
@@ -246,8 +251,10 @@ public class GameManagerScript : MonoBehaviour
 
         // Disable corresponding Tilemaps
         levelBackgroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(false);
-        levelForegroundTilemapsCollection[Index].SetActive(false);
-        levelPlayerMemoryTilemapsCollection[Index].SetActive(false);
+        //levelForegroundTilemapsCollection[Index].SetActive(false);
+        levelForegroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(false);
+        //levelPlayerMemoryTilemapsCollection[Index].SetActive(false);
+        levelPlayerMemoryTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(false);
     }
     // Reset Level Index's ForwardRoute or BackwardRoute Obstacles to their Original State upon Instantiation
     public void ResetLevelObstacles (int Index)
@@ -267,7 +274,7 @@ public class GameManagerScript : MonoBehaviour
 
         // Reset corresponding Player Memory Tilemap
         PlayerMemoryTilemapScript playerMemoryTilemapScript;
-        if (!(levelPlayerMemoryTilemapsCollection[Index].TryGetComponent<PlayerMemoryTilemapScript>(out playerMemoryTilemapScript)))
+        if (!(levelPlayerMemoryTilemapsGameObject.transform.GetChild(Index).TryGetComponent<PlayerMemoryTilemapScript>(out playerMemoryTilemapScript)))
         {
             Debug.Log("Player Memory Tilemap #" + Index + " DOES NOT have PlayerMemoryTilemapScript - from ResetLevelObstacles() in GameManagerScript");
             return;
@@ -311,7 +318,7 @@ public class GameManagerScript : MonoBehaviour
         EnableObstaclesInLevelFrame();
         guideGameObject.SetActive(isForwardRoute);
         SetRespawnPoint();
-        playerScript.SetPlayerMemoryTilemap(levelPlayerMemoryTilemapsCollection[Index].GetComponent<Tilemap>());
+        playerScript.SetPlayerMemoryTilemap(levelPlayerMemoryTilemapsGameObject.transform.GetChild(Index).GetComponent<Tilemap>());
         playerScript.SetRoute(isForwardRoute);
         mainCameraScript.SetCameraPosition(Index);
 
