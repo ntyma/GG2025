@@ -53,7 +53,7 @@ public class GameManagerScript : MonoBehaviour
                 "There are " + levelBackgroundTilemapsGameObject.transform.childCount + " sets of Level Background Tilemaps\n" +
                 "There are " + levelForegroundTilemapsGameObject.transform.childCount + " sets of Player Foreground Tilemaps\n" +
                 "There are " + levelPlayerMemoryTilemapsGameObject.transform.childCount + " sets of Player Memory Tilemaps\n" +
-                "There are " + cameraPositionsGameObject.transform.childCount + " sets of Level Camera Positions" +
+                "There are " + cameraPositionsGameObject.transform.childCount + " sets of Level Camera Positions\n" +
                 "There are " + levelProgressionTriggersGameObject.transform.childCount + " sets of Level Progression Triggers (this should be 1 less than other Values)\n");
         }
 
