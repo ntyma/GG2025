@@ -148,6 +148,8 @@ MonoBehaviour:
   stateFloorSpriteRenderer: {fileID: 6987206681900309838}
   stateFloorIlluminatedSpriteRenderer: {fileID: 8721996269780118478}
   isTangible: 1
+  tangibleAlpha: 1
+  intangibleAlpha: 0.2
 --- !u!1 &5226192847786647802
 GameObject:
   m_ObjectHideFlags: 0

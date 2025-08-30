@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497687602259190793, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Name
-      value: State_Floor Alt
+      value: StateFloorAlt
       objectReference: {fileID: 0}
     - target: {fileID: 6838872900157140246, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_IsTrigger
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6987206681900309838, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_Color.a
-      value: 0.29803923
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7573336024839408061, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: isTangible

@@ -9,6 +9,9 @@ public class StateFloorScript : MonoBehaviourWithReset
     [SerializeField] private SpriteRenderer stateFloorIlluminatedSpriteRenderer;
     [SerializeField] private bool isTangible = true;
 
+    [SerializeField] private float tangibleAlpha = 1.0f;
+    [SerializeField] private float intangibleAlpha = 0.0f;
+
     // Reset Component Variable
 
     // Awake is called before the first frame update and before Start
@@ -43,13 +46,13 @@ public class StateFloorScript : MonoBehaviourWithReset
         Color currColorIlluminated = stateFloorIlluminatedSpriteRenderer.color;
         if (isTangible)
         {
-            stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 1.0f);
-            stateFloorIlluminatedSpriteRenderer.color = new Color(currColorIlluminated.r, currColorIlluminated.g, currColorIlluminated.b, 1.0f);
+            //stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, tangibleAlpha);
+            stateFloorIlluminatedSpriteRenderer.color = new Color(currColorIlluminated.r, currColorIlluminated.g, currColorIlluminated.b, tangibleAlpha);
         }
         else
         {
-            stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, 0.5f);
-            stateFloorIlluminatedSpriteRenderer.color = new Color(currColorIlluminated.r, currColorIlluminated.g, currColorIlluminated.b, 0.5f); 
+            //stateFloorSpriteRenderer.color = new Color(currColor.r, currColor.g, currColor.b, intangibleAlpha);
+            stateFloorIlluminatedSpriteRenderer.color = new Color(currColorIlluminated.r, currColorIlluminated.g, currColorIlluminated.b, intangibleAlpha); 
         }
     }
 

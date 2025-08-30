@@ -39,8 +39,8 @@ public class KeyScript : MonoBehaviourWithReset
         lockCollider.isTrigger = true;
         keySpriteRenderer.sprite = keyUnlocked;
         keyIllumSpriteRenderer.sprite = keyUnlocked;
-        lockSpriteRenderer.color = new Color(0.0f, 0.0f, 0.0f, 0.5f);
-        lockIlluminatedSpriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        lockSpriteRenderer.color = new Color(0.0f, 0.0f, 0.0f, 0.2f);
+        lockIlluminatedSpriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
     }
 
     public override void ResetToInstantiation()
