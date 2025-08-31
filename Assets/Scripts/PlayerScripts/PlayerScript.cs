@@ -46,11 +46,6 @@ public class PlayerScript : MonoBehaviour
         AudioManager.instance.Play("Jump");
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("abc  " +other.gameObject.name);
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
