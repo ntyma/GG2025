@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] private PlayerScript playerScript;
     [SerializeField] private GameManagerScript gameManagerScript;
+    [SerializeField] private PlayerController playerController;
     private bool isForwardRoute = true;
 
     [SerializeField] private float forwardRouteHealthRegen = 0.2f;
@@ -51,6 +52,7 @@ public class Health : MonoBehaviour
         {
             UnityEngine.Debug.Log("dead");
             AudioManager.instance.Play("PlayerDeath");
+            playerController.Die();
             Respawn();
         }
     }

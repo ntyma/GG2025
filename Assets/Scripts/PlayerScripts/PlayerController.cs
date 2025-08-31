@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isGrounded;
     private bool isJumping;
 
+    public Action OnJumpStart;
+    public Action OnJumpLand;
+    public Action<bool> isRunning;
+    public Action<bool> OnMoving;
+
     [Header("Testing")]
     [SerializeField] private bool testingMode;
     private Vector2 moveDirection;
@@ -53,14 +59,15 @@ public class PlayerController : MonoBehaviour
 
         animationEndBehaviour.OnLandAnimationEnded += JumpLandAnimEnded;
         animationEndBehaviour.OnStartJumpAnimationEnded += JumpStartAnimEnded;
-
     }
 
     private void OnDisable()
     {
         move.Disable();
+
         jump.Disable();
         jump.performed -= Jump;
+
         animationEndBehaviour.OnLandAnimationEnded -= JumpLandAnimEnded;
         animationEndBehaviour.OnStartJumpAnimationEnded -= JumpStartAnimEnded;
     }
@@ -80,6 +87,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = move.ReadValue<Vector2>();
         Gravity();
         UpdateAnimation();
+        IsMoving(isGrounded);
         animator.SetBool("isJumping", !isGrounded);
 
         if(!isJumping)
@@ -129,6 +137,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void IsMoving(bool isGrounded)
+    {
+        if(moveDirection != Vector2.zero && isGrounded)
+        {
+            OnMoving.Invoke(true);
+        } else
+        {
+            OnMoving.Invoke(false);
+        }
+    }
+
     private void Jump(InputAction.CallbackContext context)
     {
         if(IsGrounded())
@@ -137,6 +156,7 @@ public class PlayerController : MonoBehaviour
             LockPlayerControls();
             isJumping = true;
             speedMultiplier = jumpSpeedMultiplier;
+            OnJumpStart.Invoke();
         }
         
     }
@@ -147,7 +167,7 @@ public class PlayerController : MonoBehaviour
         LockPlayerControls();
         rigidBody.velocity = Vector2.zero;
         speedMultiplier = 1f;
-        
+        OnJumpLand.Invoke();
     }
 
     private void JumpStartAnimEnded()
