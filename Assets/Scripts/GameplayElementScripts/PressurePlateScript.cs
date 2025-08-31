@@ -19,6 +19,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
     [SerializeField] private SpriteRenderer plateIllumSpriteRenderer;
 
     public bool pressureIsActivated = false;
+    private bool doorIsMoving = false;
+    private bool doorWasMoving = false;
 
     // Reset Component Variable
     private float pressureStatusInitial;
@@ -48,6 +50,22 @@ public class PressurePlateScript : MonoBehaviourWithReset
             pressureStatus = Mathf.Clamp(pressureStatus - pressureDrainRate * Time.deltaTime, 0.0f, pressureTarget);
 
         doorGameObject.transform.position = Vector3.Lerp(doorStartingPosition, doorEndingPosition, pressureStatus*0.01f);
+
+        if (doorGameObject.transform.position != doorEndingPosition && doorGameObject.transform.position != doorStartingPosition)
+            doorIsMoving = true;
+        else
+            doorIsMoving = false;
+
+        if (doorIsMoving && !doorWasMoving) // started moving
+            AudioManager.instance.Play("PlateDoorMove");
+
+        else if (!doorIsMoving && doorWasMoving) // stopped moving
+        {
+            AudioManager.instance.Stop("PlateDoorMove");
+            AudioManager.instance.Play("PlateDoorOpenClose");
+        }
+
+        doorWasMoving = doorIsMoving;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

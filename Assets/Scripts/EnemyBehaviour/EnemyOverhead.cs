@@ -17,6 +17,8 @@ public class EnemyOverhead : MonoBehaviourWithReset
     public float speed = 5;
 
     public Vector2 initialpos;
+
+    private bool isPlayingFreeze;
     // Awake is called before all Start() functions and the first frame update
     void Awake()
     {
@@ -46,7 +48,11 @@ public class EnemyOverhead : MonoBehaviourWithReset
         {
             animator.SetTrigger("EnemyInLight");
             rb.velocity = Vector2.zero;
-            AudioManager.instance.Play("EnemyFreeze");
+            if (!isPlayingFreeze)
+            {
+                isPlayingFreeze = true;
+                AudioManager.instance.Play("EnemyFreeze");
+            }
         }
     }
 
@@ -55,6 +61,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
         if (collision.gameObject.tag == "Light")
         {
             animator.ResetTrigger("EnemyInLight");
+            isPlayingFreeze = false;
             AudioManager.instance.Play("EnemyUnfreeze");
         }
     }
