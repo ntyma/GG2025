@@ -33,10 +33,13 @@ public class DialogueManager : MonoBehaviour
             Instance = this;
 
 		lines = new Queue<DialogueLine>();
+
+        animator.enabled = false;
     }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
+		animator.enabled = true;
         isDialogueActive = true;
 
 		wasPlaying = AudioManager.instance.CurrentlyPlaying();
