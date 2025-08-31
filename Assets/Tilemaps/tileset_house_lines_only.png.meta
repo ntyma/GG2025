@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 255
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,323 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: tileset_house_lines_only_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da4d511394985742b6191d7dcaf47c7
+      internalID: 1863755464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: -61}
+        - {x: -58, y: -61}
+        - {x: -55, y: 128}
+        - {x: -128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5f09cb0b5b97c498269cb7ad9aa678
+      internalID: 1214958051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fec6efcf1670a48bc5595a5a8c9d51
+      internalID: 1269562980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_3
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 791
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7baea955a7d0f86438ab0e2a70504ede
+      internalID: 1341203681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 535
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4f1a60f1dd2764cb79d21ff02b53bc
+      internalID: 865663625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 535
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 128, y: 37.931335}
+        - {x: 128, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: 37.6308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e511c077470a2e43aa35e495a4c632e
+      internalID: 1234562909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 535
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: 37}
+        - {x: 128, y: 37}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9d3246a5631e14abac3214805bf882
+      internalID: 1121780379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 279
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -40, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: -51}
+        - {x: 46, y: -51}
+        - {x: 44, y: 39}
+        - {x: -41, y: 38}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec12fb9ac05a3c640aadf4ff66367e58
+      internalID: 2039154956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 279
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36979abe17fde7f4989bc1aacdf7fe83
+      internalID: -655439401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 279
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe39ec7b291362b41ad671a4784045ef
+      internalID: -1638375381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 23
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 81, y: 43}
+        - {x: 76, y: 64}
+        - {x: 47, y: 85}
+        - {x: -12, y: 89}
+        - {x: -60, y: 62}
+        - {x: -86, y: 11}
+        - {x: -84, y: -45}
+        - {x: -76, y: -73}
+        - {x: -49, y: -85}
+        - {x: -47, y: -128}
+        - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: 42}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919eec62037a4934a93ba9fb5d2ef29f
+      internalID: 1476217658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_house_lines_only_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 23
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -128, y: -128}
+        - {x: -128, y: 128}
+        - {x: 128, y: 128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62101638d9bc5bd4e816c0770a24cc17
+      internalID: -79924955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +435,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tileset_house_lines_only_0: 1863755464
+      tileset_house_lines_only_1: 1214958051
+      tileset_house_lines_only_10: 1476217658
+      tileset_house_lines_only_11: -79924955
+      tileset_house_lines_only_2: 1269562980
+      tileset_house_lines_only_3: 1341203681
+      tileset_house_lines_only_4: 865663625
+      tileset_house_lines_only_5: 1234562909
+      tileset_house_lines_only_6: 1121780379
+      tileset_house_lines_only_7: 2039154956
+      tileset_house_lines_only_8: -655439401
+      tileset_house_lines_only_9: -1638375381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
