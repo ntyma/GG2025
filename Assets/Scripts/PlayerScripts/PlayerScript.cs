@@ -5,20 +5,21 @@ using UnityEngine.Tilemaps;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D playerRigidBody;
-    [SerializeField] private SpriteRenderer playerSpriteRenderer;
-    [SerializeField] private BoxCollider2D playerBoxCollider;
+    //[SerializeField] private Rigidbody2D playerRigidBody;
+    //[SerializeField] private SpriteRenderer playerSpriteRenderer;
+    //[SerializeField] private BoxCollider2D playerBoxCollider;
     [SerializeField] private Health playerHealthScript;
     [SerializeField] private PlayerVisionScript playerVisionScript;
     [SerializeField] private PlayerMemoryScript playerMemoryScript;
+    [SerializeField] private PlayerController playerController;
 
-    public bool isFacingRight = true;
-    [SerializeField] private float walkSpeed = 1.0f;
-    [SerializeField] private float jumpForce = 1.0f;
-    [SerializeField] private float checkRadius = 0.5f;
+    //public bool isFacingRight = true;
+    //[SerializeField] private float walkSpeed = 1.0f;
+    //[SerializeField] private float jumpForce = 1.0f;
+    //[SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private float stepInterval = 0.4f; // how often footsteps play when walking
 
-    [SerializeField] private LayerMask whatIsGround;
+    //[SerializeField] private LayerMask whatIsGround;
 
     public bool isForwardRoute = false;
     public bool playerIsInLight = false;
@@ -26,40 +27,28 @@ public class PlayerScript : MonoBehaviour
 
     private float stepTimer = 0f; // timer for footsteps
     private bool isPlayingBuzz;
-    private bool wasGrounded = false;
-    // Update is called once per frame
-    void Update()
+    //private bool wasGrounded = false;
+
+    private void Start()
     {
-        // GetAxisRaw returns int value {-1, 0, 1} depending of A or D is pressed
-        playerRigidBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, playerRigidBody.velocity.y);
-
-        // Player is moving Right
-        if (playerRigidBody.velocity.x >= 0.0f)
-            isFacingRight = true;
-        else
-            isFacingRight = false;
-        
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-        {
-            playerRigidBody.velocity = Vector2.up * jumpForce;
-            AudioManager.instance.Play("Jump");
-        }
-
-        if (isGrounded() && !wasGrounded)
-        {
-            AudioManager.instance.Play("JumpLand");
-        }
-
-        wasGrounded = isGrounded();
-
-        Footsteps();
+        playerController.OnJumpStart += PlayJumpAudio;
+        playerController.OnJumpLand += PlayJumpLandAudio;
+        playerController.OnMoving += Footsteps;
     }
 
-    private bool isGrounded()
+    private void PlayJumpLandAudio()
     {
-        RaycastHit2D temp = Physics2D.BoxCast(playerBoxCollider.bounds.center, playerBoxCollider.bounds.size,
-                                     0, Vector2.down, checkRadius, whatIsGround);
-        return temp.collider != null;
+        AudioManager.instance.Play("JumpLand");
+    }
+
+    private void PlayJumpAudio()
+    {
+        AudioManager.instance.Play("Jump");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("abc  " +other.gameObject.name);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -101,12 +90,10 @@ public class PlayerScript : MonoBehaviour
     {
         playerMemoryScript.SetPlayerMemoryTilemap(Input);
     }
-    private void Footsteps()
+    private void Footsteps(bool onMoving)
     {
-        bool isMoving = Mathf.Abs(playerRigidBody.velocity.x) > 0.1f;
-        bool grounded = isGrounded();
 
-        if (isMoving && grounded)
+        if (onMoving)
         {
             stepTimer -= Time.deltaTime;
             if (stepTimer <= 0f)
