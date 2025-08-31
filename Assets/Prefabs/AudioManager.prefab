@@ -171,3 +171,38 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  - name: ChandelierRattle
+    clip: {fileID: 8300000, guid: 2975d87c28e9d9b4c8c8434a41f48878, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: ChandelierImpact
+    clip: {fileID: 8300000, guid: 5d24da1c33344ce43b45c485c9c73aa9, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: ChandelierRetracting
+    clip: {fileID: 8300000, guid: e24ca659f0b5b3448ab8f6a45218cd20, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: DebrisFall
+    clip: {fileID: 8300000, guid: cd02f396475e0c14686f6fd20911e836, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: DebrisImpact
+    clip: {fileID: 8300000, guid: 7b946d400532dd94a983977223d68ee6, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
