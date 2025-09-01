@@ -35,7 +35,7 @@ public class PlayerRespawnCameraAnimationScript : MonoBehaviour
     public float firstIncrementTime = 0.6f;
     public float secondIncrementTime = 1.0f;
     private Coroutine PlayerSpawnAnimationCoroutine;
-    public void PlayPlayerSpawnCameraAnimation(float firstIncrementTime = 0.6f, float secondIncrementTime = 1.0f)
+    public void PlayPlayerSpawnCameraAnimation(/*float firstIncrementTime = 0.6f, float secondIncrementTime = 1.0f*/)
     {
         if (PlayerSpawnAnimationCoroutine != null)
         {
@@ -83,7 +83,7 @@ public class PlayerRespawnCameraAnimationScript : MonoBehaviour
     public float initialDelay = 0.5f;
     public float deathFadeoutTime = 1.0f;
     private Coroutine PlayerDeathCameraAnimationCoroutine;
-    public void PlayPlayerDeathCameraAnimation(float initialDelay = 0.5f, float deathFadeoutTime = 1.0f)
+    public void PlayPlayerDeathCameraAnimation(/*float initialDelay = 0.5f, float deathFadeoutTime = 1.0f*/)
     {
         if (PlayerDeathCameraAnimationCoroutine != null)
         {

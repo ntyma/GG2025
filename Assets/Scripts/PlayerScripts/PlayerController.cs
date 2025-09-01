@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         if(IsGrounded())
         {
             animator.SetTrigger("StartJump");
-            LockPlayerControls();
+                    //LockPlayerControls();
             isJumping = true;
             speedMultiplier = jumpSpeedMultiplier;
             OnJumpStart.Invoke();
@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
     private void OnLand()
     {
         animator.SetTrigger("LandJump");
-        LockPlayerControls();
+                //LockPlayerControls();
         rigidBody.velocity = Vector2.zero;
         speedMultiplier = 1f;
         OnJumpLand.Invoke();
@@ -173,13 +173,13 @@ public class PlayerController : MonoBehaviour
     private void JumpStartAnimEnded()
     {
         animator.SetBool("isJumping", true);
-        UnlockPlayerControls();
+                //UnlockPlayerControls();
         rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
     }
 
     private void JumpLandAnimEnded()
     {
-        UnlockPlayerControls();
+                //UnlockPlayerControls();
         isJumping = false;
     }
 
