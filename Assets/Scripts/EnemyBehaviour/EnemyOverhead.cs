@@ -66,15 +66,16 @@ public class EnemyOverhead : MonoBehaviourWithReset
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) // Take damage when colliding with the player
+    private void OnCollisionEnter2D(Collision2D collision) // Deal damage when colliding with the player
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("player info: " + collision.gameObject.transform.position.y + collision.gameObject.transform.localScale.y);
             Debug.Log("transform info: " + transform.position.y);
             Debug.Log("enemy info: " + transform.position.y + transform.localScale.y);
-            if (collision.gameObject.transform.position.y + collision.gameObject.transform.localScale.y < (transform.position.y + transform.localScale.y))
-            {
+            if(!isPlayingFreeze) {
+            //if (collision.gameObject.transform.position.y + collision.gameObject.transform.localScale.y < (transform.position.y + transform.localScale.y)){
+                animator.SetTrigger("HittingPlayer");
                 var healthComponent = collision.gameObject.GetComponent<Health>();
                 if (healthComponent != null)
                 {
@@ -82,9 +83,15 @@ public class EnemyOverhead : MonoBehaviourWithReset
                     AudioManager.instance.Play("PlayerHurt");
                 }
             }
-
         }
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.ResetTrigger("HittingPlayer");
+        }
+        }
     public override void ResetToInstantiation()
     {
         transform.position = initialpos;
