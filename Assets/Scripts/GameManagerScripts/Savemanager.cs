@@ -38,6 +38,21 @@ public static class SaveManager
         }
     }
 
+    public static void UpdateSaveData(System.Action<SaveData> updateAction)
+    {
+        SaveData data = LoadGame();
+        if (updateAction != null)
+        {
+            updateAction.Invoke(data);
+        }
+        SaveGame(data);
+    }
+    public static T GetSpecificData<T>(System.Func<SaveData, T> selector)
+    {
+        SaveData data = LoadGame();
+        return selector(data);
+    }
+
     public static void DeleteSave()
     {
         if (File.Exists(saveFilePath))

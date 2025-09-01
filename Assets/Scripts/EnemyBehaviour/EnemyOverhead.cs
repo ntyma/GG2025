@@ -70,7 +70,10 @@ public class EnemyOverhead : MonoBehaviourWithReset
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.transform.position.y < (transform.position.y + transform.localScale.y))
+            Debug.Log("player info: " + collision.gameObject.transform.position.y + collision.gameObject.transform.localScale.y);
+            Debug.Log("transform info: " + transform.position.y);
+            Debug.Log("enemy info: " + transform.position.y + transform.localScale.y);
+            if (collision.gameObject.transform.position.y + collision.gameObject.transform.localScale.y < (transform.position.y + transform.localScale.y))
             {
                 var healthComponent = collision.gameObject.GetComponent<Health>();
                 if (healthComponent != null)

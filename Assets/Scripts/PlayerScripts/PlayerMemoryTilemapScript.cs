@@ -21,11 +21,15 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
         
         ResetToInstantiation();
         // Load tile data from Save
+        //LoadTileData();
     }
     private void Update()
     {
         if (siblingIndex == 0 && Input.GetKeyDown(KeyCode.T))
+            Debug.Log("saving");
             SaveTileData();
+        if (siblingIndex == 0 && Input.GetKeyDown(KeyCode.L))
+            LoadTileData();
     }
     public override void ResetToInstantiation()
     {
@@ -63,10 +67,24 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
             }
         }
 
-        SaveData data = new SaveData
+        SaveManager.UpdateSaveData(data =>
         {
-            
-        };
+            if (data.playerMemory == null)
+            {
+                Debug.Log("playerMemory was null");
+                data.playerMemory = new bool[GlobalVariables.playerMemoryTileMaps][]; // pick size based on your needs
+            }
+
+            if (data.playerMemory[siblingIndex] == null)
+            {
+                data.playerMemory[siblingIndex] = new bool[memorizedTilesArray.Length];
+                Debug.Log("index was null");
+            }
+
+            data.playerMemory[siblingIndex] = memorizedTilesArray;
+        });
+
+        Debug.Log("memorized new tiles");
     }
     public void LoadTileData()
     {
@@ -76,7 +94,8 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
         // Load Data from Save
         //
         bool[] memorizedTilesArray = new bool[arraySize];
-        
+
+        memorizedTilesArray = SaveManager.GetSpecificData(data => data.playerMemory[siblingIndex]);
 
         int currentCount = 0;
         for (int i = playerMemoryTilemapBounds.xMin; i <= playerMemoryTilemapBounds.xMax; i++)
