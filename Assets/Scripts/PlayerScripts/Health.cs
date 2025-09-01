@@ -59,7 +59,7 @@ public class Health : MonoBehaviour
             respawnAnimationScript.Invoke("PlayPlayerDeathCameraAnimation", 1.0f);
 
             respawnAnimationScript.Invoke("PlayPlayerSpawnCameraAnimation", 3.0f);
-            playerController.Invoke("UnlockPlayerControls", 3.0f);
+            playerController.Invoke("Respawn", 3.0f);
             Invoke("Respawn", 3.0f);
         }
     }

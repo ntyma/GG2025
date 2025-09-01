@@ -210,6 +210,22 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("TriggerDeath");
         LockPlayerControls();
+
+        // Have Player not be affected by Gravity and other Collisions when Dead
+        rigidBody.simulated = false;
+        GetComponent<Collider2D>().isTrigger = true;
+    }
+
+    public void Respawn()
+    {
+        // Renable Gravity and other Player Collision
+        UnlockPlayerControls();
+        rigidBody.simulated = true;
+        GetComponent<Collider2D>().isTrigger = false;
+
+        // Return to Idle Animation
+        // 
+        //
     }
 
     public void LockPlayerControls()
