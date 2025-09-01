@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: metal_platform_middle
+  m_Name: metal_shelf_boxes_v1_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 34151b224396b6e4ab8bb591cbc34208, type: 3}
+  m_Sprite: {fileID: 1778571420, guid: 04c0d0e007b55be4696f2d1654fd5f27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -32,5 +32,5 @@ MonoBehaviour:
     e32: 0
     e33: 1
   m_InstancedGameObject: {fileID: 0}
-  m_Flags: 0
+  m_Flags: 1
   m_ColliderType: 1
