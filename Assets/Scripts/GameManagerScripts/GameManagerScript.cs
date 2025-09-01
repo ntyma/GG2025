@@ -15,6 +15,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject levelForegroundTilemapsGameObject;
     [SerializeField] private GameObject levelPlayerMemoryTilemapsGameObject;
     [SerializeField] private GameObject levelBackgroundTilemapsGameObject;
+    [SerializeField] private GameObject levelPropsTilemapsGameObject;
     private MainCameraScript mainCameraScript;
 
     [SerializeField] private PlayerScript playerScript;
@@ -44,12 +45,14 @@ public class GameManagerScript : MonoBehaviour
                 (levelObstaclesGameObject.transform.childCount != levelPlayerMemoryTilemapsGameObject.transform.childCount) ||
                 (levelObstaclesGameObject.transform.childCount != levelProgressionTriggersGameObject.transform.childCount+1) ||
                 (levelObstaclesGameObject.transform.childCount != cameraPositionsGameObject.transform.childCount) ||
-                (levelObstaclesGameObject.transform.childCount != levelBackgroundTilemapsGameObject.transform.childCount)
+                (levelObstaclesGameObject.transform.childCount != levelBackgroundTilemapsGameObject.transform.childCount) ||
+                (levelObstaclesGameObject.transform.childCount != levelPropsTilemapsGameObject.transform.childCount)
             )
         {
             Debug.Log("A Level Component is Missing! - from Start() in GameManagerScript\n" +
                 "There are " + levelObstaclesGameObject.transform.childCount + " sets of Level Obstacles... (CLICK FOR MORE INFO)\n" +
                 "There are " + levelRespawnPointsGameObject.transform.childCount + " sets of Level Respawn Points\n" +
+                "There are " + levelPropsTilemapsGameObject.transform.childCount + " sets of Level Prop\n" +
                 "There are " + levelBackgroundTilemapsGameObject.transform.childCount + " sets of Level Background Tilemaps\n" +
                 "There are " + levelForegroundTilemapsGameObject.transform.childCount + " sets of Player Foreground Tilemaps\n" +
                 "There are " + levelPlayerMemoryTilemapsGameObject.transform.childCount + " sets of Player Memory Tilemaps\n" +
@@ -59,7 +62,7 @@ public class GameManagerScript : MonoBehaviour
 
         if (!cameraGameObject.TryGetComponent<MainCameraScript>(out mainCameraScript))
             Debug.Log("Camera Game Object DOES NOT HAVE a MainCameraScript Component! - from Start() in GameManagerScript");
-
+        
         totalLevelCount = levelObstaclesGameObject.transform.childCount;
         if (!(playerGameObject.TryGetComponent<Health>(out playerHealthScript)))
             Debug.Log("Player GameObject does not have a Health Component! - from Start() in GameManagerScript");
@@ -85,7 +88,11 @@ public class GameManagerScript : MonoBehaviour
         {
             childTransform.gameObject.SetActive(false);
         }
-
+        // Disable All level specific Prop Tilemaps
+        foreach (Transform childTransform in levelPropsTilemapsGameObject.transform)
+        {
+            childTransform.gameObject.SetActive(false);
+        }
         // Disable ALL level specific Foreground Tilemaps
         //levelForegroundTilemapsCollection = new GameObject[totalLevelCount];
         i = 0;
@@ -208,6 +215,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         // Enable corresponding Tilemaps
+        levelPropsTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(true);
         levelBackgroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(true);
         //levelForegroundTilemapsCollection[Index].SetActive(true);
         levelForegroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(true);
@@ -250,6 +258,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         // Disable corresponding Tilemaps
+        levelPropsTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(false);
         levelBackgroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(false);
         //levelForegroundTilemapsCollection[Index].SetActive(false);
         levelForegroundTilemapsGameObject.transform.GetChild(Index).gameObject.SetActive(false);
