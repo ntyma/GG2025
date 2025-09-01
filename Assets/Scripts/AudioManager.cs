@@ -137,34 +137,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PauseAllAudio()
-    {
-        foreach (Sound s in sounds)
-        {
-            if (s.source != null && s.source.isPlaying)
-            {
-                s.source.Pause();
-            }
-        }
-
-        if (introLoopCoroutine != null)
-        {
-            StopCoroutine(introLoopCoroutine);
-            introLoopCoroutine = null;
-        }
-    }
-
-    public void UnpauseAllAudio()
-    {
-        foreach (Sound s in sounds)
-        {
-            if (s.source != null)
-            {
-                s.source.UnPause();
-            }
-        }
-    }
-
     public string CurrentlyPlaying()
     {
         foreach (Sound s in sounds)

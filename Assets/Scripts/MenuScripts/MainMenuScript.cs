@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +11,6 @@ public class MainMenuScript : MonoBehaviour
 
     public void ContinueGame()
     {
-        AudioManager.instance.Play("MenuForwards");
         SaveData continuingData = SaveManager.LoadGame();
         if (continuingData != null)
         {
@@ -30,7 +28,6 @@ public class MainMenuScript : MonoBehaviour
 
     public void NewGame()
     {
-        AudioManager.instance.Play("NewGame");
         SaveData data = new SaveData
         {
             playerLevel = 0
@@ -40,11 +37,11 @@ public class MainMenuScript : MonoBehaviour
         //SceneManager.LoadScene("MainHouse");
         LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
         AudioManager.instance.Stop("Title");
+        AudioManager.instance.Play("House");
     }
 
     public void QuitGame()
     {
-        AudioManager.instance.Play("MenuBackwards");
         UnityEngine.Debug.Log("Quitting game...");
         Application.Quit();
     }

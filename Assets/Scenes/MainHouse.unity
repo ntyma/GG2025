@@ -21748,7 +21748,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da7456e84691b8a4eb0b8dc16334d610, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -21812,7 +21812,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &338531356
@@ -25889,7 +25889,6 @@ GameObject:
   - component: {fileID: 470423307}
   - component: {fileID: 470423306}
   - component: {fileID: 470423305}
-  - component: {fileID: 470423308}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -26011,19 +26010,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470423303}
   m_CullTransparentMesh: 1
---- !u!114 &470423308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470423303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44cad2465eb0fd4ca885fbb3eaa0acf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theButton: {fileID: 470423305}
 --- !u!1001 &472887642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39416,7 +39402,6 @@ GameObject:
   - component: {fileID: 656052553}
   - component: {fileID: 656052552}
   - component: {fileID: 656052551}
-  - component: {fileID: 656052554}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -39538,19 +39523,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656052549}
   m_CullTransparentMesh: 1
---- !u!114 &656052554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656052549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44cad2465eb0fd4ca885fbb3eaa0acf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theButton: {fileID: 656052551}
 --- !u!1 &661509026
 GameObject:
   m_ObjectHideFlags: 0
@@ -77481,9 +77453,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da7456e84691b8a4eb0b8dc16334d610, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -77547,7 +77519,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1037483811
@@ -90213,11 +90185,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
   m_PrefabInstance: {fileID: 1232217852}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1238768136 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4341325521271431964, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
-  m_PrefabInstance: {fileID: 2119288840}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1240003243 stripped
 Transform:
@@ -121620,7 +121587,6 @@ GameObject:
   - component: {fileID: 1733209956}
   - component: {fileID: 1733209955}
   - component: {fileID: 1733209954}
-  - component: {fileID: 1733209957}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -121742,88 +121708,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733209952}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
---- !u!114 &1733209957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733209952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44cad2465eb0fd4ca885fbb3eaa0acf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theButton: {fileID: 1733209954}
---- !u!1001 &1736955027
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1019436573}
-    m_Modifications:
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_Name
-      value: StateFloorAlt (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4705592637423097299, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
---- !u!4 &1736955028 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4329038418629882792, guid: f89439ce6ba106d418fed8c211191f2c, type: 3}
-  m_PrefabInstance: {fileID: 1736955027}
-  m_PrefabAsset: {fileID: 0}
->>>>>>> 233e0e43a4b4a9d475b534442520f40cca615c26
 --- !u!1 &1739374914
 GameObject:
   m_ObjectHideFlags: 0
@@ -124326,7 +124210,7 @@ GameObject:
   m_Layer: 0
   m_Name: DialogueTrigger
   m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -124382,7 +124266,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742054948}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -124436,7 +124320,7 @@ Transform:
   m_GameObject: {fileID: 1742054948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.45, y: -2.45, z: 0.029353142}
+  m_LocalPosition: {x: 118.2, y: -7.42, z: 0.029353142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124464,7 +124348,6 @@ MonoBehaviour:
         name: ???
         icon: {fileID: 21300000, guid: cfd865d5877aead44b7363eb8f3f04ba, type: 3}
       line: second
-  dialogueBoxUI: {fileID: 1238768136}
 --- !u!1001 &1742704593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145366,7 +145249,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reset
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da7456e84691b8a4eb0b8dc16334d610, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -145430,7 +145313,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2082538613
@@ -146780,10 +146663,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d0d67210a9c19284c85604a4a33513a6, type: 3}
-    - target: {fileID: 2056662501856628382, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2426967038852130033, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       propertyPath: m_SizeDelta.x
       value: 32.8489
@@ -146821,16 +146700,12 @@ PrefabInstance:
       value: -72
       objectReference: {fileID: 0}
     - target: {fileID: 4341325521271431964, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 4341325521271431964, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       propertyPath: m_Name
       value: DialogueBox
       objectReference: {fileID: 0}
     - target: {fileID: 4341325521271431964, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5770552726380188359, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
       propertyPath: m_fontAsset
@@ -146932,10 +146807,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8914838062773141839, guid: dd3a36689c2a5ab449222327a37c38c1, type: 3}
-      propertyPath: dialogueBoxUI
-      value: 
-      objectReference: {fileID: 1238768136}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

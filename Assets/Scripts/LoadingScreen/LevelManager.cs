@@ -45,16 +45,19 @@ public class LevelManager : MonoBehaviour
 
         yield return transition.AnimateTransitionIn();
 
-        float time = 0.0f;
-        float duration = 2.0f; // duration of the fake loading
+        //progressBar.gameObject.SetActive(true);
 
-        while(!scene.isDone && time < duration) // capitalism makes fake loading necessary ;-;
-        {
-            time += Time.deltaTime;
-            yield return null;
-        }
+        //do
+        //{
+        //    progressBar.value = scene.progress;
+        //    yield return null;
+        //} while (scene.progress < 0.9f);
+
+        //yield return new WaitForSeconds(1f);
 
         scene.allowSceneActivation = true;
+
+        //progressBar.gameObject.SetActive(false);
 
         yield return transition.AnimateTransitionOut();
     }
