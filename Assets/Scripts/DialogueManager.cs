@@ -27,19 +27,18 @@ public class DialogueManager : MonoBehaviour
 	private DialogueLine currentLine; // finish current line
 	private bool isTyping = false;
 
+	public GameObject dialogueBoxUI;
+
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
 
 		lines = new Queue<DialogueLine>();
-
-        animator.enabled = false;
     }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-		animator.enabled = true;
         isDialogueActive = true;
 
 		wasPlaying = AudioManager.instance.CurrentlyPlaying();
