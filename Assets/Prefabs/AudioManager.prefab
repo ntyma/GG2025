@@ -227,3 +227,31 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  - name: NewGame
+    clip: {fileID: 8300000, guid: 61ba6171b95ba8c498ad86fafead87ad, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuForwards
+    clip: {fileID: 8300000, guid: 297d5478c0a3e7c4dbaadafd5161d6b2, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuBackwards
+    clip: {fileID: 8300000, guid: ca2daf9596b5a0a448250ce94911ba12, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuHover
+    clip: {fileID: 8300000, guid: 5e20025d4f5eda74d8fcbd1a48cd2106, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}

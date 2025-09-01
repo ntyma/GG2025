@@ -32,10 +32,15 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // unfreeze the game
         isPaused = false;
+        AudioManager.instance.Play("MenuBackwards");
+        AudioManager.instance.UnpauseAllAudio();
     }
 
     void Pause()
     {
+        AudioManager.instance.PauseAllAudio();
+
+        AudioManager.instance.Play("MenuForwards");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; // freeze the game
         isPaused = true;
@@ -65,6 +70,6 @@ public class PauseMenu : MonoBehaviour
 
         Debug.Log("Saving and returning to title");
         AudioManager.instance.StopAllAudio();
-        SceneManager.LoadScene("testMainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
