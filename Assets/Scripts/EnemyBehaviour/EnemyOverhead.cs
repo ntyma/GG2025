@@ -73,6 +73,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
             Debug.Log("player info: " + collision.gameObject.transform.position.y + collision.gameObject.transform.localScale.y);
             Debug.Log("transform info: " + transform.position.y);
             Debug.Log("enemy info: " + transform.position.y + transform.localScale.y);
+            if(!isPlayingFreeze) {
             //if (collision.gameObject.transform.position.y + collision.gameObject.transform.localScale.y < (transform.position.y + transform.localScale.y)){
                 animator.SetTrigger("HittingPlayer");
                 var healthComponent = collision.gameObject.GetComponent<Health>();
@@ -81,7 +82,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
                     healthComponent.TakeDamage(1);
                     AudioManager.instance.Play("PlayerHurt");
                 }
-            //}
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
