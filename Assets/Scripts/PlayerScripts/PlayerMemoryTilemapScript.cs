@@ -25,11 +25,14 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
     }
     private void Update()
     {
-        if (siblingIndex == 0 && Input.GetKeyDown(KeyCode.T))
+        
+        if (Input.GetKeyDown(KeyCode.T)){
             Debug.Log("saving");
             SaveTileData();
+        }
+        /*
         if (siblingIndex == 0 && Input.GetKeyDown(KeyCode.L))
-            LoadTileData();
+            LoadTileData();*/
     }
     public override void ResetToInstantiation()
     {
@@ -66,21 +69,13 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
                 }
             }
         }
-
-        SaveManager.UpdateSaveData(data =>
+        for (int i = 0; i < memorizedTilesArray.Length; i++)
         {
-            if (data.playerMemory == null)
-            {
-                data.playerMemory = new bool[GlobalVariables.playerMemoryTileMaps][]; // pick size based on your needs
-            }
+            Debug.Log("currently trying this sibling index: " + (siblingIndex * 100 + i));
+            Debug.Log("my sibling index is " + siblingIndex);
+            SaveManager.UpdateSaveData(data => data.playerMemory[siblingIndex * 100 + i] = memorizedTilesArray[i]);
+        }
 
-            if (data.playerMemory[siblingIndex] == null)
-            {
-                data.playerMemory[siblingIndex] = new bool[memorizedTilesArray.Length];
-            }
-
-            data.playerMemory[siblingIndex] = memorizedTilesArray;
-        });
     }
     public void LoadTileData()
     {
@@ -89,9 +84,15 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
         //
         // Load Data from Save
         //
+        bool[] allMemorizedTiles = new bool[19*100];
         bool[] memorizedTilesArray = new bool[arraySize];
 
-        memorizedTilesArray = SaveManager.GetSpecificData(data => data.playerMemory[siblingIndex]);
+        allMemorizedTiles = SaveManager.GetSpecificData(data => data.playerMemory);
+
+        for(int i = 0; i < arraySize; i++)
+        {
+            memorizedTilesArray[i] = allMemorizedTiles[siblingIndex * 100 + i];
+        }
 
         int currentCount = 0;
         for (int i = playerMemoryTilemapBounds.xMin; i <= playerMemoryTilemapBounds.xMax; i++)

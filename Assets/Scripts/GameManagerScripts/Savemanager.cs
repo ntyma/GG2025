@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class SaveData
@@ -8,7 +9,7 @@ public class SaveData
     public float playerHealth;
 
     // Player Memory Tilemaps Data
-    public bool[][] playerMemory;
+    public bool[] playerMemory;
 }
 
 public static class SaveManager

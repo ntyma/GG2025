@@ -62,9 +62,6 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        //Sorry! Ben here doing some changes
-        //
-
         Debug.Log("Saving and returning to title");
         AudioManager.instance.StopAllAudio();
         Time.timeScale = 1f;

@@ -33,7 +33,8 @@ public class MainMenuScript : MonoBehaviour
         AudioManager.instance.Play("NewGame");
         SaveData data = new SaveData
         {
-            playerLevel = 0
+            playerLevel = 0,
+            playerMemory = new bool[19*500]
         };
         SaveManager.SaveGame(data);
         SaveManager.loadingData = false;
@@ -41,6 +42,7 @@ public class MainMenuScript : MonoBehaviour
         LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
         AudioManager.instance.Stop("Title");
         AudioManager.instance.Play("House");
+        Debug.Log(data.playerMemory.Length);
     }
 
     public void QuitGame()
