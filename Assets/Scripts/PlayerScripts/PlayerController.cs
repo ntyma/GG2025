@@ -81,9 +81,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        wasGrounded = isGrounded;
-        isGrounded = IsGrounded();
-
         moveDirection = move.ReadValue<Vector2>();
         Gravity();
         UpdateAnimation();
@@ -121,6 +118,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        wasGrounded = isGrounded;
+        isGrounded = IsGrounded();
+
         rigidBody.velocity = new Vector2(moveDirection.x * speed * speedMultiplier, rigidBody.velocity.y);
         
     }
