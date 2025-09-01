@@ -74871,6 +74871,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6407031493699314766, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: jumpSpeedMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6879298931766031301, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: guide
       value: 
@@ -121923,7 +121927,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 806814824}
   levelPropsTilemapsGameObject: {fileID: 226939677}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 0
+  furthestGameLevel: 7
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2
@@ -158075,72 +158079,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1077078414
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1268568074}
-    m_Modifications:
-    - target: {fileID: 8261640100450880422, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_Name
-      value: WallCandle (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261640100450880422, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.949999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
---- !u!4 &1077078415 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
-  m_PrefabInstance: {fileID: 1077078414}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1079863641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167667,7 +167605,6 @@ Transform:
   m_Children:
   - {fileID: 2061921401}
   - {fileID: 1110543902}
-  - {fileID: 1077078415}
   m_Father: {fileID: 2092318056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1269455288
@@ -251173,7 +251110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 0.70000005
       objectReference: {fileID: 0}
     - target: {fileID: 8404348913037327789, guid: eae6acfd0fa8e8e4f8c4fb1470447b7d, type: 3}
       propertyPath: m_LocalPosition.z

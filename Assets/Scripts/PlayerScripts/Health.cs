@@ -58,9 +58,9 @@ public class Health : MonoBehaviour
             playerController.Die();
             respawnAnimationScript.Invoke("PlayPlayerDeathCameraAnimation", 1.0f);
 
+            playerController.Invoke("Respawn", 2.5f);
+            Invoke("Respawn", 2.5f);
             respawnAnimationScript.Invoke("PlayPlayerSpawnCameraAnimation", 3.0f);
-            playerController.Invoke("Respawn", 3.0f);
-            Invoke("Respawn", 3.0f);
         }
     }
     public void Heal(float healAmount)
