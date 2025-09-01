@@ -71,20 +71,16 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
         {
             if (data.playerMemory == null)
             {
-                Debug.Log("playerMemory was null");
                 data.playerMemory = new bool[GlobalVariables.playerMemoryTileMaps][]; // pick size based on your needs
             }
 
             if (data.playerMemory[siblingIndex] == null)
             {
                 data.playerMemory[siblingIndex] = new bool[memorizedTilesArray.Length];
-                Debug.Log("index was null");
             }
 
             data.playerMemory[siblingIndex] = memorizedTilesArray;
         });
-
-        Debug.Log("memorized new tiles");
     }
     public void LoadTileData()
     {
