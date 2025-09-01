@@ -552,13 +552,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209202094}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.36577037, w: 0.93070513}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3778408, w: 0.9258706}
   m_LocalPosition: {x: -1284.026, y: -664.875, z: 10.19561}
-  m_LocalScale: {x: 1.28, y: 1.09, z: 0.4938}
+  m_LocalScale: {x: 1.11, y: 1.02, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1542883808}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.91}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.4}
 --- !u!114 &209202096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,8 +614,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 55a958b785f49804ea1d4a7312c63ec9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.32941177}
+  m_Sprite: {fileID: 21300000, guid: 2c262657b2c07c14f80eae030e3a938c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6039216}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1728,6 +1728,7 @@ GameObject:
   - component: {fileID: 523534775}
   - component: {fileID: 523534777}
   - component: {fileID: 523534776}
+  - component: {fileID: 523534778}
   m_Layer: 0
   m_Name: grass_middle
   m_TagString: Untagged
@@ -1816,6 +1817,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &523534778
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523534774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78c1b87a283801147a233ca31336b518, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &580422948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,6 +1933,7 @@ GameObject:
   - component: {fileID: 582698813}
   - component: {fileID: 582698815}
   - component: {fileID: 582698814}
+  - component: {fileID: 582698816}
   m_Layer: 0
   m_Name: grass_left
   m_TagString: Untagged
@@ -1999,6 +2022,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &582698816
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582698812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c4f87206c5c7f44fae02035b4de3877, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &643843488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,7 +2962,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.7798742, g: 0.7798742, b: 0.7798742, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.5137255}
+    m_PressedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0.5137255}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4808,7 +4852,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.7798742, g: 0.7798742, b: 0.7798742, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.5137255}
+    m_PressedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0.5137255}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5084,7 +5128,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.7798742, g: 0.7798742, b: 0.7798742, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.5137255}
+    m_PressedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0.5137255}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
