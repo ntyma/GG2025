@@ -223,9 +223,7 @@ public class PlayerController : MonoBehaviour
         rigidBody.simulated = true;
         GetComponent<Collider2D>().isTrigger = false;
 
-        // Return to Idle Animation
-        // 
-        //
+        animator.SetTrigger("OnRespawn");
     }
 
     public void LockPlayerControls()
