@@ -32,10 +32,14 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // unfreeze the game
         isPaused = false;
+        AudioManager.instance.Play("MenuBackwards");
+        AudioManager.instance.UnpauseAllAudio();
     }
 
     void Pause()
     {
+        AudioManager.instance.PauseAllAudio();
+        AudioManager.instance.Play("MenuForwards");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; // freeze the game
         isPaused = true;
@@ -49,22 +53,21 @@ public class PauseMenu : MonoBehaviour
     }
 
     /* to go back to main menu, enable when that is ready
-    public void LoadMenu()
+    public void QuitGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        UnityEngine.Debug.Log("Quitting game...");
+        Application.Quit();
     }
     */
 
-    public void QuitGame()
+    public void LoadMenu()
     {
         //Sorry! Ben here doing some changes
         //
-        //UnityEngine.Debug.Log("Quitting game...");
-        //Application.Quit();
 
         Debug.Log("Saving and returning to title");
         AudioManager.instance.StopAllAudio();
-        SceneManager.LoadScene("testMainMenu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }

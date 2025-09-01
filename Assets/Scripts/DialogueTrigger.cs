@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class DialogueCharacter
 {
-    public string name;
+    //public string name;
     public Sprite icon;
 }
 
@@ -25,9 +25,11 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    public GameObject dialogueBoxUI;
 
     public void TriggerDialogue()
     {
+        dialogueBoxUI.SetActive(true);
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 

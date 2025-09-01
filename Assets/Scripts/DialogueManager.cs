@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance;
 
 	public Image characterIcon;
-	public TextMeshProUGUI characterName;
+	//public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
 
     private Queue<DialogueLine> lines;
@@ -27,19 +27,19 @@ public class DialogueManager : MonoBehaviour
 	private DialogueLine currentLine; // finish current line
 	private bool isTyping = false;
 
+    [SerializeField] private PlayerController playerControllerScript;
+
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
 
 		lines = new Queue<DialogueLine>();
-
-        animator.enabled = false;
     }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-		animator.enabled = true;
+		playerControllerScript.LockPlayerControls();
         isDialogueActive = true;
 
 		wasPlaying = AudioManager.instance.CurrentlyPlaying();
@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
 
 		// update headshot and name
 		characterIcon.sprite = currentLine.character.icon;
-		characterName.text = currentLine.character.name;
+		//characterName.text = currentLine.character.name;
 
 		//StopAllCoroutines(); // stop any ongoing typing effect
 		typingCoroutine = StartCoroutine(TypeSentence(currentLine));
@@ -124,5 +124,6 @@ public class DialogueManager : MonoBehaviour
         AudioManager.instance.Unpause(wasPlaying);
         animator.SetTrigger("hideTrigger");
 		print("Dialogue ended");
+        playerControllerScript.UnlockPlayerControls();
     }
 }
