@@ -103,7 +103,6 @@ public class ChandelierScript : MonoBehaviourWithReset
     }
     private IEnumerator SetIsRetracting()
     {
-        AudioManager.instance.Play("ChandelierRetracting");
         float Timer = 0.0f;
         while (Timer <= postImpactRetractionDelay)
         {
@@ -111,6 +110,7 @@ public class ChandelierScript : MonoBehaviourWithReset
 
             Timer = Timer + Time.deltaTime;
         }
+        AudioManager.instance.Play("ChandelierRetracting");
         isRetracting = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -148,10 +148,11 @@ public class ChandelierScript : MonoBehaviourWithReset
             AudioManager.instance.Play("ChandelierRattle");
             Invoke("ActivateChandelier", activationDelay);
         }
-        /*else if (collision.gameObject.tag == "Light")
+        else if (collision.gameObject.tag == "Light")
         {
-            isInLight = true;
-        }*/
+            if (isRetracting)
+                AudioManager.instance.Stop("ChandelierRetracting");
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -172,5 +173,6 @@ public class ChandelierScript : MonoBehaviourWithReset
         isRetracting = false;
         isInLight = false;
         hasActivated = false;
+        AudioManager.instance.Stop("ChandelierRetracting");
     }
 }
