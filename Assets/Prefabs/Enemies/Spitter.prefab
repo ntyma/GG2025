@@ -292,7 +292,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56660d539a230c34ca49bd350b5cedf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
   viewDst: 5
   speed: 5
+  hitDst: 1
+  midAttack: 0
+  isFrozen: 0
+  contactDamage: 0
+  knockbackForce: 10
+  knockbackUpwardForce: 10
   initialpos: {x: 0, y: 0}
+  boxSize: {x: 2, y: 2}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0

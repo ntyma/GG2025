@@ -95826,7 +95826,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 825055654}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -122725,7 +122725,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 806814824}
   levelPropsTilemapsGameObject: {fileID: 226939677}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 20
+  furthestGameLevel: 18
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2

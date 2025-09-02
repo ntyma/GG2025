@@ -27,6 +27,8 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public GameObject dialogueBoxUI;
 
+    private bool trigger = false;
+
     public void TriggerDialogue()
     {
         dialogueBoxUI.SetActive(true);
@@ -38,7 +40,17 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.tag == "Player") // if the player enters the trigger area
         {
             print("Dialogue Triggered");
+            trigger = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (trigger)
+        {
             TriggerDialogue();
+            gameObject.SetActive(false);
+            trigger = false;
         }
     }
 }

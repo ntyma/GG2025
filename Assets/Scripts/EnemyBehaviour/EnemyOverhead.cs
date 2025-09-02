@@ -18,6 +18,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
 
     public bool midAttack = false;
     public bool isFrozen = false;
+    public bool contactDamage = true;
 
     public float knockbackForce = 10f;
     public float knockbackUpwardForce = 10f;
@@ -84,7 +85,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if (!midAttack && !isFrozen)
+        if (contactDamage && !midAttack && !isFrozen)
         {
             if(collision.gameObject.layer == 8)
             {
