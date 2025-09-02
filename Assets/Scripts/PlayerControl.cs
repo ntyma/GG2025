@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+/*using static UnityEditor.Searcher.SearcherWindow.Alignment;*/
 
 public class PlayerControl : MonoBehaviour
 {

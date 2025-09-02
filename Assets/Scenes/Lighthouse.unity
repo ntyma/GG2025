@@ -75310,6 +75310,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6407031493699314766, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: jump.m_Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407031493699314766, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: move.m_Name
+      value: Move
+      objectReference: {fileID: 0}
     - target: {fileID: 6879298931766031301, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: guide
       value: 
@@ -122725,7 +122733,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 806814824}
   levelPropsTilemapsGameObject: {fileID: 226939677}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 18
+  furthestGameLevel: 0
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2
