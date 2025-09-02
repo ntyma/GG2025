@@ -41,7 +41,7 @@ public class FillStatusBar : MonoBehaviour
         }
         else if(fillValue > (float)1/3)
         {
-            fillImage.color = Color.green;
+            fillImage.color = Color.white;
         }
 
         healthBar.value = fillValue;

@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
-using UnityEngine.Audio;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -176,6 +177,39 @@ public class AudioManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    public IEnumerator FadeIn(string name, float fadeTime)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        s.source.volume = 0f;  // start silent
+        s.source.Play();
+
+        while (s.source.volume < s.volume)
+        {
+            s.source.volume += Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        s.source.volume = s.volume; // ensure final value is max
+    }
+
+    public IEnumerator FadeOut(string name, float fadeTime)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        float startVolume = s.source.volume;
+
+        while (s.source.volume > 0)
+        {
+            s.source.volume -= startVolume * Time.deltaTime / fadeTime;
+
+            yield return null;
+        }
+
+        s.source.Stop();
+        s.source.volume = startVolume;
     }
 
     // To play a sound, add this line
