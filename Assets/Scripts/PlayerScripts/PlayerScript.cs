@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
 
     private float stepTimer = 0f; // timer for footsteps
     private bool isPlayingBuzz;
+
     //private bool wasGrounded = false;
 
     private void Start()
@@ -54,7 +55,9 @@ public class PlayerScript : MonoBehaviour
             if (!isPlayingBuzz)
             {
                 isPlayingBuzz = true;
-                AudioManager.instance.Play("GuideBuzz");
+                UnityEngine.Debug.Log("guide buzz?");
+                StartCoroutine(AudioManager.instance.FadeIn("GuideBuzz", 1f));                
+                //AudioManager.instance.Play("GuideBuzz");
             }
         }
         else if (collision.gameObject.tag == "Cover")
@@ -68,7 +71,8 @@ public class PlayerScript : MonoBehaviour
             if (isPlayingBuzz)
             {
                 isPlayingBuzz = false;
-                AudioManager.instance.Stop("GuideBuzz");
+                StartCoroutine(AudioManager.instance.FadeOut("GuideBuzz", 1f));
+                //AudioManager.instance.Stop("GuideBuzz");
             }
         }
         else if (collision.gameObject.tag == "Cover")
