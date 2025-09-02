@@ -53,6 +53,7 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
     public void SaveTileData()
     {
         int arraySize = (this.playerMemoryTilemapBounds.size.x+1) * (this.playerMemoryTilemapBounds.size.y+1);
+        Debug.Log("array size for " + gameObject.name + ": " +  arraySize);
         bool[] memorizedTilesArray = new bool[arraySize];
         int currentCount = 0;
         for (int i = playerMemoryTilemapBounds.xMin; i <= playerMemoryTilemapBounds.xMax; i++)
