@@ -1,0 +1,17 @@
+diff a/Assets/Scripts/MenuScripts/PauseMenu.cs b/Assets/Scripts/MenuScripts/PauseMenu.cs	(rejected hunks)
+@@ -32,10 +32,15 @@
+         pauseMenuUI.SetActive(false);
+         Time.timeScale = 1f; // unfreeze the game
+         isPaused = false;
++        AudioManager.instance.Play("MenuBackwards");
++        AudioManager.instance.UnpauseAllAudio();
+     }
+ 
+     void Pause()
+     {
++        AudioManager.instance.PauseAllAudio();
++
++        AudioManager.instance.Play("MenuForwards");
+         pauseMenuUI.SetActive(true);
+         Time.timeScale = 0f; // freeze the game
+         isPaused = true;

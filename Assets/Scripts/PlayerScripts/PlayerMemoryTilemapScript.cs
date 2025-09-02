@@ -21,11 +21,18 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
         
         ResetToInstantiation();
         // Load tile data from Save
+        //LoadTileData();
     }
     private void Update()
     {
-        if (siblingIndex == 0 && Input.GetKeyDown(KeyCode.T))
+        
+        if (Input.GetKeyDown(KeyCode.T)){
+            Debug.Log("saving");
             SaveTileData();
+        }
+        /*
+        if (siblingIndex == 0 && Input.GetKeyDown(KeyCode.L))
+            LoadTileData();*/
     }
     public override void ResetToInstantiation()
     {
@@ -62,11 +69,13 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
                 }
             }
         }
-
-        SaveData data = new SaveData
+        for (int i = 0; i < memorizedTilesArray.Length; i++)
         {
-            
-        };
+            Debug.Log("currently trying this sibling index: " + (siblingIndex * 100 + i));
+            Debug.Log("my sibling index is " + siblingIndex);
+            SaveManager.UpdateSaveData(data => data.playerMemory[siblingIndex * 100 + i] = memorizedTilesArray[i]);
+        }
+
     }
     public void LoadTileData()
     {
@@ -75,8 +84,15 @@ public class PlayerMemoryTilemapScript : MonoBehaviourWithReset
         //
         // Load Data from Save
         //
+        bool[] allMemorizedTiles = new bool[19*100];
         bool[] memorizedTilesArray = new bool[arraySize];
-        
+
+        allMemorizedTiles = SaveManager.GetSpecificData(data => data.playerMemory);
+
+        for(int i = 0; i < arraySize; i++)
+        {
+            memorizedTilesArray[i] = allMemorizedTiles[siblingIndex * 100 + i];
+        }
 
         int currentCount = 0;
         for (int i = playerMemoryTilemapBounds.xMin; i <= playerMemoryTilemapBounds.xMax; i++)

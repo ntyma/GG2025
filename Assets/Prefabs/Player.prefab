@@ -415,7 +415,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1720682838101609978
 MonoBehaviour:
@@ -455,7 +455,8 @@ MonoBehaviour:
   guide: {fileID: 0}
   playerScript: {fileID: 1720682838101609978}
   gameManagerScript: {fileID: 0}
-  playerController: {fileID: 0}
+  playerController: {fileID: 6407031493699314766}
+  respawnAnimationScript: {fileID: 721671841679099019}
   forwardRouteHealthRegen: 0.2
   backwardRouteHealthDrain: 2
   backwardRouteHealthRegen: 0.5
@@ -548,7 +549,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 6, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8012191513204189612}
@@ -806,7 +807,7 @@ Transform:
   m_GameObject: {fileID: 6155354386111779159}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.071, z: 0}
+  m_LocalPosition: {x: 0, y: -0.064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -978,7 +979,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 6, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8183447349746767797}

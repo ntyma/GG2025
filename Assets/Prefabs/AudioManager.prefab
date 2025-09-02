@@ -95,7 +95,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Title
-    clip: {fileID: 8300000, guid: 36ed3ce31481c1c4d8d9ef6482a9e6c3, type: 3}
+    clip: {fileID: 8300000, guid: 4994bca95b7ce074abe331982e600fc4, type: 3}
     volume: 0.3
     pitch: 1
     isMusic: 1
@@ -151,14 +151,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: EnemyFreeze
-    clip: {fileID: 8300000, guid: e331e957e74b872459479f189e0ca788, type: 3}
+    clip: {fileID: 8300000, guid: 5295f2aa4cc6d634190d06c61be50dc8, type: 3}
     volume: 0.3
     pitch: 1
     isMusic: 0
     loop: 0
     source: {fileID: 0}
   - name: EnemyUnfreeze
-    clip: {fileID: 8300000, guid: e5baf31f22314914fb029bd37987fddf, type: 3}
+    clip: {fileID: 8300000, guid: 69a478f7872bd1443994b90cd059951b, type: 3}
     volume: 0.3
     pitch: 1
     isMusic: 0
@@ -201,6 +201,55 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: DebrisImpact
     clip: {fileID: 8300000, guid: 7b946d400532dd94a983977223d68ee6, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlateDoorMove
+    clip: {fileID: 8300000, guid: 09658c25820198540bd6da5e3dba7394, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: JumpLand
+    clip: {fileID: 8300000, guid: 901c1617f3e64474a8ad1de61c78e24a, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlateDoorOpenClose
+    clip: {fileID: 8300000, guid: ee680067d3d666440a83316544c147c4, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: NewGame
+    clip: {fileID: 8300000, guid: 61ba6171b95ba8c498ad86fafead87ad, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuForwards
+    clip: {fileID: 8300000, guid: 297d5478c0a3e7c4dbaadafd5161d6b2, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuBackwards
+    clip: {fileID: 8300000, guid: ca2daf9596b5a0a448250ce94911ba12, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuHover
+    clip: {fileID: 8300000, guid: 5e20025d4f5eda74d8fcbd1a48cd2106, type: 3}
     volume: 0.3
     pitch: 1
     isMusic: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class SaveData
@@ -8,7 +9,7 @@ public class SaveData
     public float playerHealth;
 
     // Player Memory Tilemaps Data
-    public bool[][] playerMemory;
+    public bool[] playerMemory;
 }
 
 public static class SaveManager
@@ -36,6 +37,21 @@ public static class SaveManager
             Debug.LogWarning("No save file found!");
             return null;
         }
+    }
+
+    public static void UpdateSaveData(System.Action<SaveData> updateAction)
+    {
+        SaveData data = LoadGame();
+        if (updateAction != null)
+        {
+            updateAction.Invoke(data);
+        }
+        SaveGame(data);
+    }
+    public static T GetSpecificData<T>(System.Func<SaveData, T> selector)
+    {
+        SaveData data = LoadGame();
+        return selector(data);
     }
 
     public static void DeleteSave()

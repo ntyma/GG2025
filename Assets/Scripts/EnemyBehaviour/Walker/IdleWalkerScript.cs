@@ -9,7 +9,7 @@ public class IdleWalkerScript : StateMachineBehaviour
 
     private float actionTimer;
 
-    private float[] actionSeq = { 0f, 1f, 0f, -1f };
+    private float[] actionSeq = { 1f, -1f};
     private int currentAction;
 
     private Rigidbody2D rb;
@@ -28,7 +28,9 @@ public class IdleWalkerScript : StateMachineBehaviour
 
         if (actionTimer <= 0f)
         {
-            currentAction = currentAction == 3 ? 0 : currentAction + 1;
+            currentAction = currentAction == 1 ? 0 : currentAction + 1;
+            if(actionSeq[currentAction] == 1) animator.transform.rotation = Quaternion.Euler(new Vector3(0f, 180));
+            if(actionSeq[currentAction] == -1) animator.transform.rotation = Quaternion.Euler(new Vector3(0f, 0));
             actionTimer = decisionInterval;
         }
         rb.velocity = (Vector2.right * actionSeq[currentAction] * moveSpeed);

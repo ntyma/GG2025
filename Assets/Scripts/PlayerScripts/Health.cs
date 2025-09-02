@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     [SerializeField] private PlayerScript playerScript;
     [SerializeField] private GameManagerScript gameManagerScript;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerRespawnCameraAnimationScript respawnAnimationScript;
     private bool isForwardRoute = true;
 
     [SerializeField] private float forwardRouteHealthRegen = 0.2f;
@@ -52,8 +53,14 @@ public class Health : MonoBehaviour
         {
             UnityEngine.Debug.Log("dead");
             AudioManager.instance.Play("PlayerDeath");
+            //Respawn();
+
             playerController.Die();
-            Respawn();
+            respawnAnimationScript.Invoke("PlayPlayerDeathCameraAnimation", 1.0f);
+
+            playerController.Invoke("Respawn", 2.5f);
+            Invoke("Respawn", 2.5f);
+            respawnAnimationScript.Invoke("PlayPlayerSpawnCameraAnimation", 3.0f);
         }
     }
     public void Heal(float healAmount)

@@ -1,0 +1,6 @@
+diff a/Assets/Scripts/MenuScripts/MainMenuScript.cs b/Assets/Scripts/MenuScripts/MainMenuScript.cs	(rejected hunks)
+@@ -2,3 +3,4 @@
++using System.Collections;
+ using UnityEngine;
+ using UnityEngine.SceneManagement;
+ 

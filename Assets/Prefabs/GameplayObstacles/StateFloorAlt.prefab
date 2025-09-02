@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: isTangible
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573336024839408061, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
+      propertyPath: intangibleAlpha
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8914433661239657074, guid: 3577b3b86a790fc45b468bbe474b7d7e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

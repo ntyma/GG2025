@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FrozenColorChanger : StateMachineBehaviour
 {
+    public Sprite table;
     private SpriteRenderer renderer;
     public Color frozenColor;
     private Color defaultColor;
@@ -13,12 +14,13 @@ public class FrozenColorChanger : StateMachineBehaviour
         renderer = animator.GetComponent<SpriteRenderer>();
         defaultColor = renderer.color;
         renderer.color = frozenColor;
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        renderer.color = defaultColor;
+        if(defaultColor != null) renderer.color = defaultColor;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

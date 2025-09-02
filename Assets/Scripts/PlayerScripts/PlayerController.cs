@@ -81,9 +81,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        wasGrounded = isGrounded;
-        isGrounded = IsGrounded();
-
         moveDirection = move.ReadValue<Vector2>();
         Gravity();
         UpdateAnimation();
@@ -121,6 +118,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        wasGrounded = isGrounded;
+        isGrounded = IsGrounded();
+
         rigidBody.velocity = new Vector2(moveDirection.x * speed * speedMultiplier, rigidBody.velocity.y);
         
     }
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         if(IsGrounded())
         {
             animator.SetTrigger("StartJump");
-            LockPlayerControls();
+                    //LockPlayerControls();
             isJumping = true;
             speedMultiplier = jumpSpeedMultiplier;
             OnJumpStart.Invoke();
@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
     private void OnLand()
     {
         animator.SetTrigger("LandJump");
-        LockPlayerControls();
+                //LockPlayerControls();
         rigidBody.velocity = Vector2.zero;
         speedMultiplier = 1f;
         OnJumpLand.Invoke();
@@ -173,13 +173,13 @@ public class PlayerController : MonoBehaviour
     private void JumpStartAnimEnded()
     {
         animator.SetBool("isJumping", true);
-        UnlockPlayerControls();
+                //UnlockPlayerControls();
         rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
     }
 
     private void JumpLandAnimEnded()
     {
-        UnlockPlayerControls();
+                //UnlockPlayerControls();
         isJumping = false;
     }
 
@@ -210,6 +210,20 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("TriggerDeath");
         LockPlayerControls();
+
+        // Have Player not be affected by Gravity and other Collisions when Dead
+        rigidBody.simulated = false;
+        GetComponent<Collider2D>().isTrigger = true;
+    }
+
+    public void Respawn()
+    {
+        // Renable Gravity and other Player Collision
+        UnlockPlayerControls();
+        rigidBody.simulated = true;
+        GetComponent<Collider2D>().isTrigger = false;
+
+        animator.SetTrigger("OnRespawn");
     }
 
     public void LockPlayerControls()
