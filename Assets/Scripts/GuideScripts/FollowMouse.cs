@@ -34,6 +34,11 @@ public class FollowMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
+        {
+            return;
+        }
+
         FollowMousePositionDelayed(maxSpeed);
     }
 

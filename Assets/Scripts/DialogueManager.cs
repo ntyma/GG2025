@@ -68,6 +68,7 @@ public class DialogueManager : MonoBehaviour
 			// if currently typing, skip to the end of the current line
 			StopCoroutine(typingCoroutine);
 			dialogueArea.text = currentLine.line; // show full line immediately
+			UnityEngine.Debug.Log(dialogueArea.text);
             isTyping = false;
             return;
         }
@@ -91,11 +92,7 @@ public class DialogueManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (isDialogueActive && Input.GetKeyDown(KeyCode.Space))
-		{
-			DisplayNextDialogueLine();
-		}
-		else if (isDialogueActive && Input.GetKeyDown(KeyCode.Z))
+		if (isDialogueActive && Input.GetKeyDown(KeyCode.Z))
 		{
 			DisplayNextDialogueLine();
         }
