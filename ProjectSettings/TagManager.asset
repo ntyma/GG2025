@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - Cover
   - Memory
+  - Window
+  - ShadowCast
+  - Shadow
   layers:
   - Default
   - TransparentFX
@@ -23,8 +26,8 @@ TagManager:
   - Key
   - Enemy
   - Light
-  - 
-  - 
+  - Window
+  - ShadowCast
   - 
   - 
   - 
