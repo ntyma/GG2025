@@ -17,6 +17,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
     [SerializeField] private float pressureDrainRate = 10.0f;
     [SerializeField] private SpriteRenderer plateSpriteRenderer;
     [SerializeField] private SpriteRenderer plateIllumSpriteRenderer;
+    private GameObject playerGameObject;
+    [SerializeField] private float playbackDistance = 8.0f;
 
     public bool pressureIsActivated = false;
     private bool doorIsMoving = false;
@@ -35,6 +37,7 @@ public class PressurePlateScript : MonoBehaviourWithReset
         doorStartingPosition = doorGameObject.transform.position;
         doorEndingPosition = doorGameObject.transform.position + doorEndingPositionOffset;
 
+        playerGameObject = GameObject.FindWithTag("Player");
         // Record Instantiation Variables
         pressureStatusInitial = pressureStatus;
         pressureTargetInitial = pressureTarget;
@@ -56,13 +59,15 @@ public class PressurePlateScript : MonoBehaviourWithReset
         else
             doorIsMoving = false;
 
-        if (doorIsMoving && !doorWasMoving) // started moving
+        if (doorIsMoving && !doorWasMoving && 
+            Vector3.SqrMagnitude(playerGameObject.transform.position - this.transform.position) < playbackDistance* playbackDistance) // started moving
             AudioManager.instance.Play("PlateDoorMove");
 
         else if (!doorIsMoving && doorWasMoving) // stopped moving
         {
             AudioManager.instance.Stop("PlateDoorMove");
-            AudioManager.instance.Play("PlateDoorOpenClose");
+            if (Vector3.SqrMagnitude(playerGameObject.transform.position - this.transform.position) < playbackDistance * playbackDistance)
+                AudioManager.instance.Play("PlateDoorOpenClose");
         }
 
         doorWasMoving = doorIsMoving;
@@ -73,7 +78,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
             return;
 
-        if (!pressureIsActivated)
+        if (!pressureIsActivated && 
+            Vector3.SqrMagnitude(playerGameObject.transform.position - this.transform.position) < playbackDistance * playbackDistance)
             AudioManager.instance.Play("PlateOn");
         pressureIsActivated = true;
         pressureStatus = Mathf.Clamp(pressureStatus + pressureFillRate * Time.deltaTime, 0.0f, pressureTarget);
@@ -85,7 +91,8 @@ public class PressurePlateScript : MonoBehaviourWithReset
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Enemy")
             return;
 
-        if (pressureIsActivated)
+        if (pressureIsActivated && 
+            Vector3.SqrMagnitude(playerGameObject.transform.position - this.transform.position) < playbackDistance * playbackDistance)
             AudioManager.instance.Play("PlateOff");
         pressureIsActivated = false;
         plateSpriteRenderer.sprite = plateOff;
