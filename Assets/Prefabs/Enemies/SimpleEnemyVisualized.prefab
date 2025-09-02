@@ -151,8 +151,8 @@ BoxCollider2D:
   m_Offset: {x: 0.25, y: -0.36}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3636364, y: 1.3636364}
+    pivot: {x: 0.4, y: 0.6}
+    oldSize: {x: 2.7272727, y: 2.7272727}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -195,9 +195,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
-  viewDst: 5
+  viewDst: 6
   speed: 5
+  hitDst: 1
   initialpos: {x: 0, y: 0}
+  boxSize: {x: 2, y: 1}
+  boxDistance: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8520668727772644494
 GameObject:
   m_ObjectHideFlags: 0

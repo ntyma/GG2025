@@ -40,8 +40,8 @@ public class PlayerController : MonoBehaviour
     [Header("Testing")]
     [SerializeField] private bool testingMode;
     private Vector2 moveDirection;
-    private InputAction move;
-    private InputAction jump;
+    public InputAction move;
+    public InputAction jump;
 
     private void Awake()
     {
