@@ -29,6 +29,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
     [Header("Generated collider settings")]
     [Tooltip("The layer number the generated lights will be set to.")]
     public int generatedLayer = -1;
+    public string generatedTag = "Light";
 
     [Header("Light settings")]
     [Tooltip("The maximum intensity the light will have.")]
@@ -365,9 +366,10 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
 
             // Apply tagging/layer
             if (generatedLayer >= 0 && generatedLayer <= 31) gen.go.layer = generatedLayer;
+            gen.go.tag = generatedTag;
 
-            // Place at origin so paths can use world coords directly
-            gen.go.transform.position = Vector3.zero;
+                // Place at origin so paths can use world coords directly
+                gen.go.transform.position = Vector3.zero;
             gen.go.transform.rotation = Quaternion.identity;
             gen.go.transform.localScale = Vector3.one;
             if (container != null) // Create light as children for the container
