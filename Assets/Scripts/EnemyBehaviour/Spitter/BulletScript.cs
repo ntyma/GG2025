@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour
     Rigidbody2D rb;
     public Vector2 velocity;
     public float lifeTime;
-    public bool destroyOnWall = true;
+    public bool destroyOnWall = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
