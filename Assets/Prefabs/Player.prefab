@@ -474,7 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 12
-  jumpSpeedMultiplier: 1
+  jumpSpeedMultiplier: 1.2
   speedMultiplier: 1
   baseGravity: 0
   fallSpeedMultiplier: 2
