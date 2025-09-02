@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
   lifeTime: 0
-  destroyOnWall: 0
+  destroyOnWall: 1
 --- !u!50 &4954130440891263170
 Rigidbody2D:
   serializedVersion: 4

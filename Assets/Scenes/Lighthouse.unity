@@ -122733,7 +122733,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 806814824}
   levelPropsTilemapsGameObject: {fileID: 226939677}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 0
+  furthestGameLevel: 20
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2

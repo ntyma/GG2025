@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   table: {fileID: 0}
-  frozenColor: {r: 0, g: 1, b: 0.9379947, a: 1}
 --- !u!114 &-3094159035601217085
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,9 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98aa954b642f58247900a4d23869a7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingColor: {r: 1, g: 0.59607846, b: 0, a: 1}
-  flashFrequency: 1
-  flashDuration: 0.5
 --- !u!1102 &4549743813056488509
 AnimatorState:
   serializedVersion: 6
