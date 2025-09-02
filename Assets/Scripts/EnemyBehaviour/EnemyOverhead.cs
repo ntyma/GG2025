@@ -17,6 +17,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
     public float hitDst = 1;
 
     public bool midAttack = false;
+    public bool isFrozen = false;
 
     public float knockbackForce = 10f;
     public float knockbackUpwardForce = 10f;
@@ -59,6 +60,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
     {
         if (collision.gameObject.tag == "Light")
         {
+            isFrozen = true;
             animator.SetTrigger("EnemyInLight");
             rb.velocity = Vector2.zero;
             if (!isPlayingFreeze)
@@ -73,47 +75,16 @@ public class EnemyOverhead : MonoBehaviourWithReset
     {
         if (collision.gameObject.tag == "Light")
         {
+            isFrozen = false;
             animator.ResetTrigger("EnemyInLight");
             isPlayingFreeze = false;
             AudioManager.instance.Play("EnemyUnfreeze");
         }
     }
-   /* public void hitPlayer()
-    {
-        // Calculate the center of the box in front of enemy
-        Vector2 boxCenter = (Vector2)transform.position + (Vector2)(transform.right * boxDistance);
-
-        // Check if player is inside the box
-        Collider2D hit = Physics2D.OverlapBox(boxCenter, boxSize, 0f, playerLayer);
-        Debug.Log("box from " + gameObject.name + ", box center: " + boxCenter.x + ", " + boxCenter.y);
-
-        if (hit != null)
-        {
-            Debug.Log("hit: " + hit.gameObject.name);
-            Rigidbody2D playerRb = hit.GetComponent<Rigidbody2D>();
-            if (playerRb != null)
-            {
-                // Determine knockback direction
-                Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                knockbackDir.y = 0; // keep horizontal if you want
-                knockbackDir = knockbackDir.normalized;
-                Debug.Log("knockback from " + gameObject.name + "in the direction: " + knockbackDir.x + ", " + knockbackDir.y);
-
-                // Apply knockback
-                playerController.move.Disable();
-                playerController.jump.Disable();
-                playerRb.velocity = Vector2.zero; // reset before applying
-                playerRb.AddForce(new Vector2(knockbackDir.x * knockbackForce, knockbackUpwardForce), ForceMode2D.Impulse);
-
-                Invoke("reactivateMovement", 1f);
-
-            }
-        }
-    }*/
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if (!midAttack)
+        if (!midAttack && !isFrozen)
         {
             if(collision.gameObject.layer == 8)
             {
@@ -153,13 +124,6 @@ public class EnemyOverhead : MonoBehaviourWithReset
         playerController.jump.Enable();
     }
 
-    /*private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            animator.ResetTrigger("HittingPlayer");
-        }
-    }*/
     public override void ResetToInstantiation()
     {
         transform.position = initialpos;
