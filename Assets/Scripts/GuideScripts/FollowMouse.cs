@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -20,6 +21,8 @@ public class FollowMouse : MonoBehaviour
 
     private Texture2D mask;
 
+    public Action<bool> onGoingRight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +44,21 @@ public class FollowMouse : MonoBehaviour
 
     private void FollowMousePositionDelayed(float maxSpeed)
     {
-        transform.position = Vector2.MoveTowards(transform.position, GetWorldPositionFromMouse(), maxSpeed * Time.deltaTime);
+        Vector2 newPosition = Vector2.MoveTowards(transform.position, GetWorldPositionFromMouse(), maxSpeed * Time.deltaTime);
+        UpdateAnimation(transform.position, newPosition);
+        transform.position = newPosition;
+    }
+
+    private void UpdateAnimation(Vector3 currentPosition, Vector2 direction)
+    {
+        if (currentPosition.x < direction.x)
+        {
+            onGoingRight.Invoke(true);
+        }
+        else if (currentPosition.x > direction.x)
+        {
+            onGoingRight.Invoke(false);
+        }
     }
 
     private Vector2 GetWorldPositionFromMouse()
