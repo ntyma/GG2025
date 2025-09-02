@@ -20,8 +20,10 @@ public class ChasingWalkerScript : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float xDiff = animator.transform.position.x - playerPos.position.x;
-        if(Mathf.Abs(xDiff) > 0.1)
+        if(Mathf.Abs(xDiff) > 0.5)
         {
+            if(xDiff > 0) animator.transform.rotation = Quaternion.Euler(new Vector3(0f, 0));
+            if (xDiff <= 0) animator.transform.rotation = Quaternion.Euler(new Vector3(0f, 180));
             float movement = -Mathf.Sign(xDiff) * speed;
             rb.velocity = new Vector2(movement, 0);
         }
