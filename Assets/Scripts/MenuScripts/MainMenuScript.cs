@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    private Animator transition;
+
+    void Awake()
+    {
+        transition = GameObject.Find("light_main").GetComponent<Animator>();
+    }
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -40,11 +47,26 @@ public class MainMenuScript : MonoBehaviour
         };
         SaveManager.SaveGame(data);
         SaveManager.loadingData = false;
+
         //SceneManager.LoadScene("MainHouse");
-        LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
+        transition.SetTrigger("playFlashbang"); // trigger the transition animation
+        StartCoroutine(LoadAfterTransition("MainHouse"));
+        //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
+
         AudioManager.instance.Stop("Title");
         AudioManager.instance.Play("House");
         Debug.Log(data.playerMemory.Length);
+    }
+
+    private IEnumerator LoadAfterTransition(string sceneName)
+    {
+        yield return null; // wait for the flashbang to start
+
+        float flashbangDuration = transition.GetCurrentAnimatorStateInfo(0).length;
+        // wait for the transition animation to finish
+        yield return new WaitForSeconds(flashbangDuration);
+
+        LevelManager.Instance.LoadScene(sceneName, "CrossFade");
     }
 
     public void QuitGame()
