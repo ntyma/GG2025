@@ -29,7 +29,9 @@ public class MainMenuScript : MonoBehaviour
             SaveManager.levelLoading = continuingData.playerLevel;
             Debug.Log("Game Loaded: Level " + continuingData.playerLevel);
             //SceneManager.LoadScene("MainHouse");
-            LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
+            transition.SetTrigger("playFlashbang"); // trigger the transition animation
+            StartCoroutine(LoadAfterTransition("MainHouse"));
+            //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
         }
         else
         {
