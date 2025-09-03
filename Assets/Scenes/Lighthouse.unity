@@ -75121,7 +75121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151312977026899455, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1151312977026899455, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -75155,9 +75155,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4495959176432606355, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: light2DScript
+      value: 
+      objectReference: {fileID: 1377114678}
     - target: {fileID: 5984963356785169197, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6366481074498299424, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_Enabled
@@ -75249,7 +75253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8730767018753696421, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

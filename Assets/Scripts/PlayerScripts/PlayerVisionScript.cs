@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerVisionScript : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerVisionScript : MonoBehaviour
     [SerializeField] private GameObject playerVisionGameObject;
     [SerializeField] private SpriteMask playerVisionSpriteMask;
     [SerializeField] private SpriteRenderer playerParanoiaSpriteRenderer;
+    [SerializeField] private Light2D light2DScript;
+    private float maxIntensity;
 
     [SerializeField] private Vector3 playerVisionScaleMax = new Vector3(3.0f, 3.0f, 1.0f);
     [SerializeField] private Vector3 playerVisionScaleMin = new Vector3(0.8f, 0.8f, 1.0f);
@@ -23,13 +26,17 @@ public class PlayerVisionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetAllSpriteComponents(true);
+        //SetAllSpriteComponents(true);
         playerSanity = playerSanityUpperBound;
+
+        maxIntensity = light2DScript.intensity;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isForwardRoute)
+            return;
         // Regain Sanity when Player is in Light
         if (playerScript.playerIsInLight)
         {
@@ -52,12 +59,14 @@ public class PlayerVisionScript : MonoBehaviour
         }
 
         // Shrink player vision based on Sanity
-        playerVisionGameObject.transform.localScale = Vector3.Lerp
+        /*playerVisionGameObject.transform.localScale = Vector3.Lerp
         (
             playerVisionScaleMin, 
             playerVisionScaleMax,
             playerSanity*0.01f
-        );
+        );*/
+
+        light2DScript.intensity = Mathf.Lerp(0.0f, maxIntensity, playerSanity * 0.01f);
     }
 
     public void SetRoute(bool isForwardRoute = true)
@@ -71,6 +80,9 @@ public class PlayerVisionScript : MonoBehaviour
     private void SetAllSpriteComponents(bool Input = true)
     {
         playerVisionSpriteMask.enabled = Input;
-        playerParanoiaSpriteRenderer.enabled = Input; 
+        playerParanoiaSpriteRenderer.enabled = Input;
+
+        // Reset Level Lighting
+        light2DScript.intensity = maxIntensity;
     }
 }
