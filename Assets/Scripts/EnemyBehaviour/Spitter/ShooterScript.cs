@@ -36,7 +36,6 @@ public class ShooterScript : StateMachineBehaviour
             BulletScript bulletScript = bullet.GetComponent<BulletScript>();
             bulletScript.velocity = firingDirection * bulletSpeed;
             bulletScript.lifeTime = bulletLifetime;
-            bulletScript.destroyOnWall = true;
         }
 
 

@@ -97,8 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14104409300797649bd355319f965040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  table: {fileID: 0}
-  frozenColor: {r: 0, g: 1, b: 0.9832821, a: 1}
+  table: {fileID: 21300000, guid: d5b9f1ed2ec719a48a1f2715cf3efce2, type: 3}
 --- !u!1101 &-260135973325288272
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -255,7 +254,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   fireRate: 1
   bulletLifetime: 3
-  bulletSpeed: 10
+  bulletSpeed: 8
   obstacleMask:
     serializedVersion: 2
     m_Bits: 320

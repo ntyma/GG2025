@@ -122718,7 +122718,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 806814824}
   levelPropsTilemapsGameObject: {fileID: 226939677}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 8
+  furthestGameLevel: 19
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2
@@ -223320,9 +223320,8 @@ MonoBehaviour:
   container: {fileID: 662037256}
   mainCamera: {fileID: 1112841528}
   turningSpeed: 50
-  minHeight: 3.6
-  useHeightRelativeToCamera: 1
   clockWise: 0
+  cutoffAngle: 30
   fadeOffAngleDelta: 5
   windowLayer:
     serializedVersion: 2

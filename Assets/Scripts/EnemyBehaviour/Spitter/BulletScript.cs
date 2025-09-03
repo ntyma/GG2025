@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour
     Rigidbody2D rb;
     public Vector2 velocity;
     public float lifeTime;
-    public bool destroyOnWall = false;
+    private bool destroyOnWall = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,8 +22,13 @@ public class BulletScript : MonoBehaviour
         //Debug.Log(rb.velocity);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) // Take damage when colliding with the player
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("bullet collided with " + collision.gameObject.name);
+    }
+    private void OnCollisionStay2D(Collision2D collision) // Take damage when colliding with the player
+    {
+        Debug.Log("bullet collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
             var healthComponent = collision.gameObject.GetComponent<Health>();

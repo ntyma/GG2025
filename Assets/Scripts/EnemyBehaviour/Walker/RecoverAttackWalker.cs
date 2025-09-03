@@ -9,5 +9,7 @@ public class RecoverAttackWalker : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("HittingPlayer");
+        animator.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        animator.GetComponent<EnemyOverhead>().midAttack = false;
     }
 }
