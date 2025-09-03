@@ -1292,7 +1292,7 @@ GameObject:
   - component: {fileID: 650132524}
   - component: {fileID: 650132523}
   - component: {fileID: 650132522}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ShadowCastTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2358,6 +2358,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6407031493699314766, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: jump.m_Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407031493699314766, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: move.m_Name
+      value: Move
+      objectReference: {fileID: 0}
     - target: {fileID: 7886678291153853983, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.58
@@ -2396,6 +2404,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7886678291153853983, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730767018753696421, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2745,10 +2757,9 @@ MonoBehaviour:
   container: {fileID: 1531425760}
   mainCamera: {fileID: 519420031}
   turningSpeed: 50
-  minHeight: 3.6
-  useHeightRelativeToCamera: 1
   clockWise: 0
-  fadeOffAngleDelta: 5
+  cutoffAngle: 30
+  fadeOffAngleDelta: 10
   windowLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -2756,15 +2767,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8256
   generatedLayer: 11
+  generatedTag: Light
   maxIntensityLight: 1
   falloffIntensityLight: 1.5
   extrusionLength: 20
-  searchRadius: 50
+  searchRadius: 20
   circleSegments: 20
   clipperScale: 1000
   cleanGeometry: 1
   cleanTolerance: 0.005
-  drawGizmos: 0
+  drawGizmos: 1
 --- !u!4 &2032892931
 Transform:
   m_ObjectHideFlags: 0
