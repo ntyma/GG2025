@@ -129,17 +129,22 @@ public class ChandelierScript : MonoBehaviourWithReset
         if (Damage > 1)
             healthScript.TakeDamage(Damage);
     }
+    private int lightCount = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
         {
-            isInLight = true;
+            lightCount = lightCount + 1;
+            if (lightCount == 1)
+            {
+                isInLight = true;
 
-            AudioManager.instance.Play("EnemyFreeze");
-            chandelierAnimator.speed = 0.0f;
+                AudioManager.instance.Play("EnemyFreeze");
+                chandelierAnimator.speed = 0.0f;
 
-            if (isRetracting)
-                AudioManager.instance.Stop("ChandelierRetracting");
+                if (isRetracting)
+                    AudioManager.instance.Stop("ChandelierRetracting");
+            }
         }
     }
     public float activationDelay = 0.2f;
@@ -162,12 +167,16 @@ public class ChandelierScript : MonoBehaviourWithReset
     {
         if (collision.gameObject.tag == "Light")
         {
-            isInLight = false;
+            lightCount = lightCount - 1;
+            if (lightCount == 0)
+            {
+                isInLight = false;
 
-            AudioManager.instance.Play("EnemyUnfreeze");
-            chandelierAnimator.speed = 1.0f;
-            if (isRetracting)
-                AudioManager.instance.Play("ChandelierRetracting");
+                AudioManager.instance.Play("EnemyUnfreeze");
+                chandelierAnimator.speed = 1.0f;
+                if (isRetracting)
+                    AudioManager.instance.Play("ChandelierRetracting");
+            }
         }
     }
     public override void ResetToInstantiation()

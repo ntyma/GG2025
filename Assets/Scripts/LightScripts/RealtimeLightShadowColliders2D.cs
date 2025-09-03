@@ -348,6 +348,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             // Apply tagging/layer
             if (generatedLayer >= 0 && generatedLayer <= 31) gen.go.layer = generatedLayer;
             gen.go.tag = generatedTag;
+            gen.go.AddComponent<Rigidbody2D>().isKinematic = true;
 
             // Place at origin so paths can use world coords directly
             gen.go.transform.position = Vector3.zero;
