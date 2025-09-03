@@ -25,17 +25,28 @@ public class StateFloorScript : MonoBehaviourWithReset
 
         // Record Instantiation Variables
     }
+    [SerializeField] private int lightCount = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag != "Light")
+            return;
+
         // Update Tangibility if Light touches this object
-        if (collision.gameObject.tag == "Light")
+        lightCount = lightCount + 1;
+        if (lightCount == 1)
             ChangeStates();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.tag != "Light")
+            return;
+
         // Update Tangibility if Light touches this object
-        if (collision.gameObject.tag == "Light")
+        lightCount = lightCount - 1;
+        if (lightCount < 0)
+            Debug.Log("lightCount should NEVER be less than 0 - from OnTriggerExit2D in StateFloorScript");
+        if (lightCount == 0)
             ChangeStates();
     }
 
@@ -60,7 +71,6 @@ public class StateFloorScript : MonoBehaviourWithReset
     // Function to change the Tangibility of Object
     private void ChangeStates()
     {
-        //Debug.Log("CHANGESTATES()");
         isTangible = !isTangible;
         stateFloorCollider.isTrigger = !stateFloorCollider.isTrigger;
         this.gameObject.layer = (isTangible ? LayerMask.NameToLayer("Floor") : 0);

@@ -47,17 +47,23 @@ public class PlayerScript : MonoBehaviour
         AudioManager.instance.Play("Jump");
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private int lightCount = 0;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
         {
-            playerIsInLight = true;
-            if (!isPlayingBuzz)
+            lightCount = lightCount + 1;
+
+            if (lightCount == 1)
             {
-                isPlayingBuzz = true;
-                UnityEngine.Debug.Log("guide buzz?");
-                StartCoroutine(AudioManager.instance.FadeIn("GuideBuzz", 1f));                
-                //AudioManager.instance.Play("GuideBuzz");
+                playerIsInLight = true;
+                if (!isPlayingBuzz)
+                {
+                    isPlayingBuzz = true;
+                    UnityEngine.Debug.Log("guide buzz?");
+                    StartCoroutine(AudioManager.instance.FadeIn("GuideBuzz", 1f));
+                    //AudioManager.instance.Play("GuideBuzz");
+                }
             }
         }
         else if (collision.gameObject.tag == "Cover")
@@ -67,12 +73,16 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Light")
         {
-            playerIsInLight = false;
-            if (isPlayingBuzz)
+            lightCount = lightCount - 1;
+            if (lightCount == 0)
             {
-                isPlayingBuzz = false;
-                StartCoroutine(AudioManager.instance.FadeOut("GuideBuzz", 1f));
-                //AudioManager.instance.Stop("GuideBuzz");
+                playerIsInLight = false;
+                if (isPlayingBuzz)
+                {
+                    isPlayingBuzz = false;
+                    StartCoroutine(AudioManager.instance.FadeOut("GuideBuzz", 1f));
+                    //AudioManager.instance.Stop("GuideBuzz");
+                }
             }
         }
         else if (collision.gameObject.tag == "Cover")
