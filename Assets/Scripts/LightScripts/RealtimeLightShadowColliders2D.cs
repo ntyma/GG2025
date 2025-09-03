@@ -5,6 +5,7 @@ using ClipperLib;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
+
 public class RealtimeLightShadowColliders2D : MonoBehaviour
 {
     [Tooltip("The generated lights will be put as children of this object. Make sure it is at (0,0,0) position")]
@@ -14,13 +15,13 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
     public Camera mainCamera;
     [Tooltip("How fast the light is moving, unit: angles per second.")]
     public float turningSpeed = 50f; // IF YOU WANT TO MAKE IT SLOWER WHEN IT IS NOT LIGHTING, USE THIS 
-    [Tooltip("Minimum height for the light, becomes delta height from cam if useHiehgtRelativeToCamera is true.")]
-    public float minHeight = 10f;
-    public bool useHeightRelativeToCamera = true;
     public bool clockWise = false;
-    [Tooltip("How fast the light will fade off, choose 0-90, unit: angles")]
-    public float fadeOffAngleDelta = 5;
+    [Tooltip("Say the light turns 180 degrees, set this to turn it off between 0->cutoffAngle and (180-cutoffAngle)->180")]
+    public float cutoffAngle = 30f;
+    [Tooltip("How fast the light will fade off, choose 0->(90-cutoffangle), unit: angles")]
+    public float fadeOffAngleDelta = 20;
     private float currentAngle = 0f;
+    private Vector2 lightDirection;
 
     [Header("Layers")]
     public LayerMask windowLayer;
@@ -39,8 +40,8 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
 
     [Header("Geometry (only used when mainCamera is null)")]
     public float extrusionLength = 20f;
-    [Tooltip("Radius for how far the light searches for windows. Only used when camera is not defined, else it'll just search whatever is on screen.")]
-    public float searchRadius = 50f;
+    [Tooltip("Radius for how far the light and shadow searches for objects. Only used when camera is not defined, else it'll just search whatever is on screen.")]
+    public float searchRadius = 20f;
 
     [Header("Approximations")]
     [Range(6, 64)] public int circleSegments = 20;
@@ -115,49 +116,13 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
 
         if (fadeOffAngleDelta <= 0 || fadeOffAngleDelta > 90) Debug.LogError("fadeOffAngleDelta is not between 0-90");
 
-        // Define circle path to be radius of main camera (2D) and
-        //center to be such minHeight is, well, the minimum height
-        float radius = mainCamera.orthographicSize * mainCamera.aspect;
-        float height = useHeightRelativeToCamera ? mainCamera.transform.position.y + minHeight : minHeight;
-        Vector2 circleCenter = new Vector2(
-            mainCamera.transform.position.x,
-            height + radius
-        );
-
         // Update angle
         currentAngle += turningSpeed * Time.deltaTime * (clockWise ? -1 : 1);
         currentAngle = (currentAngle + 360f) % 360f;
 
-        // Move the light on the circle path
+        // Light direction is determined by a turning angle
         float rad = currentAngle * Mathf.Deg2Rad;
-        Vector2 pos = new Vector2(
-            circleCenter.x + radius * Mathf.Cos(rad),
-            circleCenter.y + radius * Mathf.Sin(rad)
-        );
-        transform.position = pos;
-
-        // Light intensity calculation
-        if (Mathf.Sin(rad) < 0) // lower half only
-        {
-            // Distance from south pole (270°)
-            float angleFromBottom = Mathf.Abs(Mathf.DeltaAngle(currentAngle, 270f));
-            float fade = 1f;
-
-            if (angleFromBottom > (90f - fadeOffAngleDelta))
-            {
-                float t = (angleFromBottom - (90f - fadeOffAngleDelta)) / fadeOffAngleDelta;
-                fade = Mathf.Clamp01(1f - t);
-            }
-
-            // Remap fade from [0,1] -> [0.5,1]
-            fade = Mathf.Lerp(0.5f, 1f, fade);
-
-            currentLightIntensity = maxIntensityLight * fade;
-        }
-        else
-        {
-            currentLightIntensity = 0f;
-        }
+        lightDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
     }
 
     void LateUpdate()
@@ -181,20 +146,52 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
     {
         _touchedThisFrame.Clear();
 
-        // Skip computing colliders if the light is in upper half of its circle path
-        float rad = currentAngle * Mathf.Deg2Rad;
-        if (Mathf.Sin(rad) >= 0 && mainCamera != null)
+
+        // Only display light is pointing downwards
+        if (currentAngle > (180 + cutoffAngle) && currentAngle < (360 - cutoffAngle))
         {
+            // Edges of the downward cone
+            float lowerEdge = 180f + cutoffAngle;
+            float upperEdge = 360f - cutoffAngle;
+
+            // Baseline intensity meaning "no light"
+            const float baseline = 0.5f;
+
+
+                // Inside the cone [lowerEdge .. upperEdge]
+                // Compute how far from each cutoff (0 at the cutoff, fadeOffAngleDelta when fully "safe")
+                float tLower = Mathf.Clamp01((currentAngle - lowerEdge) / fadeOffAngleDelta); // 0..1
+                float tUpper = Mathf.Clamp01((upperEdge - currentAngle) / fadeOffAngleDelta); // 0..1
+
+                // The nearest edge limits the intensity (we want fade in/out anchored at each edge)
+                float t = Mathf.Min(tLower, tUpper); // 0 = at nearest edge, 1 = >= fadeOffAngleDelta away from both edges
+
+                // Interpolate between baseline (no light) and max intensity
+                currentLightIntensity = Mathf.Lerp(baseline, maxIntensityLight, t);
+
+
+        }
+        else
+        {
+            // Turn off light and delete the existing ones due to the light being invisible. 
+            currentLightIntensity = 0f;
             CullUntouched();
             return;
         }
 
         Vector2 lightPos = transform.position;
 
-        // Make the list of polygons with the extruded vertices
-        var clipWorldPolys = new List<List<Vector2>>();
+        Collider2D[] shadowCols;
+        if (mainCamera != null) // Use the camera as search anchor if defined
+        {
+            var cameraPosition = new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y);
+            shadowCols = Physics2D.OverlapCircleAll(cameraPosition, searchRadius, shadowCastLayer);
+        }
+        else
+        {
+            shadowCols = Physics2D.OverlapCircleAll(lightPos, searchRadius, shadowCastLayer);
+        }
 
-        var shadowCols = Physics2D.OverlapCircleAll(lightPos, searchRadius, shadowCastLayer);
         var shadowPaths = new List<List<Vector2>>();
         foreach (var col in shadowCols)
         {
@@ -203,38 +200,21 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             for (int p = 0; p < paths.Count; p++)
             {
                 EnsureCCW(paths[p]);
-                var runs = BuildExtrudedRuns(paths[p], lightPos, isWindow: false);
+                var runs = BuildExtrudedRuns(paths[p], isWindow: false);
                 shadowPaths.AddRange(runs);
             }
         }
 
-        // Convert clip polys to Clipper IntPaths
-        var clipIntPaths = new List<List<IntPoint>>();
-        foreach (var cw in clipWorldPolys)
-        {
-            if (cw.Count >= 3) clipIntPaths.Add(WorldToIntPath(cw));
-        }
-
         // Get window colliders that are within the search range
         Collider2D[] windows;
-
-        if (mainCamera == null)
+        if (mainCamera != null) // Use the camera as search anchor if defined
         {
-            // Fallback: circular search around light position
-            windows = Physics2D.OverlapCircleAll(lightPos, searchRadius, windowLayer);
+            var cameraPosition = new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y);
+            windows = Physics2D.OverlapCircleAll(cameraPosition, searchRadius, windowLayer);
         }
         else
         {
-            // Visible rect from camera
-            float camHeight = 2f * mainCamera.orthographicSize;
-            float camWidth = camHeight * mainCamera.aspect;
-
-            windows = Physics2D.OverlapBoxAll(
-                mainCamera.transform.position,
-                new Vector2(camWidth, camHeight),
-                0f,
-                windowLayer
-            );
+            windows = Physics2D.OverlapCircleAll(lightPos, searchRadius, windowLayer);
         }
 
         foreach (var col in windows)
@@ -244,26 +224,26 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             for (int p = 0; p < paths.Count; p++)
             {
                 EnsureCCW(paths[p]);
-                var runs = BuildExtrudedRuns(paths[p], lightPos, isWindow: true);
+                var runs = BuildExtrudedRuns(paths[p], isWindow: true);
 
                 // Get the minimum distance a window vertex is from the light
                 //this is hacky and will not handle cases where objects overlap with the window
                 //while having part of it closer to the light well. But it's more
                 //efficient and should do the job.
-                float dWindow = MinDistanceFromLight(lightPos, paths[p]); 
+                float dWindow = MinProjectionAlongLight(lightDirection, paths[p]);
 
                 foreach (var subjRun in runs)
                 {
                     var finalWorldPolys = new List<List<Vector2>>();
                     if (subjRun.Count >= 3)
                     {
-                        // Filter shadows out that are closer to the light than the window
                         var eligibleClips = new List<List<IntPoint>>();
                         foreach (var shadow in shadowPaths)
                         {
-                            float dShadow = MinDistanceFromLight(lightPos, shadow);
-                            if (dShadow > dWindow) // shadow is behind the window
-                                eligibleClips.Add(WorldToIntPath(shadow));
+                            float dShadow = MinProjectionAlongLight(lightDirection, shadow);
+
+                            // Shadow is behind the window if it's further along lightDir
+                            if (dShadow > dWindow) eligibleClips.Add(WorldToIntPath(shadow));
                         }
 
                         if (eligibleClips.Count > 0)
@@ -275,7 +255,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
 
                             c.AddPath(subjInt, ClipperLib.PolyType.ptSubject, true);
                             c.AddPaths(eligibleClips, ClipperLib.PolyType.ptClip, true);
- 
+
                             c.Execute(ClipperLib.ClipType.ctDifference, sol,
                                       ClipperLib.PolyFillType.pftNonZero, ClipperLib.PolyFillType.pftNonZero);
 
@@ -315,7 +295,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             }
         }
 
-        // 3) Cull stale generated colliders
+        // Cull stale generated colliders
         CullUntouched();
     }
 
@@ -348,10 +328,11 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             return;
         }
 
+        // Generate a game object with light collider and a 2D freeform light
         if (!_pool.TryGetValue(key, out var gen) || gen == null || gen.go == null)
         {
             gen = new Gen();
-            string baseName = key.isWindow ? "LightCollider" : "ShadowCollider";
+            string baseName = "LightCollider";
             gen.go = new GameObject($"{baseName}_{key.source.GetInstanceID()}");
 
             // Collider
@@ -368,8 +349,8 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             if (generatedLayer >= 0 && generatedLayer <= 31) gen.go.layer = generatedLayer;
             gen.go.tag = generatedTag;
 
-                // Place at origin so paths can use world coords directly
-                gen.go.transform.position = Vector3.zero;
+            // Place at origin so paths can use world coords directly
+            gen.go.transform.position = Vector3.zero;
             gen.go.transform.rotation = Quaternion.identity;
             gen.go.transform.localScale = Vector3.one;
             if (container != null) // Create light as children for the container
@@ -378,7 +359,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             _pool[key] = gen;
         }
 
-        // Set collider paths
+        // Set collider paths (vertices)
         gen.poly.pathCount = worldPolys.Count;
         for (int i = 0; i < worldPolys.Count; i++)
         {
@@ -524,7 +505,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
     }
 
     // Build extruded polygon runs
-    List<List<Vector2>> BuildExtrudedRuns(List<Vector2> basePath, Vector2 lightPos, bool isWindow)
+    List<List<Vector2>> BuildExtrudedRuns(List<Vector2> basePath, bool isWindow)
     {
         var result = new List<List<Vector2>>();
         int n = basePath.Count;
@@ -534,17 +515,16 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
 
         for (int i = 0; i < n; i++)
         {
-            // Compute vector for lightPos -> polygon vertex coord
             Vector2 p = basePath[i];
-            Vector2 d = (p - lightPos);
+            Vector2 d = lightDirection.normalized;
 
             // Dummy direction if light is too close to the point to determine direction
-            if (d.sqrMagnitude < 1e-8f) d = Vector2.right; 
+            if (d.sqrMagnitude < 1e-8f) d = Vector2.down;
             d.Normalize();
+
             // Extrude
             ext[i] = p + d * extrusionLength;
         }
-
 
         bool[] silhouette = new bool[n];
         for (int i = 0; i < n; i++)
@@ -552,10 +532,11 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             Vector2 A = basePath[i];
             Vector2 B = basePath[(i + 1) % n];
             Vector2 e = B - A;
-            Vector2 lightVec = lightPos - A;
+
+            float cross;
             // Figure out if the vector between two points is pointing towards
             //the light or away
-            float cross = Cross(e, lightVec);
+            cross = Cross(e, lightDirection); // use light direction instead of lightPos
 
             // Invert these to make the polygon include what it hits instead of going around it
             silhouette[i] = isWindow ? (cross > 1e-6f) : (cross < -1e-6f);
@@ -586,7 +567,6 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             runs.RemoveAt(runs.Count - 1);
         }
 
-
         foreach (var r in runs)
         {
             int s = r.start;
@@ -596,7 +576,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             int vertexCount = (runEdgeCount == n) ? n : (runEdgeCount + 1); // nr vertices
 
             var path = new List<Vector2>(vertexCount * 2); // List to store vertices of original polygon and extruded points
-            
+
             // Add the relevant source polygon vertices
             for (int k = 0; k < vertexCount; k++)
             {
@@ -612,7 +592,7 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
             }
 
             // Make sure points are in CCW order
-            if (path.Count >= 3) 
+            if (path.Count >= 3)
             {
                 EnsureCCW(path);
                 result.Add(path);
@@ -622,15 +602,20 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
         return result;
     }
 
-
     float Cross(Vector2 a, Vector2 b) => a.x * b.y - a.y * b.x;
 
-    float MinDistanceFromLight(Vector2 lightPos, List<Vector2> polygon)
+    // Imagine the opposite direction of the light vector is up
+    //then this computes what is heighest when up is defined like that
+    float MinProjectionAlongLight(Vector2 lightDir, List<Vector2> poly)
     {
-        float min = float.MaxValue;
-        foreach (var p in polygon)
-            min = Mathf.Min(min, Vector2.Distance(lightPos, p));
-        return min;
+        float minProj = float.PositiveInfinity;
+        foreach (var v in poly)
+        {
+            // Projection of point onto light axis
+            float proj = Vector2.Dot(v, lightDir.normalized);
+            if (proj < minProj) minProj = proj;
+        }
+        return minProj;
     }
     // -------------------- Clipper conversion helpers -------------------------
     List<IntPoint> WorldToIntPath(List<Vector2> world)
@@ -655,31 +640,21 @@ public class RealtimeLightShadowColliders2D : MonoBehaviour
     }
 
     // -------------------- Gizmos --------------------------------------------
+    // Draw search area
     void OnDrawGizmos()
     {
         if (!drawGizmos) return;
-
-        // Draw light position
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, 0.1f);
-
-        // Draw search area
         Gizmos.color = Color.cyan;
-
-        if (mainCamera == null)
+        if (mainCamera != null)
         {
-            Gizmos.DrawWireSphere(transform.position, searchRadius);
+            Vector2 camPos = new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y);
+            Gizmos.DrawWireSphere(camPos, searchRadius);
         }
         else
         {
-            // Camera-visible area
-            float camHeight = 2f * mainCamera.orthographicSize;
-            float camWidth = camHeight * mainCamera.aspect;
-            Vector3 center = mainCamera.transform.position;
-            Vector3 size = new Vector3(camWidth, camHeight, 0f);
-
-            Gizmos.DrawWireCube(center, size);
+            Gizmos.DrawWireSphere(transform.position, searchRadius);
         }
+
     }
     // GL with making the level design with this o7
 }
