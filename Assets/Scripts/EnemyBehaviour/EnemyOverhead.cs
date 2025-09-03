@@ -56,18 +56,22 @@ public class EnemyOverhead : MonoBehaviourWithReset
 
         else animator.ResetTrigger("PlayerInRange");
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private int lightCount = 0;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light")
         {
-            isFrozen = true;
-            animator.SetTrigger("EnemyInLight");
-            rb.velocity = Vector2.zero;
-            if (!isPlayingFreeze)
+            lightCount = lightCount + 1;
+            if (lightCount == 1)
             {
-                isPlayingFreeze = true;
-                AudioManager.instance.Play("EnemyFreeze");
+                isFrozen = true;
+                animator.SetTrigger("EnemyInLight");
+                rb.velocity = Vector2.zero;
+                if (!isPlayingFreeze)
+                {
+                    isPlayingFreeze = true;
+                    AudioManager.instance.Play("EnemyFreeze");
+                }
             }
         }
     }
@@ -76,10 +80,14 @@ public class EnemyOverhead : MonoBehaviourWithReset
     {
         if (collision.gameObject.tag == "Light")
         {
-            isFrozen = false;
-            animator.ResetTrigger("EnemyInLight");
-            isPlayingFreeze = false;
-            AudioManager.instance.Play("EnemyUnfreeze");
+            lightCount = lightCount - 1;
+            if (lightCount == 0)
+            {
+                isFrozen = false;
+                animator.ResetTrigger("EnemyInLight");
+                isPlayingFreeze = false;
+                AudioManager.instance.Play("EnemyUnfreeze");
+            }
         }
     }
 
