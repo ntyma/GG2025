@@ -21,21 +21,22 @@ public class MainMenuScript : MonoBehaviour
 
     public void ContinueGame()
     {
-        AudioManager.instance.Play("MenuForwards");
         SaveData continuingData = SaveManager.LoadGame();
         if (continuingData != null)
         {
+            AudioManager.instance.Play("MenuForwards");
             SaveManager.loadingData = true;
             SaveManager.levelLoading = continuingData.playerLevel;
+            SaveManager.timeLoading = continuingData.time;
             Debug.Log("Game Loaded: Level " + continuingData.playerLevel);
             //SceneManager.LoadScene("MainHouse");
             transition.SetTrigger("playFlashbang"); // trigger the transition animation
-            StartCoroutine(LoadAfterTransition("MainHouse"));
+            StartCoroutine(LoadAfterTransition("Lighthouse"));
             //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
         }
         else
         {
-            Debug.Log("error - no player data found");
+            AudioManager.instance.Play("DebrisFall");
         }
     }
 
@@ -45,14 +46,15 @@ public class MainMenuScript : MonoBehaviour
         SaveData data = new SaveData
         {
             playerLevel = 0,
-            playerMemory = new bool[19*500]
+            time = 0,
+            beatenGame = false,
+            playerMemory = new bool[10]
         };
         SaveManager.SaveGame(data);
         SaveManager.loadingData = false;
 
-        //SceneManager.LoadScene("MainHouse");
         transition.SetTrigger("playFlashbang"); // trigger the transition animation
-        StartCoroutine(LoadAfterTransition("MainHouse"));
+        StartCoroutine(LoadAfterTransition("Lighthouse"));
         //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
 
         AudioManager.instance.Stop("Title");

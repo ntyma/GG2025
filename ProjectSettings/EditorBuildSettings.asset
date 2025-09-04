@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainHouse.unity
     guid: d5262fadf0454e84a8e91535d4a5a69f
   - enabled: 1
-    path: Assets/Scenes/Lighthouse.unity
-    guid: d7d48629af85d8442af6fcf128f712d0
-  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: bfc43f20b1a998142931af58d86bf422
+  - enabled: 1
+    path: Assets/Scenes/Lighthouse.unity
+    guid: d7d48629af85d8442af6fcf128f712d0
   m_configObjects: {}

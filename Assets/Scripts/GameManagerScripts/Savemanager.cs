@@ -7,6 +7,8 @@ public class SaveData
 {
     public int playerLevel;
     public float playerHealth;
+    public float time;
+    public bool beatenGame;
 
     // Player Memory Tilemaps Data
     public bool[] playerMemory;
@@ -16,6 +18,7 @@ public static class SaveManager
 {
     public static bool loadingData;
     public static int levelLoading;
+    public static float timeLoading;
     private static string saveFilePath = Application.persistentDataPath + "/save.json";
     public static void SaveGame(SaveData data)
     {

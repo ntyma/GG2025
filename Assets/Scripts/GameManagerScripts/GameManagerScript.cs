@@ -34,6 +34,8 @@ public class GameManagerScript : MonoBehaviour
     public bool isForwardRoute = true;
 
     [SerializeField] private GameObject backwardRouteScrollingLightWall;
+
+    [SerializeField] private Stopwatch stopwatch;
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +117,12 @@ public class GameManagerScript : MonoBehaviour
         {
             furthestGameLevel = SaveManager.levelLoading;
             currentGameLevel = SaveManager.levelLoading;
+            if (SaveManager.levelLoading == 26)
+            {
+                stopwatch.stopwatchRunning = false;
+                stopwatch.stopwatchText.color = Color.yellow;
+            }
+            stopwatch.time = SaveManager.timeLoading;
             Debug.Log("loaded save data! Current level: " + furthestGameLevel);
         }
         //to resume time in case it was stopped by a previous pause
@@ -149,6 +157,7 @@ public class GameManagerScript : MonoBehaviour
         SaveData data = new SaveData
         {
             playerLevel = furthestGameLevel,
+            time = stopwatch.time
         };
         SaveManager.SaveGame(data);
 
