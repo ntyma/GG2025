@@ -381,9 +381,9 @@ public class GameManagerScript : MonoBehaviour
         backwardRouteScrollingLightWall.transform.position =
             (
                 furthestGameLevel <= 17 ? 
-                spawnPosition + Vector3.right * (backwardRouteScrollingLightWall.transform.localScale.x/2 + 6) 
+                spawnPosition + Vector3.right * (backwardRouteScrollingLightWall.transform.localScale.x/2 + 8) 
                     :
-                spawnPosition + Vector3.up * (backwardRouteScrollingLightWall.transform.localScale.y/2 + 6)
+                spawnPosition + Vector3.up * (backwardRouteScrollingLightWall.transform.localScale.y/2 + 8)
             );
     }
 }

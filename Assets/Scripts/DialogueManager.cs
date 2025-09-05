@@ -47,8 +47,8 @@ public class DialogueManager : MonoBehaviour
         AudioManager.instance.Pause(wasPlaying);
         AudioManager.instance.PlayIntroThenLoop("GuideIntro", "GuideLoop");
 
-        //animator.Play("show");
-        animator.SetTrigger("showTrigger");
+        animator.Play("show");
+        //animator.SetTrigger("showTrigger");
 		print("Dialogue started");
 
         lines.Clear();
@@ -119,7 +119,8 @@ public class DialogueManager : MonoBehaviour
 		isDialogueActive = false;
         AudioManager.instance.StopIntroThenLoop("GuideIntro", "GuideLoop");
         AudioManager.instance.Unpause(wasPlaying);
-        animator.SetTrigger("hideTrigger");
+        //animator.SetTrigger("hideTrigger");
+		animator.Play("hide");
 		print("Dialogue ended");
         playerControllerScript.UnlockPlayerControls();
     }
