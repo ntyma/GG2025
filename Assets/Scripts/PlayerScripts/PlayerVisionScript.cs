@@ -10,7 +10,7 @@ public class PlayerVisionScript : MonoBehaviour
     [SerializeField] private SpriteMask playerVisionSpriteMask;
     [SerializeField] private SpriteRenderer playerParanoiaSpriteRenderer;
     [SerializeField] private Light2D light2DScript;
-    private float maxIntensity;
+    private float maxIntensity = 0.09f;
 
     [SerializeField] private Vector3 playerVisionScaleMax = new Vector3(3.0f, 3.0f, 1.0f);
     [SerializeField] private Vector3 playerVisionScaleMin = new Vector3(0.8f, 0.8f, 1.0f);
@@ -29,7 +29,7 @@ public class PlayerVisionScript : MonoBehaviour
         //SetAllSpriteComponents(true);
         playerSanity = playerSanityUpperBound;
 
-        maxIntensity = light2DScript.intensity;
+        //maxIntensity = light2DScript.intensity;
     }
 
     // Update is called once per frame
