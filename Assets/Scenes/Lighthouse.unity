@@ -34305,10 +34305,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteMask: {fileID: 527027427}
+  light2DScript: {fileID: 527027431}
   scrollSensitivity: 0.001
   minSize: 1
   maxSize: 3
   lerpSpeed: 10
+  lightInnerRadius: 0.54
+  lightOuterRadius: 1.93
 --- !u!114 &229152726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78090,6 +78093,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2995171789693112203, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
   m_PrefabInstance: {fileID: 527027424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &527027431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3800951914395275602, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+  m_PrefabInstance: {fileID: 527027424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &528099179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125364,7 +125378,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 806814824}
   levelPropsTilemapsGameObject: {fileID: 226939677}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 0
+  furthestGameLevel: 18
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2

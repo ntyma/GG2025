@@ -14145,10 +14145,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteMask: {fileID: 527027427}
+  light2DScript: {fileID: 527027428}
   scrollSensitivity: 0.001
   minSize: 1
   maxSize: 3
   lerpSpeed: 10
+  lightInnerRadius: 0.54
+  lightOuterRadius: 1.93
 --- !u!114 &229152726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31330,6 +31333,17 @@ SpriteMask:
   m_CorrespondingSourceObject: {fileID: 1701457206479757451, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
   m_PrefabInstance: {fileID: 527027424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &527027428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3800951914395275602, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+  m_PrefabInstance: {fileID: 527027424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45229731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &527027432 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4380779458602296123, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
@@ -55435,12 +55449,13 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 1337728054}
   levelPropsTilemapsGameObject: {fileID: 596514791}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 14
+  furthestGameLevel: 0
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2
   isForwardRoute: 1
   backwardRouteScrollingLightWall: {fileID: 3047151559857741892}
+  stopwatch: {fileID: 0}
 --- !u!4 &824392166
 Transform:
   m_ObjectHideFlags: 0
