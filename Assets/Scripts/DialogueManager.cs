@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine;
+using System.Diagnostics;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -20,14 +21,18 @@ public class DialogueManager : MonoBehaviour
 
 	public Animator animator;
 
-	public string wasPlaying;
+    private PlayerControls playerControls;
+
+    public string wasPlaying;
     //public GameObject dialogueBox; // Dialogue box GameObject
 
 	private Coroutine typingCoroutine; // keep track of current typing
 	private DialogueLine currentLine; // finish current line
 	private bool isTyping = false;
 
-    [SerializeField] private PlayerController playerControllerScript;
+    public event System.Action onDialogueEnd;
+
+    //[SerializeField] private PlayerController playerControllerScript;
 
     private void Awake()
     {
@@ -35,15 +40,17 @@ public class DialogueManager : MonoBehaviour
             Instance = this;
 
 		lines = new Queue<DialogueLine>();
+
+        playerControls = new PlayerControls();
     }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-		playerControllerScript.LockPlayerControls();
+        playerControls.Disable();
         isDialogueActive = true;
 
 		wasPlaying = AudioManager.instance.CurrentlyPlaying();
-		Debug.Log(wasPlaying);
+        UnityEngine.Debug.Log(wasPlaying);
         AudioManager.instance.Pause(wasPlaying);
         AudioManager.instance.PlayIntroThenLoop("GuideIntro", "GuideLoop");
 
@@ -74,9 +81,10 @@ public class DialogueManager : MonoBehaviour
         }
 		else if (lines.Count == 0)
 		{
-			EndDialogue();
-			return;
-		}
+            if (currentLine != null)
+                EndDialogue();
+            return;
+        }
 
 		currentLine = lines.Dequeue();
 
@@ -102,7 +110,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
 	{
-		isTyping = true;
+        isTyping = true;
         dialogueArea.text = "";
 
 		foreach (char letter in dialogueLine.line.ToCharArray())
@@ -122,6 +130,8 @@ public class DialogueManager : MonoBehaviour
         //animator.SetTrigger("hideTrigger");
 		animator.Play("hide");
 		print("Dialogue ended");
-        playerControllerScript.UnlockPlayerControls();
+        playerControls.Enable();
+
+        onDialogueEnd?.Invoke();
     }
 }

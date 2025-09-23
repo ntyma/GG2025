@@ -33,6 +33,8 @@ public class MainMenuScript : MonoBehaviour
             transition.SetTrigger("playFlashbang"); // trigger the transition animation
             StartCoroutine(LoadAfterTransition("Lighthouse"));
             //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
+            AudioManager.instance.Stop("Title");
+            //AudioManager.instance.Play("House");
         }
         else
         {
