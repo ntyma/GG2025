@@ -10,6 +10,9 @@ public class SaveData
     public float time;
     public bool beatenGame;
 
+    public bool isHouseLevels;
+    public bool isForwardRoute;
+
     // Player Memory Tilemaps Data
     public bool[] playerMemory;
 }
@@ -19,6 +22,10 @@ public static class SaveManager
     public static bool loadingData;
     public static int levelLoading;
     public static float timeLoading;
+
+    public static bool isHouseLevels;
+    public static bool isForwardRoute;
+
     private static string saveFilePath = Application.persistentDataPath + "/save.json";
     public static void SaveGame(SaveData data)
     {

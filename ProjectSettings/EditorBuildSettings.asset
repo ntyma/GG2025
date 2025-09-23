@@ -11,13 +11,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/testMainMenu.unity
     guid: c9781dcec12f76043aa08ec9341ba9db
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainHouse.unity
     guid: d5262fadf0454e84a8e91535d4a5a69f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: bfc43f20b1a998142931af58d86bf422
   - enabled: 1
     path: Assets/Scenes/Lighthouse.unity
     guid: d7d48629af85d8442af6fcf128f712d0
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: e06a9f4c7c4750c45a2fc63325996c35
   m_configObjects: {}

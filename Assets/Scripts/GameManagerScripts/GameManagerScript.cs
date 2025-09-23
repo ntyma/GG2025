@@ -16,6 +16,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject levelPlayerMemoryTilemapsGameObject;
     [SerializeField] private GameObject levelBackgroundTilemapsGameObject;
     [SerializeField] private GameObject levelPropsTilemapsGameObject;
+    [SerializeField] private GameObject sceneTransitionsGameObject;
     private MainCameraScript mainCameraScript;
 
     [SerializeField] private PlayerScript playerScript;
@@ -117,6 +118,7 @@ public class GameManagerScript : MonoBehaviour
         {
             furthestGameLevel = SaveManager.levelLoading;
             currentGameLevel = SaveManager.levelLoading;
+            isForwardRoute = SaveManager.isForwardRoute;
             if (SaveManager.levelLoading == 26)
             {
                 stopwatch.stopwatchRunning = false;
@@ -340,6 +342,12 @@ public class GameManagerScript : MonoBehaviour
         playerScript.SetRoute(isForwardRoute);
         mainCameraScript.SetCameraPosition(Index);
 
+        if (sceneTransitionsGameObject != null)
+        {
+            sceneTransitionsGameObject.transform.GetChild(0).gameObject.SetActive(isForwardRoute);
+            sceneTransitionsGameObject.transform.GetChild(1).gameObject.SetActive(!isForwardRoute);
+        }
+
         backwardRouteScrollingLightWall.SetActive(!isForwardRoute);
         SetScrollingLightWallPosition(spawnPosition);
     }
@@ -363,6 +371,12 @@ public class GameManagerScript : MonoBehaviour
         SetRespawnPoint();
         playerScript.SetRoute(isForwardRoute);
         backwardRouteScrollingLightWall.SetActive(!isForwardRoute);
+
+        if (sceneTransitionsGameObject != null)
+        {
+            sceneTransitionsGameObject.transform.GetChild(0).gameObject.SetActive(isForwardRoute);
+            sceneTransitionsGameObject.transform.GetChild(1).gameObject.SetActive(!isForwardRoute);
+        }
 
         SetScrollingLightWallPosition(playerGameObject.transform.position);
 
