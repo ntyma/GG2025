@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 11.5
+  m_Time: 9
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: dacc97af03c8df04f9bcf4f420b1e019, type: 2}
@@ -107,7 +107,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -8685145217434239340}
-    m_Duration: 11.95
+    m_Duration: 9.6
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1552424092202250222}
     m_EaseInDuration: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: GuideTransform
   - m_Version: 1
-    m_Start: 11.95
+    m_Start: 9.6
     m_ClipIn: 0
     m_Asset: {fileID: -2388690307114857204}
     m_Duration: 21.449999999999992

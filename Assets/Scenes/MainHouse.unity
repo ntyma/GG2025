@@ -29896,6 +29896,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6774aa2020ec6984592865ff98a8c3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &515497124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6407031493699314766, guid: 3f350b07b28284342b2d5cb49a0e5903, type: 3}
+  m_PrefabInstance: {fileID: 515497119}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515497120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2fb21e0cbe9864dafb886ed31cc36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520215695
 GameObject:
   m_ObjectHideFlags: 0
@@ -41668,6 +41679,11 @@ Transform:
   - {fileID: 1654153587}
   m_Father: {fileID: 2039594093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &681382491 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2995171789693112203, guid: 5ee4de96b06f97248b5396a0094709aa, type: 3}
+  m_PrefabInstance: {fileID: 527027424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &685008604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153128,11 +153144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c84ba43ff7d0a34ca4f45e3c34c810e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guideAnimator: {fileID: 681382491}
   characterIcon: {fileID: 3237953634579209776}
   dialogueArea: {fileID: 3615021548282932910}
   isDialogueActive: 0
   typingSpeed: 0.03
   animator: {fileID: 7412106271189633291}
+  playerControls: {fileID: 515497124}
   wasPlaying: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

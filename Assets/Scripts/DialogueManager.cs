@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public Animator guideAnimator;
+
     public static DialogueManager Instance;
 
 	public Image characterIcon;
@@ -21,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 
 	public Animator animator;
 
-    private PlayerControls playerControls;
+    public PlayerController playerControls;
 
     public string wasPlaying;
     //public GameObject dialogueBox; // Dialogue box GameObject
@@ -40,13 +42,14 @@ public class DialogueManager : MonoBehaviour
             Instance = this;
 
 		lines = new Queue<DialogueLine>();
-
-        playerControls = new PlayerControls();
     }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-        playerControls.Disable();
+        guideAnimator.SetBool("isTalking", true);
+
+		if (playerControls != null)
+			playerControls.LockPlayerControls();
         isDialogueActive = true;
 
 		wasPlaying = AudioManager.instance.CurrentlyPlaying();
@@ -130,7 +133,9 @@ public class DialogueManager : MonoBehaviour
         //animator.SetTrigger("hideTrigger");
 		animator.Play("hide");
 		print("Dialogue ended");
-        playerControls.Enable();
+        guideAnimator.SetBool("isTalking", false);
+        if (playerControls != null)
+            playerControls.UnlockPlayerControls();
 
         onDialogueEnd?.Invoke();
     }

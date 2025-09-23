@@ -6306,6 +6306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c84ba43ff7d0a34ca4f45e3c34c810e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guideAnimator: {fileID: 527833708}
   characterIcon: {fileID: 191962550}
   dialogueArea: {fileID: 1947237399}
   isDialogueActive: 0
