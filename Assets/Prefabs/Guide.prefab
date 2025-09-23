@@ -375,18 +375,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light
       objectReference: {fileID: 0}
-    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Size.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_Size.y
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7284978545069416076, guid: 2eef785141b65e345b2bccc5dcdbc9d8, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -417,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df0ef0fc0d6caf41a478bf9af4998d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  followMouse: {fileID: 0}
-  clipSpeedMultiplier: 0
+  animator: {fileID: 2995171789693112203}
+  spriteRenderer: {fileID: 781516513268441041}
+  followMouse: {fileID: 7753555455211025400}
+  clipSpeedMultiplier: 3
