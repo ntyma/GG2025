@@ -29,6 +29,7 @@ public class SceneTransitionScript : MonoBehaviour
 
     private void TransitionToScene()
     {
+        SaveData continuingData;
         switch (nextScene)
         {
             case (Scenes.MainHouse):
@@ -37,11 +38,31 @@ public class SceneTransitionScript : MonoBehaviour
             case (Scenes.Lighthouse):
                 SaveManager.UpdateSaveData(data => data.playerLevel = 18);
                 SaveManager.UpdateSaveData(data => data.isHouseLevels = false);
-                LevelManager.Instance.LoadScene("Lighthouse", "CrossFade");
+
+                continuingData = SaveManager.LoadGame();
+                if (continuingData != null)
+                {
+                    SaveManager.loadingData = true;
+                    SaveManager.levelLoading = continuingData.playerLevel;
+                    SaveManager.timeLoading = continuingData.time;
+                    SaveManager.isForwardRoute = continuingData.isForwardRoute;
+                    SaveManager.isHouseLevels = continuingData.isHouseLevels;
+                }
+                    LevelManager.Instance.LoadScene("Lighthouse", "CrossFade");
                 //SceneManager.LoadScene("Lighthouse");
                 break;
             case (Scenes.Cutscene):
                 SaveManager.UpdateSaveData(data => data.isForwardRoute = false);
+
+                continuingData = SaveManager.LoadGame();
+                if (continuingData != null)
+                {
+                    SaveManager.loadingData = true;
+                    SaveManager.levelLoading = continuingData.playerLevel;
+                    SaveManager.timeLoading = continuingData.time;
+                    SaveManager.isForwardRoute = continuingData.isForwardRoute;
+                    SaveManager.isHouseLevels = continuingData.isHouseLevels;
+                }
                 SceneManager.LoadScene("Cutscene");
                 break;
             default:

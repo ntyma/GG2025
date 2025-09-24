@@ -125126,7 +125126,7 @@ MonoBehaviour:
   isForwardRoute: 1
   backwardRouteScrollingLightWall: {fileID: 3047151559857741892}
   stopwatch: {fileID: 477155914}
-  debugMode: 1
+  debugMode: 0
 --- !u!4 &824392166
 Transform:
   m_ObjectHideFlags: 0
