@@ -35,8 +35,10 @@ public class SceneTransitionScript : MonoBehaviour
                 SceneManager.LoadScene("MainHouse");
                 break;
             case (Scenes.Lighthouse):
+                SaveManager.UpdateSaveData(data => data.playerLevel = 18);
                 SaveManager.UpdateSaveData(data => data.isHouseLevels = false);
-                SceneManager.LoadScene("Lighthouse");
+                LevelManager.Instance.LoadScene("Lighthouse", "CrossFade");
+                //SceneManager.LoadScene("Lighthouse");
                 break;
             case (Scenes.Cutscene):
                 SaveManager.UpdateSaveData(data => data.isForwardRoute = false);

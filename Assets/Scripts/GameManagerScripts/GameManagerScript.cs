@@ -37,6 +37,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject backwardRouteScrollingLightWall;
 
     [SerializeField] private Stopwatch stopwatch;
+    [SerializeField] private bool debugMode = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -135,11 +136,13 @@ public class GameManagerScript : MonoBehaviour
     }
     public void Update()
     {
+        if (!debugMode)
+            return;
+
         if (Input.GetKeyDown(KeyCode.G))
             SwapRoute();
         if (Input.GetKeyDown(KeyCode.R))
             playerHealthScript.Respawn();
-            
     }
     public void ProgressLevel (bool isProgressing)
     {
@@ -349,6 +352,7 @@ public class GameManagerScript : MonoBehaviour
         {
             sceneTransitionsGameObject.transform.GetChild(0).gameObject.SetActive(isForwardRoute);
             sceneTransitionsGameObject.transform.GetChild(1).gameObject.SetActive(!isForwardRoute);
+            sceneTransitionsGameObject.transform.GetChild(2).gameObject.SetActive(isForwardRoute);
         }
 
         backwardRouteScrollingLightWall.SetActive(!isForwardRoute);

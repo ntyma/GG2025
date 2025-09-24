@@ -255,3 +255,10 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  - name: MonsterAttack
+    clip: {fileID: 8300000, guid: 08d544a49b7f0094c993836d3216cd62, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
