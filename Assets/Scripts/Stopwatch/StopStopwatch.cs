@@ -12,7 +12,8 @@ public class StopStopwatch : MonoBehaviour
         {
             stopwatch.stopwatchRunning = false;
             stopwatch.stopwatchText.color = Color.yellow;
-        }
-        SaveManager.UpdateSaveData(data => data.beatenGame = true); 
+
+            SaveManager.UpdateSaveData(data => data.beatenGame = true);
+        }  
     }
 }

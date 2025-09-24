@@ -124,7 +124,8 @@ public class GameManagerScript : MonoBehaviour
                 stopwatch.stopwatchRunning = false;
                 stopwatch.stopwatchText.color = Color.yellow;
             }
-            stopwatch.time = SaveManager.timeLoading;
+            if (stopwatch != null)
+                stopwatch.time = SaveManager.timeLoading;
             Debug.Log("loaded save data! Current level: " + furthestGameLevel);
         }
         //to resume time in case it was stopped by a previous pause
@@ -156,12 +157,14 @@ public class GameManagerScript : MonoBehaviour
         mainCameraScript.ProgressCamera(isProgressing);
 
 
-        SaveData data = new SaveData
+        /*SaveData data = new SaveData
         {
             playerLevel = furthestGameLevel,
             time = stopwatch.time
         };
-        SaveManager.SaveGame(data);
+        SaveManager.SaveGame(data);*/
+
+        SaveManager.UpdateSaveData(data => data.playerLevel = furthestGameLevel);
 
         /*if (currentGameLevel == 17)
             SetScrollingLightWallPosition(levelRespawnPointsCollection[currentGameLevel].transform.GetChild(1).transform.position);*/

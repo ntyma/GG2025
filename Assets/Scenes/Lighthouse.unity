@@ -124829,7 +124829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4578007732389541063, guid: 85ab366d1f89484479469f1c3f606f82, type: 3}
       propertyPath: nextScene
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6459814737522262947, guid: 85ab366d1f89484479469f1c3f606f82, type: 3}
       propertyPath: m_LocalScale.y
@@ -124927,7 +124927,7 @@ MonoBehaviour:
   levelPropsTilemapsGameObject: {fileID: 226939677}
   sceneTransitionsGameObject: {fileID: 304934020}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 26
+  furthestGameLevel: 18
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2

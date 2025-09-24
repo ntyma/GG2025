@@ -25,12 +25,6 @@ public class SceneTransitionScript : MonoBehaviour
         playerRespawnAnimationScript.PlayPlayerDeathCameraAnimation();
         Invoke("TransitionToScene", playerRespawnAnimationScript.initialDelay + playerRespawnAnimationScript.deathFadeoutTime+0.1f);
         // Stop Player Controls
-
-        SaveData data = new SaveData
-        {
-            isForwardRoute = false
-        };
-        SaveManager.SaveGame(data);
     }
 
     private void TransitionToScene()
@@ -41,9 +35,11 @@ public class SceneTransitionScript : MonoBehaviour
                 SceneManager.LoadScene("MainHouse");
                 break;
             case (Scenes.Lighthouse):
+                SaveManager.UpdateSaveData(data => data.isHouseLevels = false);
                 SceneManager.LoadScene("Lighthouse");
                 break;
             case (Scenes.Cutscene):
+                SaveManager.UpdateSaveData(data => data.isForwardRoute = false);
                 SceneManager.LoadScene("Cutscene");
                 break;
             default:

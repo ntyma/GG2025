@@ -28,10 +28,18 @@ public class MainMenuScript : MonoBehaviour
             SaveManager.loadingData = true;
             SaveManager.levelLoading = continuingData.playerLevel;
             SaveManager.timeLoading = continuingData.time;
+            SaveManager.isForwardRoute = continuingData.isForwardRoute;
+            SaveManager.isHouseLevels = continuingData.isHouseLevels;
+
             Debug.Log("Game Loaded: Level " + continuingData.playerLevel);
             //SceneManager.LoadScene("MainHouse");
             transition.SetTrigger("playFlashbang"); // trigger the transition animation
-            StartCoroutine(LoadAfterTransition("Lighthouse"));
+
+            if (continuingData.isHouseLevels)
+                StartCoroutine(LoadAfterTransition("MainHouse"));
+            else
+                StartCoroutine(LoadAfterTransition("Lighthouse"));
+
             //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
             AudioManager.instance.Stop("Title");
             //AudioManager.instance.Play("House");
@@ -50,13 +58,16 @@ public class MainMenuScript : MonoBehaviour
             playerLevel = 0,
             time = 0,
             beatenGame = false,
+            isHouseLevels = true,
+            isForwardRoute = true,
+
             playerMemory = new bool[10]
         };
         SaveManager.SaveGame(data);
         SaveManager.loadingData = false;
 
         transition.SetTrigger("playFlashbang"); // trigger the transition animation
-        StartCoroutine(LoadAfterTransition("Lighthouse"));
+        StartCoroutine(LoadAfterTransition("MainHouse"));
         //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
 
         AudioManager.instance.Stop("Title");
