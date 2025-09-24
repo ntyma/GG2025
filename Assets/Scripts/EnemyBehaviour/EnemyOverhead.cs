@@ -70,7 +70,8 @@ public class EnemyOverhead : MonoBehaviourWithReset
                 if (!isPlayingFreeze)
                 {
                     isPlayingFreeze = true;
-                    AudioManager.instance.Play("EnemyFreeze");
+                    if (Vector3.SqrMagnitude(playerController.transform.position - this.transform.position) < 150.0f)
+                        AudioManager.instance.Play("EnemyFreeze");
                 }
             }
         }
@@ -86,7 +87,9 @@ public class EnemyOverhead : MonoBehaviourWithReset
                 isFrozen = false;
                 animator.ResetTrigger("EnemyInLight");
                 isPlayingFreeze = false;
-                AudioManager.instance.Play("EnemyUnfreeze");
+
+                if (Vector3.SqrMagnitude(playerController.transform.position - this.transform.position) < 150.0f)
+                    AudioManager.instance.Play("EnemyUnfreeze");
             }
         }
     }

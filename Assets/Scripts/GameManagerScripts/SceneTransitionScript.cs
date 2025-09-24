@@ -52,6 +52,7 @@ public class SceneTransitionScript : MonoBehaviour
                 //SceneManager.LoadScene("Lighthouse");
                 break;
             case (Scenes.Cutscene):
+                SaveManager.UpdateSaveData(data => data.playerLevel = 26);
                 SaveManager.UpdateSaveData(data => data.isForwardRoute = false);
 
                 continuingData = SaveManager.LoadGame();
