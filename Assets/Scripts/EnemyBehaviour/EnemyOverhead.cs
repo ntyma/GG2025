@@ -97,6 +97,7 @@ public class EnemyOverhead : MonoBehaviourWithReset
         {
             if(collision.gameObject.layer == 8)
             {
+                AudioManager.instance.Play("MonsterAttack");
                 animator.SetTrigger("HittingPlayer");
                 midAttack = true;
                 Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
