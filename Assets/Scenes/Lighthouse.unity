@@ -98030,6 +98030,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286932409009709837, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 825055654}
+    - target: {fileID: 3286932409009709837, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490277851981063860, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 825055654}
+    - target: {fileID: 4490277851981063860, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030135301672902825, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 825055654}
+    - target: {fileID: 7030135301672902825, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -98038,6 +98062,11 @@ PrefabInstance:
 --- !u!224 &650925121 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1360440723168337645, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
+  m_PrefabInstance: {fileID: 650925120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &650925122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 332277085326805093, guid: 6e7602d9db098184589aaf5b7ffdf8eb, type: 3}
   m_PrefabInstance: {fileID: 650925120}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &654679929
@@ -125154,7 +125183,7 @@ MonoBehaviour:
   sceneTransitionsGameObject: {fileID: 304934020}
   dialogueTriggersGameObject: {fileID: 2037179537}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 7
+  furthestGameLevel: 18
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2
@@ -125221,7 +125250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425439706306fa54e9bee77c6c593efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
+  pauseMenuUI: {fileID: 650925122}
   playerHealthScript: {fileID: 515497121}
 --- !u!114 &825055655
 MonoBehaviour:
