@@ -23,7 +23,7 @@ public class Stopwatch : MonoBehaviour
         {
             time += Time.deltaTime;
         }
-        if(Input.GetKeyDown(KeyCode.Z)) {
+        /*if(Input.GetKeyDown(KeyCode.Z)) {
             Debug.Log("pressed Z");
             if (displayingTime)
             {
@@ -31,7 +31,7 @@ public class Stopwatch : MonoBehaviour
                 displayingTime = false;
             }
             else displayingTime = true;
-        }
+        }*/
     }
 
     void UpdateDisplay(float time)

@@ -70148,7 +70148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &477155911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -125154,7 +125154,7 @@ MonoBehaviour:
   sceneTransitionsGameObject: {fileID: 304934020}
   dialogueTriggersGameObject: {fileID: 2037179537}
   playerScript: {fileID: 515497122}
-  furthestGameLevel: 22
+  furthestGameLevel: 7
   totalLevelCount: 0
   levelHasObstacles: 
   levelObstacleGenerationFrameSize: 2
