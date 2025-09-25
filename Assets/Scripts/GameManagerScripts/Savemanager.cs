@@ -13,6 +13,8 @@ public class SaveData
     public bool isHouseLevels;
     public bool isForwardRoute;
 
+    public bool playEndingCutscene;
+
     // Player Memory Tilemaps Data
     public bool[] playerMemory;
 }
@@ -25,6 +27,8 @@ public static class SaveManager
 
     public static bool isHouseLevels;
     public static bool isForwardRoute;
+
+    public static bool playEndingCutscene;
 
     private static string saveFilePath = Application.persistentDataPath + "/save.json";
     public static void SaveGame(SaveData data)

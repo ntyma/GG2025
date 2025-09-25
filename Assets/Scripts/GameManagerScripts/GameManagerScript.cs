@@ -17,6 +17,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject levelBackgroundTilemapsGameObject;
     [SerializeField] private GameObject levelPropsTilemapsGameObject;
     [SerializeField] private GameObject sceneTransitionsGameObject;
+    [SerializeField] private GameObject dialogueTriggersGameObject;
     private MainCameraScript mainCameraScript;
 
     [SerializeField] private PlayerScript playerScript;
@@ -357,6 +358,7 @@ public class GameManagerScript : MonoBehaviour
 
         backwardRouteScrollingLightWall.SetActive(!isForwardRoute);
         SetScrollingLightWallPosition(spawnPosition);
+        dialogueTriggersGameObject.SetActive(isForwardRoute);
     }
 
     [ContextMenu("SwapRoute()")]
@@ -386,6 +388,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         SetScrollingLightWallPosition(playerGameObject.transform.position);
+        dialogueTriggersGameObject.SetActive(isForwardRoute);
 
         // No need to update which Memory Tileset the Player is manipulating
         // SwapRoute would always place the player in the same room

@@ -42371,7 +42371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4578007732389541063, guid: 85ab366d1f89484479469f1c3f606f82, type: 3}
       propertyPath: nextScene
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6459814737522262947, guid: 85ab366d1f89484479469f1c3f606f82, type: 3}
       propertyPath: m_LocalScale.x
@@ -100255,11 +100255,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 9eed8289120ea614daaab31a60cff884, type: 3}
     - target: {fileID: 4576657526504172539, guid: 340952e463669234aa481904fae3d826, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 627.08234
+      value: -7.267639
       objectReference: {fileID: 0}
     - target: {fileID: 4576657526504172539, guid: 340952e463669234aa481904fae3d826, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 91.78782
+      value: -1.4751663
       objectReference: {fileID: 0}
     - target: {fileID: 4576657526504172539, guid: 340952e463669234aa481904fae3d826, type: 3}
       propertyPath: m_LocalPosition.z
@@ -125152,6 +125152,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 806814824}
   levelPropsTilemapsGameObject: {fileID: 226939677}
   sceneTransitionsGameObject: {fileID: 304934020}
+  dialogueTriggersGameObject: {fileID: 2037179537}
   playerScript: {fileID: 515497122}
   furthestGameLevel: 18
   totalLevelCount: 0
@@ -240369,7 +240370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6288556347188393371, guid: 340952e463669234aa481904fae3d826, type: 3}
       propertyPath: m_Name
-      value: DialogueTrigger23 (1)
+      value: DialogueTrigger24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

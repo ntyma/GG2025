@@ -9,7 +9,7 @@ public class SceneTransitionScript : MonoBehaviour
     [SerializeField] private SpriteRenderer transitionSpriteRenderer;
     [SerializeField] private PlayerRespawnCameraAnimationScript playerRespawnAnimationScript;
 
-    enum Scenes {MainHouse, Lighthouse, Cutscene}
+    enum Scenes {MainHouse, Lighthouse, Cutscene, MainMenuEnding}
     [SerializeField] private Scenes nextScene = Scenes.MainHouse;
     private void Awake()
     {
@@ -65,6 +65,16 @@ public class SceneTransitionScript : MonoBehaviour
                     SaveManager.isHouseLevels = continuingData.isHouseLevels;
                 }
                 SceneManager.LoadScene("Cutscene");
+                break;
+            case (Scenes.MainMenuEnding):
+                SaveManager.UpdateSaveData(data => data.playEndingCutscene = true);
+
+                continuingData = SaveManager.LoadGame();
+                if (continuingData != null)
+                {
+                    SaveManager.playEndingCutscene = continuingData.playEndingCutscene;
+                }
+                SceneManager.LoadScene("MainMenu");
                 break;
             default:
                 Debug.LogWarning("No Scene is Selected! - from TransitionToScene() in SceneTransitionScript.cs");

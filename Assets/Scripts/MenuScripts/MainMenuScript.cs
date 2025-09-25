@@ -3,20 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class MainMenuScript : MonoBehaviour
 {
     private Animator transition;
+    private Canvas canvasComponent;
 
     void Awake()
     {
         transition = GameObject.Find("light_main").GetComponent<Animator>();
+        canvasComponent = GameObject.Find("Canvas").GetComponent<Canvas>();
     }
 
     // Start is called before the first frame update
     public void Start()
     {
-        AudioManager.instance.Play("Title");
+        SaveData continuingData = SaveManager.LoadGame();
+        if (continuingData != null && continuingData.playEndingCutscene == true)
+        {
+            // Play Allen's Cutscene
+            PlayEndingCutscene();
+        }
+        else
+        {
+            AudioManager.instance.Play("Title");
+        }
     }
 
     public void ContinueGame()
@@ -61,6 +73,8 @@ public class MainMenuScript : MonoBehaviour
             isHouseLevels = true,
             isForwardRoute = true,
 
+            playEndingCutscene = false,
+
             playerMemory = new bool[10]
         };
         SaveManager.SaveGame(data);
@@ -91,5 +105,42 @@ public class MainMenuScript : MonoBehaviour
         AudioManager.instance.Play("MenuBackwards");
         UnityEngine.Debug.Log("Quitting game...");
         Application.Quit();
+    }
+
+    private void PlayEndingCutscene()
+    {
+        Debug.Log("Ending Cutscene begins!");
+        // Do not play the cutscene again upon Game Restart
+        SaveManager.UpdateSaveData(data => data.playEndingCutscene = false);
+        canvasComponent.enabled = false;
+        GameObject.Find("BlackScreen").GetComponent<SpriteRenderer>().enabled = true;
+        VideoPlayer endingCutsceneVideoPlayer = GameObject.Find("EndingCutscene").GetComponent<VideoPlayer>();
+        endingCutsceneVideoPlayer.loopPointReached += EndingCutsceneEnd;
+
+        endingCutsceneVideoPlayer.Play();
+    }
+    private void EndingCutsceneEnd(VideoPlayer vp)
+    {
+        Debug.Log("Ending Cutscene has finished playing!");
+        vp.enabled = false;
+
+        AudioManager.instance.Play("Title");
+        StartCoroutine(FadeBlackScreen());
+    }
+    private IEnumerator FadeBlackScreen()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        SpriteRenderer blackScreen = GameObject.Find("BlackScreen").GetComponent<SpriteRenderer>();
+        float timer = 1.0f;
+        while (timer >= 0.0f)
+        {
+            yield return null;
+            timer = timer - Time.deltaTime;
+            blackScreen.color = blackScreen.color - new Color(0.0f, 0.0f, 0.0f, Time.deltaTime);
+        }
+
+        blackScreen.enabled = false;
+        canvasComponent.enabled = true;
     }
 }
