@@ -55072,7 +55072,7 @@ MonoBehaviour:
   levelBackgroundTilemapsGameObject: {fileID: 1337728054}
   levelPropsTilemapsGameObject: {fileID: 596514791}
   sceneTransitionsGameObject: {fileID: 0}
-  dialogueTriggersGameObject: {fileID: 0}
+  dialogueTriggersGameObject: {fileID: 695580088}
   playerScript: {fileID: 515497122}
   furthestGameLevel: 0
   totalLevelCount: 0

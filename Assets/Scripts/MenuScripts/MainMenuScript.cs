@@ -85,7 +85,7 @@ public class MainMenuScript : MonoBehaviour
         //LevelManager.Instance.LoadScene("MainHouse", "CrossFade");
 
         AudioManager.instance.Stop("Title");
-        AudioManager.instance.Play("House");
+        //AudioManager.instance.Play("House");
         Debug.Log(data.playerMemory.Length);
     }
 

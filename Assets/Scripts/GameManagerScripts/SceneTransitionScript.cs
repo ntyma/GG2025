@@ -64,6 +64,7 @@ public class SceneTransitionScript : MonoBehaviour
                     SaveManager.isForwardRoute = continuingData.isForwardRoute;
                     SaveManager.isHouseLevels = continuingData.isHouseLevels;
                 }
+                AudioManager.instance.StopAllAudio();
                 SceneManager.LoadScene("Cutscene");
                 break;
             case (Scenes.MainMenuEnding):
@@ -74,6 +75,7 @@ public class SceneTransitionScript : MonoBehaviour
                 {
                     SaveManager.playEndingCutscene = continuingData.playEndingCutscene;
                 }
+                AudioManager.instance.StopAllAudio();
                 SceneManager.LoadScene("MainMenu");
                 break;
             default:

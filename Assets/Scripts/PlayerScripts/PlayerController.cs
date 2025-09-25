@@ -214,6 +214,8 @@ public class PlayerController : MonoBehaviour
         // Have Player not be affected by Gravity and other Collisions when Dead
         rigidBody.simulated = false;
         GetComponent<Collider2D>().isTrigger = true;
+
+        isJumping = false;
     }
 
     public void Respawn()

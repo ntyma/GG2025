@@ -130,6 +130,12 @@ public class GameManagerScript : MonoBehaviour
                 stopwatch.time = SaveManager.timeLoading;
             Debug.Log("loaded save data! Current level: " + furthestGameLevel);
         }
+
+        if (isForwardRoute)
+            AudioManager.instance.Play("House");
+        else
+            AudioManager.instance.Play("Backwards");
+
         //to resume time in case it was stopped by a previous pause
         Time.timeScale = 1f;
         Debug.Log(furthestGameLevel);
