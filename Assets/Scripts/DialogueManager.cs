@@ -71,7 +71,33 @@ public class DialogueManager : MonoBehaviour
 		DisplayNextDialogueLine();
 	}
 
-	public void DisplayNextDialogueLine()
+    public void StartDialogueNoAudio(Dialogue dialogue)
+    {
+        guideAnimator.SetBool("isTalking", true);
+
+        if (playerControls != null)
+            playerControls.LockPlayerControls();
+        isDialogueActive = true;
+
+        wasPlaying = AudioManager.instance.CurrentlyPlaying();
+        UnityEngine.Debug.Log(wasPlaying);
+        //AudioManager.instance.Pause(wasPlaying);
+
+        animator.Play("show");
+        //animator.SetTrigger("showTrigger");
+        print("Dialogue started");
+
+        lines.Clear();
+
+        foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
+        {
+            lines.Enqueue(dialogueLine);
+        }
+
+        DisplayNextDialogueLine();
+    }
+
+    public void DisplayNextDialogueLine()
 	{
 		if (isTyping)
 		{

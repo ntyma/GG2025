@@ -22,6 +22,7 @@ public class ShooterScript : StateMachineBehaviour
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         overhead = animator.GetComponent<EnemyOverhead>();
+        AudioManager.instance.Play("SpitterAttack");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

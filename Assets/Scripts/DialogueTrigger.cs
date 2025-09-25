@@ -35,6 +35,12 @@ public class DialogueTrigger : MonoBehaviour
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 
+    public void TriggerDialogueNoAudio()
+    {
+        dialogueBoxUI.SetActive(true);
+        DialogueManager.Instance.StartDialogueNoAudio(dialogue);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") // if the player enters the trigger area
