@@ -1123,29 +1123,29 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: aef57400c14c085429e7541bede84a2e, type: 3}
       line: "Wha-what\u2019s wrong?"
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: 0c6b58807ae17474e8630695e90ba21b, type: 3}
       line: Nothing is wrong child.
     - character:
         icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
       line: "So\u2026 what now?"
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: 0c6b58807ae17474e8630695e90ba21b, type: 3}
       line: Do you still not remember why you are here? Or are you choosing not to
         remember?
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: aef57400c14c085429e7541bede84a2e, type: 3}
       line: "I don\u2019t know what you\u2019re talking about."
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: c9ac9c7837b093342a995e4b33d051ac, type: 3}
       line: You ran from me remember?
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: aef57400c14c085429e7541bede84a2e, type: 3}
       line: Ran from you? Why?
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: 39fe9e5f7d650cf498965f921cc44334, type: 3}
       line: Because you were afraid. You were afraid of the light.
   dialogueBoxUI: {fileID: 1965907461}
 --- !u!61 &654895408
@@ -2227,7 +2227,7 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: 40170f2571ae7e94397ef71191eb28a7, type: 3}
       line: "Look! We did it! We\u2013 Spirit?\r"
   dialogueBoxUI: {fileID: 1965907461}
 --- !u!61 &1485799078
@@ -6483,19 +6483,19 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: 45722e21286b9f7449322a7fe8a29c8f, type: 3}
       line: "Wh-what do you mean? You\u2019re scaring me\u2026"
     - character:
         icon: {fileID: 21300000, guid: ecfdea11261e038438b4e251bde1c3dd, type: 3}
       line: "It\u2019s no use to resist, all stories must end."
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: aef57400c14c085429e7541bede84a2e, type: 3}
       line: "I don\u2019t understand\u2026"
     - character:
         icon: {fileID: 21300000, guid: ecfdea11261e038438b4e251bde1c3dd, type: 3}
       line: All the lies, it must come to an end.
     - character:
-        icon: {fileID: 21300000, guid: 2fd5f7a13a0726c4ba4b714c53c5edcd, type: 3}
+        icon: {fileID: 21300000, guid: 45722e21286b9f7449322a7fe8a29c8f, type: 3}
       line: "I don\u2019t want to, I want to go back!"
     - character:
         icon: {fileID: 21300000, guid: ecfdea11261e038438b4e251bde1c3dd, type: 3}
