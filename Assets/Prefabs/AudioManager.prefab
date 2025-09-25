@@ -201,7 +201,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: DebrisImpact
     clip: {fileID: 8300000, guid: 7b946d400532dd94a983977223d68ee6, type: 3}
-    volume: 0.3
+    volume: 0.15
     pitch: 1
     isMusic: 0
     loop: 0
@@ -261,4 +261,25 @@ MonoBehaviour:
     pitch: 1
     isMusic: 0
     loop: 0
+    source: {fileID: 0}
+  - name: GuideTransform
+    clip: {fileID: 8300000, guid: c6d42899224af284181ef04d421842c7, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpitterAttack
+    clip: {fileID: 8300000, guid: 1d66ceac030ba804f87512885a85b776, type: 3}
+    volume: 0.1
+    pitch: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Backwards
+    clip: {fileID: 8300000, guid: b4bf1af4ed9d69e4385bf655680a47d2, type: 3}
+    volume: 0.3
+    pitch: 1
+    isMusic: 1
+    loop: 1
     source: {fileID: 0}
