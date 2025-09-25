@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if(IsGrounded())
+        if (IsGrounded() && !isJumping)
         {
             animator.SetTrigger("StartJump");
                     //LockPlayerControls();
