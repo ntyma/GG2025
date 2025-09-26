@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool wasGrounded;
     [SerializeField] private bool isGrounded;
     private bool isJumping;
+    private bool isDead = false;
 
     public Action OnJumpStart;
     public Action OnJumpLand;
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead) return;
         moveDirection = move.ReadValue<Vector2>();
         Gravity();
         UpdateAnimation();
@@ -153,7 +155,6 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded() && !isJumping)
         {
             animator.SetTrigger("StartJump");
-                    //LockPlayerControls();
             isJumping = true;
             speedMultiplier = jumpSpeedMultiplier;
             OnJumpStart.Invoke();
@@ -164,7 +165,6 @@ public class PlayerController : MonoBehaviour
     private void OnLand()
     {
         animator.SetTrigger("LandJump");
-                //LockPlayerControls();
         rigidBody.velocity = Vector2.zero;
         speedMultiplier = 1f;
         OnJumpLand.Invoke();
@@ -173,13 +173,11 @@ public class PlayerController : MonoBehaviour
     private void JumpStartAnimEnded()
     {
         animator.SetBool("isJumping", true);
-                //UnlockPlayerControls();
         rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce);
     }
 
     private void JumpLandAnimEnded()
     {
-                //UnlockPlayerControls();
         isJumping = false;
     }
 
@@ -208,6 +206,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         animator.SetTrigger("TriggerDeath");
         LockPlayerControls();
 
@@ -220,6 +219,7 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
+        isDead = false;
         // Renable Gravity and other Player Collision
         UnlockPlayerControls();
         rigidBody.simulated = true;
