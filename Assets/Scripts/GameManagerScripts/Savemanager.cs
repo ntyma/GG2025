@@ -1,0 +1,79 @@
+using UnityEngine;
+using System.IO;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class SaveData
+{
+    public int playerLevel;
+    public float playerHealth;
+    public float time;
+    public bool beatenGame;
+
+    public bool isHouseLevels;
+    public bool isForwardRoute;
+
+    public bool playEndingCutscene;
+
+    // Player Memory Tilemaps Data
+    public bool[] playerMemory;
+}
+
+public static class SaveManager
+{
+    public static bool loadingData;
+    public static int levelLoading;
+    public static float timeLoading;
+
+    public static bool isHouseLevels;
+    public static bool isForwardRoute;
+
+    public static bool playEndingCutscene;
+
+    private static string saveFilePath = Application.persistentDataPath + "/save.json";
+    public static void SaveGame(SaveData data)
+    {
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(saveFilePath, json);
+        Debug.Log("Game Saved to: " + saveFilePath);
+    }
+
+    public static SaveData LoadGame()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            string json = File.ReadAllText(saveFilePath);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            return data;
+        }
+        else
+        {
+            Debug.LogWarning("No save file found!");
+            return null;
+        }
+    }
+
+    public static void UpdateSaveData(System.Action<SaveData> updateAction)
+    {
+        SaveData data = LoadGame();
+        if (updateAction != null)
+        {
+            updateAction.Invoke(data);
+        }
+        SaveGame(data);
+    }
+    public static T GetSpecificData<T>(System.Func<SaveData, T> selector)
+    {
+        SaveData data = LoadGame();
+        return selector(data);
+    }
+
+    public static void DeleteSave()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            File.Delete(saveFilePath);
+            Debug.Log("Save file deleted.");
+        }
+    }
+}
